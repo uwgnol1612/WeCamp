@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -26,6 +27,7 @@ class LoginForm extends React.Component {
     handleDemoLogin(e) {
         e.preventDefault();
         this.props.processForm({username: 'longmcfarlin', password: 'wl19881112'})
+        this.props.closeModal();
     }
 
     render() {
@@ -35,18 +37,18 @@ class LoginForm extends React.Component {
                 <form className="signup-form-box">
                     <h2>Welcome back!</h2>
                     <p>It's about time for another camping trip</p>
-                    <span>x</span>
+                    <div onClick={this.props.closeModal} className="close-x">&times;</div>
+                    <button className="demo-login" onClick={this.handleDemoLogin}>Demo Login</button>
+                    <h3>or</h3>
                     <div className="signup-form">
-                        <button className="demo-login" onClick={this.handleDemoLogin}>Demo Login</button>
-                        <h2>or</h2>
                         <input
-                            className="login-input"
+                            className="signup-input"
                             type="text"
-                            placeholder="username..."
+                            placeholder="Username..."
                             onChange={this.update('username')}
                         />
                         <input
-                            className="login-input"
+                            className="signup-input"
                             type="password"
                             placeholder="Password..."
                             onChange={this.update('password')}
@@ -57,11 +59,12 @@ class LoginForm extends React.Component {
                             {errors}
                         </ul>
                     </div>
-                    <button onClick={this.handleSubmit}>Log In</button>
-                    <div className="session-footer1">
-                        <p>Don't have a WeCamp account?</p>
-                        <Link to='/signup'>Sign up!</Link>
+                    <button className="session-submit-button" onClick={this.handleSubmit}>Log In</button>
+                    <div className="session-footer-2">
+                        <span>Don't have a WeCamp account? <button onClick={this.props.openModal}>Sign up!</button>
+                        </span>
                     </div>
+
                 </form>
             </div>
         )
@@ -70,4 +73,4 @@ class LoginForm extends React.Component {
 
 }
 
-export default LoginForm;
+export default withRouter(LoginForm);

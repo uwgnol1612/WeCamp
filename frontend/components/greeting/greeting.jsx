@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 
 
-const Greeting = ({currentUser, logout}) => {
+const Greeting = ({currentUser, logout, signup, login}) => {
     const sessionLinks = () => (
         <nav className="login-signup">
-            <Link to='/signup'>Sign Up</Link>
-            <Link to='/login'>Log in</Link>
+            <button onClick={login}>Log In</button>
+            <button onClick={signup}>Sign Up</button>
         </nav>
     )
     const userBoard = () => (

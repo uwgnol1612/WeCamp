@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 
 class SignupForm extends React.Component {
     constructor(props){
@@ -30,19 +31,22 @@ class SignupForm extends React.Component {
                 <form className="signup-form-box">
                     <h2>Join WeCamp</h2>
                     <p>Discover the best camping near me</p>
-                    <span>x</span>
+                    <div onClick={this.props.closeModal} className="close-x">&times;</div>
                     <div className="signup-form">
-                        <input 
+                        <input
+                            className="signup-input" 
                             type="text"
-                            placeholder="username..."
+                            placeholder="Username..."
                             onChange={this.update('username')}
                         />
                         <input
+                            className="signup-input"
                             type="email"
                             placeholder="Email address..."
                             onChange={this.update('email')}
                         />
                         <input
+                            className="signup-input"
                             type="password"
                             placeholder="Password..."
                             onChange={this.update('password')}
@@ -53,13 +57,13 @@ class SignupForm extends React.Component {
                             {errors}
                         </ul>
                     </div>
-                    <button onClick={this.handleSubmit}>Join WeCamp</button>
-                    <div className="session-footer1">
+                    <button className="session-submit-button" onClick={this.handleSubmit}>Join WeCamp</button>
+                    <div className="session-footer-1">
                         <p>By signing up, I agree to WeCamp's terms and privacy policy.</p>
                     </div>
-                    <div className="session-footer2">
-                        <p>Already a WeCamper?</p>
-                        <Link to='/login'>Log in!</Link>
+                    <div className="session-footer-2">
+                        <span>Already a WeCamper? <button onClick={this.props.openModal}>Log in!</button>
+                        </span>
                     </div>
                 </form>
             </div>
@@ -69,4 +73,4 @@ class SignupForm extends React.Component {
 
 }
 
-export default SignupForm;
+export default withRouter(SignupForm);

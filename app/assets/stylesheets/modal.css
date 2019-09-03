@@ -1,0 +1,165 @@
+
+  .modal-background {
+  position: fixed;
+  background: rgba(255, 255, 255, 0.6);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.signup-form-container {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  border: 1px solid #ebebeb;
+  z-index: 3;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.signup-form-box {
+  position: relative;
+  padding: 20px;
+  width: 350px;
+  background: #fff;
+
+}
+
+.signup-form-box > h2 {
+  display: block;
+  font-size: 25px;
+  font-weight: 700;
+  text-align: center;
+  margin: 10px;
+  color: black;
+  letter-spacing: 1px;
+}
+
+
+.signup-form-box > h3 {
+  display: block;
+  font-size: 20px;
+  font-weight: 300;
+  text-align: center;
+  margin: 10px;
+  padding: 10px 0px;
+}
+
+.signup-form-box > p {
+  font-size: 15px;
+  font-weight: 300;
+  text-align: center;
+  margin: 10px;
+  color: gray;
+  margin-bottom: 30px;
+}
+
+.close-x {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.signup-input {
+  border: 2px solid grey;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0 auto;
+  width: 80%;
+  height: 35px;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.errors-messages {
+  display: block;
+  font-size: 15px;
+  font-weight: 300;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.session-submit-button{
+  cursor: pointer;
+  width: 91%;
+  height: 60px;
+  font-weight: 700;
+  font-size: 20px;
+  color: white;
+  border: 3px solid #40d9ac;
+  background: #40d9ac;
+}
+
+.demo-login {
+  cursor: pointer;
+  width: 91%;
+  height: 60px;
+  font-weight: 700;
+  font-size: 20px;
+  color: white;
+  border: 3px solid #3b5998;
+  background:#3b5998;
+}
+
+
+.session-submit-button:hover {
+  background: white;
+  color: #40d9ac
+}
+
+.demo-login:hover {
+  background: white;
+  color: #3b5998;
+}
+
+
+.session-footer-1 {
+  color: grey;
+  font-size: 15px;
+  padding-top: 5%;
+}
+
+.session-footer-2 {
+  color: grey;
+  font-size: 15px;
+  padding-top: 5%;
+  padding-bottom: 10px;
+}
+
+.session-footer-2 button {
+  font-weight: 700;
+  color: black;
+  border-bottom: 1px solid #ebebeb;
+  
+}
+
+.session-footer-2 button:hover {
+  border-bottom: 1px solid grey;
+}
+
+
+
+
+
+
