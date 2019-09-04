@@ -1,0 +1,100 @@
+.splash-main {
+    height: 67.5%;
+    background: white;
+    margin: 0 auto;
+    width: 80%;
+    box-sizing: border-box;
+}
+
+.splash-title {
+    margin-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight:700;
+    letter-spacing: 1px;
+    padding-bottom: 20px; 
+}
+
+.splash-subtitle1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    padding-bottom: 20px;
+}
+
+
+.splash-subtitle1 > strong {
+    font-weight: bold;
+}
+
+.splash-search-container {
+    width: 100%;
+    box-shadow: 1px 2px 5px 2px rgba(0,0,0,0.1);
+    margin: 10px 0px;
+    height: 75px;
+}
+
+.search-bar-icon {
+    font-size: 25px;
+    color: black;
+    float: left;
+    font-weight: 700;
+    padding: 25px 15px;
+}
+
+.splash-subtitle2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 25px 0px;
+
+} 
+
+.splash-spots-section {
+    width: 100%;
+    margin: auto 0;
+}
+
+
+.splash-spot {
+    height: 300px;
+    width: 31%;
+    border: 1px solid #ebebeb;
+    box-sizing: border-box;
+    float: left;
+    margin: 0px 8px 30px 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.spot-image {
+    width: 100%;
+    display: block;
+    height: 70%;
+    border: 1px solid black;
+}
+
+.spot-details {
+    padding-left:10px; 
+    font-family: 'Open Sans', sans-serif;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+
+.spot-details > h3 {
+    font-size: 17px;
+    margin: 0px;
+}
+
+.spot-details > p {
+    font-size: 15px;
+    color: grey;
+    
+}
+
+
+
+
+
+
