@@ -1,16 +1,17 @@
 import React from 'react';
 
-const Greeting = ({currentUser, logout, signup, login}) => {
+const Greeting = ({ currentUser, logout, openModal }) => {
     const sessionLinks = () => (
         <ul className="session-links">
-            <li><button onClick={signup}>Sign up</button></li>
-            <li><button onClick={login}>Log in</button></li>
-
+            <li><button onClick={() => openModal('signup')}>Sign up</button></li>
+            <li><button onClick={() => openModal('login')}>Log in</button></li>
         </ul>
     )
     const userBoard = () => (
         <div className="dropdown">
-            <span className= "user-container-logo">Logo</span>
+            <span className= "user-container-logo">
+                <img src="https://we-camp-seeds.s3.us-east-2.amazonaws.com/camplogo.png" alt=""/>
+            </span>
                 <div className="dropdown-content">
                     <li><a href="#">Host</a></li>
                     <li><a href="#">Bookings</a></li>

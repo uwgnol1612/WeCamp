@@ -1,0 +1,42 @@
+# == Schema Information
+#
+# Table name: spots
+#
+#  id           :bigint           not null, primary key
+#  title        :string           not null
+#  description  :text             not null
+#  check_in     :string           not null
+#  check_out    :string           not null
+#  on_arrival   :text             not null
+#  max_capacity :integer          not null
+#  lat          :float            not null
+#  lng          :float            not null
+#  tent         :boolean
+#  sites        :integer          not null
+#  parking      :boolean
+#  campfire     :boolean
+#  pets         :boolean
+#  toilet       :boolean
+#  water        :boolean
+#  shower       :boolean
+#  hiking       :boolean
+#  swimming     :boolean
+#  fishing      :boolean
+#  wildlife     :boolean
+#  price        :integer          not null
+#  host_id      :integer          not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+# column: value

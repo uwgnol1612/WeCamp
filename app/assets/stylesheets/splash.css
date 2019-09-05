@@ -52,6 +52,7 @@
 .splash-spots-section {
     width: 100%;
     margin: auto 0;
+    overflow: auto;
 }
 
 
@@ -69,7 +70,11 @@
     width: 100%;
     display: block;
     height: 70%;
-    border: 1px solid black;
+}
+
+.spot-image > img {
+    width: 100%;
+    height: 100%;
 }
 
 .spot-details {

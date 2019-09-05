@@ -1,13 +1,20 @@
 .footer-main {
+    background-image: url("https://we-camp-seeds.s3.amazonaws.com/footer_img.png");
     height: 20%;
     bottom: 0;
     left: 0;
     position: relative;
     width: 100%;
-    background: #41305C;
     padding-bottom: 300px;
     display: flex;
     padding-top: 30px;
+    background-repeat: repeat-x;
+    background-size: auto 200px;
+    background-position: bottom center;
+}
+
+footer {
+    background-color: #41305C;
 }
 
 .footer-container {

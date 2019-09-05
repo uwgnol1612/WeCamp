@@ -134,10 +134,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "signup", function() { return signup; });
 /* harmony import */ var _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/session_api_util */ "./frontend/util/session_api_util.js");
+/* harmony import */ var _modal_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modal_actions */ "./frontend/actions/modal_actions.js");
 
 var RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 var LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
 var RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
+
 var receiveCurrentUser = function receiveCurrentUser(currentUser) {
   return {
     type: RECEIVE_CURRENT_USER,
@@ -183,6 +185,57 @@ var signup = function signup(user) {
 
 /***/ }),
 
+/***/ "./frontend/actions/spot_actions.js":
+/*!******************************************!*\
+  !*** ./frontend/actions/spot_actions.js ***!
+  \******************************************/
+/*! exports provided: RECEIVE_ALL_SPOTS, RECEIVE_SPOT, receiveAllSpots, receiveSpot, fetchSpots, fetchSpot */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_SPOTS", function() { return RECEIVE_ALL_SPOTS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SPOT", function() { return RECEIVE_SPOT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveAllSpots", function() { return receiveAllSpots; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveSpot", function() { return receiveSpot; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSpots", function() { return fetchSpots; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSpot", function() { return fetchSpot; });
+/* harmony import */ var _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/spot_api_util */ "./frontend/util/spot_api_util.js");
+var RECEIVE_ALL_SPOTS = "RECEIVE_ALL_SPOTS";
+var RECEIVE_SPOT = "RECEIVE_SPOT";
+
+var receiveAllSpots = function receiveAllSpots(spots) {
+  return {
+    type: RECEIVE_ALL_SPOTS,
+    spots: spots
+  };
+};
+var receiveSpot = function receiveSpot(_ref) {
+  var spot = _ref.spot,
+      photoUrls = _ref.photoUrls;
+  return {
+    type: RECEIVE_SPOT,
+    spot: spot,
+    photoUrls: photoUrls
+  };
+};
+var fetchSpots = function fetchSpots() {
+  return function (dispatch) {
+    return _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchspots"]().then(function (spots) {
+      return dispatch(receiveAllSpots(spots));
+    });
+  };
+};
+var fetchSpot = function fetchSpot(id) {
+  return function (dispatch) {
+    return _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchspot"](id).then(function (payload) {
+      return dispatch(receiveSpot(payload));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/components/App.jsx":
 /*!*************************************!*\
   !*** ./frontend/components/App.jsx ***!
@@ -198,10 +251,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
 /* harmony import */ var _modal_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modal/modal */ "./frontend/components/modal/modal.jsx");
 /* harmony import */ var _greeting_greeting_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./greeting/greeting_container */ "./frontend/components/greeting/greeting_container.js");
-/* harmony import */ var _splash_splash__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./splash/splash */ "./frontend/components/splash/splash.jsx");
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
-/* harmony import */ var _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @fortawesome/free-brands-svg-icons */ "./node_modules/@fortawesome/free-brands-svg-icons/index.es.js");
-
+/* harmony import */ var _search_spot_index_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./search/spot_index_container */ "./frontend/components/search/spot_index_container.js");
+/* harmony import */ var _splash_splash__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./splash/splash */ "./frontend/components/splash/splash.jsx");
 
 
 
@@ -217,9 +268,9 @@ var App = function App() {
     className: "splash-nav"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "left-nav"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "#"
-  }, "WeCamp")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "WeCamp"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "right-nav"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "#"
@@ -229,27 +280,14 @@ var App = function App() {
     href: "#"
   }, "About")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "#"
-  }, "Help")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_4__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_splash_splash__WEBPACK_IMPORTED_MODULE_5__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
-    className: "footer-main"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "footer-container"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-1-2"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "WeCamp is everywhere you want to camp."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Discover unique experiences on ranches, nature preserves, farms, vineyards, and public campgrounds across the U.S. Book tent camping, treehouses, cabins, yurts, primitive backcountry sites, car camping, airstreams, tiny houses, RV camping, glamping tents and more.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-1-2 col-1-3"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Browse"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Discover Camps"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Help"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Contact"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-1-2 col-1-3"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "About"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Journal"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Our Story"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "The Team"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-1-2 col-1-3"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Social"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "social-icon"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_6__["FontAwesomeIcon"], {
-    icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_7__["faGithub"]
-  })), "Github"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "social-icon"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_6__["FontAwesomeIcon"], {
-    icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_7__["faLinkedin"]
-  })), "Linkedin")))))));
+  }, "Help")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_4__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/",
+    component: _splash_splash__WEBPACK_IMPORTED_MODULE_6__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    path: "/spots",
+    component: _search_spot_index_container__WEBPACK_IMPORTED_MODULE_5__["default"]
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -272,16 +310,19 @@ __webpack_require__.r(__webpack_exports__);
 var Greeting = function Greeting(_ref) {
   var currentUser = _ref.currentUser,
       logout = _ref.logout,
-      signup = _ref.signup,
-      login = _ref.login;
+      openModal = _ref.openModal;
 
   var sessionLinks = function sessionLinks() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
       className: "session-links"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      onClick: signup
+      onClick: function onClick() {
+        return openModal('signup');
+      }
     }, "Sign up")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      onClick: login
+      onClick: function onClick() {
+        return openModal('login');
+      }
     }, "Log in")));
   };
 
@@ -290,7 +331,10 @@ var Greeting = function Greeting(_ref) {
       className: "dropdown"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "user-container-logo"
-    }, "Logo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/camplogo.png",
+      alt: ""
+    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "dropdown-content"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       href: "#"
@@ -337,11 +381,8 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     logout: function logout() {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["logout"])());
     },
-    signup: function signup() {
-      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["openModal"])('signup'));
-    },
-    login: function login() {
-      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["openModal"])('login'));
+    openModal: function openModal(modal) {
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["openModal"])(modal));
     }
   };
 };
@@ -453,6 +494,192 @@ var Root = function Root(_ref) {
 
 /***/ }),
 
+/***/ "./frontend/components/search/spot_index.jsx":
+/*!***************************************************!*\
+  !*** ./frontend/components/search/spot_index.jsx ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _spot_index_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./spot_index_item */ "./frontend/components/search/spot_index_item.jsx");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var SpotIndex =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(SpotIndex, _React$Component);
+
+  function SpotIndex(props) {
+    _classCallCheck(this, SpotIndex);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(SpotIndex).call(this, props));
+  }
+
+  _createClass(SpotIndex, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchSpots();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-search-section"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "spot-filters-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Amenities")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Activities")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Group size")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Pricing")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Accessibility")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Clear filters"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-search-main"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-index"
+      }, this.props.spots.map(function (spot) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spot_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          spot: spot,
+          key: spot.id
+        });
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "map-container"
+      })));
+    }
+  }]);
+
+  return SpotIndex;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (SpotIndex);
+
+/***/ }),
+
+/***/ "./frontend/components/search/spot_index_container.js":
+/*!************************************************************!*\
+  !*** ./frontend/components/search/spot_index_container.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/spot_actions */ "./frontend/actions/spot_actions.js");
+/* harmony import */ var _spot_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_index */ "./frontend/components/search/spot_index.jsx");
+
+
+
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    spots: Object.values(state.entities.spots)
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    fetchSpots: function fetchSpots() {
+      return dispatch(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["fetchSpots"])());
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_spot_index__WEBPACK_IMPORTED_MODULE_2__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/search/spot_index_item.jsx":
+/*!********************************************************!*\
+  !*** ./frontend/components/search/spot_index_item.jsx ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var SpotIndexItem =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(SpotIndexItem, _React$Component);
+
+  function SpotIndexItem(props) {
+    _classCallCheck(this, SpotIndexItem);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(SpotIndexItem).call(this, props));
+  }
+
+  _createClass(SpotIndexItem, [{
+    key: "render",
+    value: function render() {
+      var tentLogo = this.props.spot.tent ? 'CabinLogo' : 'TentLogo';
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-index-item"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-photo"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/spots/".concat(this.props.spot.id)
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: this.props.spot.photoUrl,
+        alt: ""
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-details"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-detail-1"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, this.props.spot.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, tentLogo)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-detail-2"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Reviews.."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, this.props.spot.price, "/night"))));
+    }
+  }]);
+
+  return SpotIndexItem;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (SpotIndexItem);
+
+/***/ }),
+
 /***/ "./frontend/components/session_form/login_form.jsx":
 /*!*********************************************************!*\
   !*** ./frontend/components/session_form/login_form.jsx ***!
@@ -513,11 +740,7 @@ function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      this.props.processForm(this.state);
-
-      if (this.props.errors === []) {
-        this.props.closeModal();
-      }
+      this.props.processForm(this.state).then(this.props.closeModal);
     }
   }, {
     key: "update",
@@ -533,10 +756,9 @@ function (_React$Component) {
     value: function handleDemoLogin(e) {
       e.preventDefault();
       this.props.processForm({
-        username: 'longmcfarlin',
-        password: 'wl19881112'
-      });
-      this.props.closeModal();
+        username: 'Guest',
+        password: 'password'
+      }).then(this.props.closeModal);
     }
   }, {
     key: "render",
@@ -690,11 +912,7 @@ function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      this.props.processForm(this.state);
-
-      if (this.props.errors === []) {
-        this.props.closeModal();
-      }
+      this.props.processForm(this.state).then(this.props.closeModal);
     }
   }, {
     key: "update",
@@ -814,12 +1032,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/free-brands-svg-icons */ "./node_modules/@fortawesome/free-brands-svg-icons/index.es.js");
+
 
 
 
 
 var Splash = function Splash() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "splash-main"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "splash-title"
@@ -841,93 +1061,113 @@ var Splash = function Splash() {
     className: "splash-spot"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "spot-image",
-    href: "#"
+    href: "#/spots"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: "",
-    alt: ""
+    src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/beach_camping.jpg",
+    alt: "beach_camping"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spot-details"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Beach camping"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Best options near me"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "splash-spot"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "spot-image",
-    href: "#"
+    href: "#/spots"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: "",
-    alt: ""
+    src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/lake_camping.jpg",
+    alt: "lake_camping"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spot-details"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Lake camping"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Best options near me"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "splash-spot"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "spot-image",
-    href: "#"
+    href: "#/spots"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: "",
-    alt: ""
+    src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/pet_friendly.jpg",
+    alt: "pet_friendly_camping"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spot-details"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Pet friendly camping"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Best options near me"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "splash-spot"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "spot-image",
-    href: "#"
+    href: "#/spots"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: "",
-    alt: ""
+    src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/grand+teton.jpg",
+    alt: "grand_teton"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spot-details"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Grand Teton"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Wyoming"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "splash-spot"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "spot-image",
-    href: "#"
+    href: "#/spots"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: "",
-    alt: ""
+    src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/Yellowstone.jpg",
+    alt: "yellowstone"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spot-details"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Yellowstone"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Wyoming"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "splash-spot"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "spot-image",
-    href: "#"
+    href: "#/spots"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: "",
-    alt: ""
+    src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/rockymountain.jpg",
+    alt: "rocky_mountain"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spot-details"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Rocky Mountains"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Colorado"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "splash-spot"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "spot-image",
-    href: "#"
+    href: "#/spots"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: "",
-    alt: ""
+    src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/visiting-yosemite-fall.jpg",
+    alt: "yosemite"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spot-details"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Yosemite"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "California"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "splash-spot"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "spot-image",
-    href: "#"
+    href: "#/spots"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: "",
-    alt: ""
+    src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/zion.jpg",
+    alt: "zion"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spot-details"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Zion"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Utah"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "splash-spot"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "spot-image",
-    href: "#"
+    href: "#/spots"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: "",
-    alt: ""
+    src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/grand+canyon.jpg",
+    alt: "grand_cayon"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spot-details"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Grand Canyon"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Arizona")))));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Grand Canyon"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Arizona"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+    className: "footer-main"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "footer-container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-1-2"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "WeCamp is everywhere you want to camp."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Discover unique experiences on ranches, nature preserves, farms, vineyards, and public campgrounds across the U.S. Book tent camping, treehouses, cabins, yurts, primitive backcountry sites, car camping, airstreams, tiny houses, RV camping, glamping tents and more.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-1-2 col-1-3"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Browse"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Discover Camps"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Help"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Contact"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-1-2 col-1-3"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "About"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Journal"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Our Story"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "The Team"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-1-2 col-1-3"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Social"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "social-icon"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
+    icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faGithub"]
+  })), "Github"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "social-icon"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
+    icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faLinkedin"]
+  })), "Linkedin")))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Splash);
@@ -945,10 +1185,13 @@ var Splash = function Splash() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+/* harmony import */ var _spots_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spots_reducer */ "./frontend/reducers/spots_reducer.js");
+
 
 
 var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  spots: _spots_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 
@@ -1045,6 +1288,8 @@ var rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])(
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/modal_actions */ "./frontend/actions/modal_actions.js");
+
 
 
 var sessionErrorsReducer = function sessionErrorsReducer() {
@@ -1057,6 +1302,9 @@ var sessionErrorsReducer = function sessionErrorsReducer() {
       return action.errors;
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
+      return [];
+
+    case _actions_modal_actions__WEBPACK_IMPORTED_MODULE_1__["OPEN_MODAL"]:
       return [];
 
     default:
@@ -1103,6 +1351,43 @@ var sessionReducer = function sessionReducer() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (sessionReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/spots_reducer.js":
+/*!********************************************!*\
+  !*** ./frontend/reducers/spots_reducer.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/spot_actions */ "./frontend/actions/spot_actions.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var spotsReducer = function spotsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_SPOTS"]:
+      return Object.assign({}, action.spots);
+
+    case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_SPOT"]:
+      var newSpot = _defineProperty({}, action.spot.id, action.spot);
+
+      return Object.assign({}, state, newSpot);
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (spotsReducer);
 
 /***/ }),
 
@@ -1264,6 +1549,32 @@ var logout = function logout() {
   return $.ajax({
     method: 'DELETE',
     url: '/api/session'
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/spot_api_util.js":
+/*!****************************************!*\
+  !*** ./frontend/util/spot_api_util.js ***!
+  \****************************************/
+/*! exports provided: fetchspots, fetchSpot */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchspots", function() { return fetchspots; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSpot", function() { return fetchSpot; });
+var fetchspots = function fetchspots() {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/spots'
+  });
+};
+var fetchSpot = function fetchSpot(id) {
+  return $.ajax({
+    method: 'GET',
+    url: "/api/spots/".concat(id)
   });
 };
 

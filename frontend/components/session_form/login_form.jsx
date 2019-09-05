@@ -15,10 +15,7 @@ class LoginForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.processForm(this.state);
-        if (this.props.errors === []) {
-        this.props.closeModal();
-        }
+        this.props.processForm(this.state).then(this.props.closeModal);
     }
 
     update(field) {
@@ -29,8 +26,7 @@ class LoginForm extends React.Component {
 
     handleDemoLogin(e) {
         e.preventDefault();
-        this.props.processForm({username: 'longmcfarlin', password: 'wl19881112'})
-        this.props.closeModal();
+        this.props.processForm({ username: 'Guest', password: 'password' }).then(this.props.closeModal);
     }
 
     render() {

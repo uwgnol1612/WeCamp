@@ -51,13 +51,12 @@
 .dropdown-content {
     display: none;
     position: absolute;
-    top:20px;
-    left: -140px;
+    top:40px;
+    left: -130px;
     z-index: 1;
     background: white;
     margin: 0 auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    /* border: 1px solid lightgray; */
     font-size: 14px;
 
     width: 150px;
@@ -97,6 +96,12 @@
     font-weight: bold;
 }
 
+.user-container-logo > img {
+    display: block;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
 
 
 
