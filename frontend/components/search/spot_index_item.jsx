@@ -7,7 +7,7 @@ class SpotIndexItem extends React.Component {
     }
 
     render() {
-        const tentLogo = this.props.spot.tent ? 'CabinLogo' : 'TentLogo'
+        const tentIcon = this.props.spot.tent ? <img src="https://we-camp-seeds.s3.us-east-2.amazonaws.com/tent.png" /> : <img src="https://we-camp-seeds.s3.us-east-2.amazonaws.com/cabin.png" />
         return (
         <div className="spot-index-item">
             <div className="spot-photo">
@@ -18,11 +18,11 @@ class SpotIndexItem extends React.Component {
             <div className="spot-details">
                 <div className= "spot-detail-1">
                     <h4>{this.props.spot.title}</h4>
-                    <span>{tentLogo}</span>
+                    <span className="tent-icon">{tentIcon}</span>
                 </div>
                 <div className= "spot-detail-2">
                     <span>Reviews..</span>
-                    <h5>{this.props.spot.price}/night</h5>
+                    <h5>${this.props.spot.price}/night</h5>
                 </div>
             </div>
 

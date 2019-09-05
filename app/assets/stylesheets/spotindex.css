@@ -1,0 +1,157 @@
+#map-container {
+    width: 500px;
+    height: 500px;
+}
+
+.spot-search-section {
+    width: 80%;
+    margin:0 auto;
+}
+
+.spot-filters-container {
+    display: flex;
+    border: 1px solid #ebebeb;
+    width: 100%;
+    background-color: #FDFDFD;
+    justify-content: flex-start;
+    padding: 10px;
+    border-radius: 2px;
+}
+
+.spot-filters-container li {
+    margin-right: 10px;
+}
+
+.spot-filters-container button {
+    height: 35px;
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
+    border: 1px solid #ebebeb;
+    flex: 1;
+    padding: 5px 15px;
+    border-radius: 2px;
+    font-weight: 300
+}
+
+.spot-filters-container button:hover {
+    border: 1px solid black;
+}
+
+.spot-search-main {
+    width: 100%;
+    padding: 15px 12.5px;
+}
+
+.spot-index {
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    width:70%;
+}
+
+.spot-index-description {
+    width: 100%
+}
+
+.spot-index-description > header {
+    display:inline;
+    font-size:13px;
+    border-bottom: 1px solid #ebebeb;
+    font-weight: bold;
+    margin-right: 0;
+}
+
+.spot-index-description > h3 {
+    font-size:16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.spot-index-description > h5 {
+    font-size:14px;
+    color:#757575;
+    margin-bottom: 10px;
+    margin-top:0;
+    font-weight: 500;
+}
+
+.spot-index-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+    padding-top: 10px;
+}
+
+.spot-index-item {
+    width: 45%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px 4px 0 0;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.spot-index-item:nth-child(odd) {
+    margin-right:30px;
+}
+
+
+.spot-photo {
+    width: 100%;
+    display: block;
+}
+
+.spot-photo img {
+    height: 200px;
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+}
+
+.spot-details {
+    height:100px;
+    padding: 10px 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.spot-detail-1, .spot-detail-2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 5px 5px;
+    width: 100%;
+    height: 50%;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.spot-detail-2 > h5 { 
+    font-size: 15px;
+}
+
+.spot-detail-2 > span {
+    font-size: 13px;
+    color: #757575;
+}
+
+.spot-detail-1 > h4 {
+    margin: 0;
+}
+
+.tent-icon {
+    width:30px;
+    height: 30px;
+}
+
+
+
+
+
+
+
+
