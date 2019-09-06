@@ -17,8 +17,8 @@ export const receiveSpot = ({ spot, photoUrls }) => ({
 }) 
 
 
-export const fetchSpots = () => dispatch => {
-    return SpotApiUtil.fetchspots().then((spots) => dispatch(receiveAllSpots(spots)))
+export const fetchSpots = (filters) => dispatch => {
+    return SpotApiUtil.fetchspots(filters).then((spots) => dispatch(receiveAllSpots(spots)))
 }
 
 export const fetchSpot = (id) => dispatch => {

@@ -27,6 +27,7 @@
 bundle.js
 bundle.js.map
 node_modules/
+
 /assets/images
 
 # Ignore master key for decrypting credentials and more.

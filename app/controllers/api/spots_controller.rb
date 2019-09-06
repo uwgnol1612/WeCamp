@@ -1,7 +1,9 @@
 class Api::SpotsController < ApplicationController
 
     def index
-        @spots = Spot.with_attached_photos.all
+        spots = bounds ? Spot.in_bounds(bounds) : Spot.all
+        @spots = spots.with_attached_photos
+
         render :index
     end 
 
@@ -13,5 +15,9 @@ class Api::SpotsController < ApplicationController
     def spot_params
         params.require(:spot).permit(photos:[])
     end 
+
+    def bounds
+        params[:bounds]
+    end
 
 end

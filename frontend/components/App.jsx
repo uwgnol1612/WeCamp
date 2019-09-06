@@ -4,6 +4,7 @@ import { AuthRoute } from '../util/route_util'
 import Modal from './modal/modal'
 import GreetingContainer from './greeting/greeting_container';
 import SpotIndexContainer from './search/spot_index_container';
+import SpotSearchContainer from './search/spot_search_container'
 import Splash from './splash/splash'
 
 
@@ -23,7 +24,7 @@ const App = () => (
             </div>
         </nav>
         <Route exact path='/' component={Splash}/>
-        <Route path='/spots' component={SpotIndexContainer}/>
+        <Route path='/spots' component={SpotSearchContainer}/>
         
     </div>
 )
