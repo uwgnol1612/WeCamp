@@ -10,9 +10,6 @@ Spot.create!(title: 'Star Filled Skies', description: 'Enjoy open space. Write y
     check_in:'9:00', check_out:'10:00', on_arrival: 'Go straight to camp', max_capacity: 6, lat:38.749475, lng:-105.888503, tent: false, 
     sites: 1, parking: true, campfire: true, pets: true, toilet: false, water: false, shower: false, hiking: true, swimming: false, fishing: true, wildlife: true, price: 55, host_id: 1)
 
-#  spot = Spot.find(8)
-#  file = File.open('app/assets/images/spot8-4.jpg') 
-#  spot.photos.attach(io: file, filename: 'spot8-4.jpg')  
 
 Spot.create!(title: 'Glamping at Round Mountain', description: '30 foot yurt at the base of Round Mountain with stunning views in all directions. Just 10 miles from Crested Butte and endless recreating available or quiet solitude on the farm.',
     check_in:'15:00', check_out:'11:00', on_arrival: 'Meet and greet', max_capacity: 4, lat:38.599303, lng:-106.533473, tent: true, 
@@ -49,8 +46,12 @@ Spot.create!(title: 'Little Cabin with a view', description: 'Cozy Little Cabin 
     sites: 1, parking: true, campfire: true, pets: true, toilet: true, water: true, shower: true, hiking: true, swimming: false, fishing: false, wildlife: true, price: 90, host_id: 2)  
 
 
+User.create!(username: 'Guest', email: 'guest@gmail.com', password:'password')
 
 
+#  spot = Spot.find(8)
+#  file = File.open('app/assets/images/spot8-4.jpg') 
+#  spot.photos.attach(io: file, filename: 'spot8-4.jpg')  
 
 
 
