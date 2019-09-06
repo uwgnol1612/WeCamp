@@ -1,3 +1,14 @@
+import React from 'react';
+import ReactDOMServer from 'react-dom/server'
+
+const marker_icon = new google.maps.MarkerImage(
+    "https://we-camp-seeds.s3.us-east-2.amazonaws.com/hipcamp+google+map+marker.png",
+    null, /* size is determined at runtime */
+    null, /* origin is 0,0 */
+    null, /* anchor is bottom center of the scaled image */
+    new google.maps.Size(50, 50)
+);
+
 export default class MarkerManager {
 
     constructor(map, handleClick) {
@@ -15,32 +26,50 @@ export default class MarkerManager {
     }
 
     createMarkerFromSpot(spot) {
-        // const position = new google.maps.LatLng(spot.lat, spot.lng);
 
-        // const marker = new google.maps.Marker({
-        //     position,
-        //     map: this.map,
-        //     spotId: spot.id
+        const infoWindowContent = (
+            <div id="markerContent">
+                <div id="marker-spot-image">
+                    <img src={spot.photoUrl} />
+                </div>
+                <div id="marker-spot-detail">
+                    <div id="marker-spot-title">{spot.title}</div>
+                    <div id="marker-spot-price">${spot.price}/night</div>
+                </div>
+            </div>
+        )
+
+        const position = new google.maps.LatLng(spot.lat, spot.lng);
+
+
+        // const infowindow = new google.maps.InfoWindow({
+        //     content: "<div style='float:left'><img src='spot.photoUrl'></div><div style='float:right; padding: 10px;'><b>Title</b><br/>123 Address<br/> City,Country</div>"
         // });
 
-        const marker = new mapIcons.Marker({
-            map: this.map,
-            position: new google.maps.LatLng(spot.lat, spot.lng),
-            icon: {
-                path: MAP_PIN,
-                fillColor: '#00CCBB',
-                fillOpacity: 1,
-                strokeColor: '',
-                strokeWeight: 0,
-                
-            },
-            map_icon_label: '<span class="map-icon map-icon-campground"></span>'
-           
+        const infowindow = new window.google.maps.InfoWindow({
+            content: ""
         });
 
+        const marker = new google.maps.Marker({
+            position,
+            map: this.map,
+            spotId: spot.id,
+            icon: marker_icon
+        });
 
         marker.addListener('click', () => this.handleClick(spot));
         this.markers[marker.spotId] = marker;
+
+        marker.addListener('mouseover', () => {
+            const content = ReactDOMServer.renderToString(infoWindowContent);
+            infowindow.setContent(content)
+            infowindow.open(this.map, marker);
+        });
+
+        marker.addListener('mouseout', function () {
+            infowindow.close();
+        });
+
     }
 
     removeMarker(marker) {
@@ -49,3 +78,4 @@ export default class MarkerManager {
     }
 
 }
+
