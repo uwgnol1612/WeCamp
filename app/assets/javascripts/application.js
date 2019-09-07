@@ -16,3 +16,36 @@
 //= require jquery_ujs
 //= require activestorage
 //= require_tree .
+
+
+function showDropdown(id) {
+    var dropdowns = document.getElementsByClassName("spot-filter-items");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (dropdowns[i] != document.getElementById(id)) {
+            openDropdown.classList.remove('show');
+        }
+    }
+    document.getElementById(id).classList.toggle("show");
+}
+
+window.onclick = function (event) {
+    if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("spot-filter-items");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
+
+
+// $(document).on('click', function (event) {
+//     if (!$(event.target).closest(id).length) {
+//         $('spot-filter-items').hide();
+//     }
+// })

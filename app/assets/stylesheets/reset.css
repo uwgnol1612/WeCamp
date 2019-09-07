@@ -44,3 +44,9 @@ button,
 input[type="submit"] {
   cursor: pointer;
 }
+
+@media all and (max-width: 900px) {
+  [class*='col-'] {
+    width: 100%;
+  }
+}

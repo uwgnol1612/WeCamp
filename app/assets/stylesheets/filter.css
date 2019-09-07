@@ -1,0 +1,46 @@
+.spot-filter-items {
+    display: none;
+    width: 127px;
+    position: absolute;
+    top: 147px;
+    /* top: 140px;
+    left: 250px; */
+    z-index: 1;
+    padding: 10px;
+    border: 1px solid #ebebeb;
+    background-color: #fff;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+}
+
+.spot-filter-items button:hover {
+    border: 1px solid black;
+}
+
+.spot-filter-items button {
+    height: 40px;
+    font-size: 10px;
+    /* padding: 5px; */
+    width:75%;
+
+    font-weight: 500;
+    border: 1px solid #ebebeb;
+    margin: 5px 0px;
+
+}
+
+.spot-filters-container button {
+    position: relative;
+}
+
+.spot-filter-items button:focus {
+    background-color: #f3fbfb;
+    border: 1px solid #3cc69e;
+    color: #40d9ac;
+}
+.show  {
+    display:flex;
+}
+

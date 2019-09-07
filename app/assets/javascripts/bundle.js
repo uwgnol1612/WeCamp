@@ -90,17 +90,25 @@
 /*!********************************************!*\
   !*** ./frontend/actions/filter_actions.js ***!
   \********************************************/
-/*! exports provided: UPDATE_FILTER, changeFilter, updateFilter */
+/*! exports provided: UPDATE_FILTER, REMOVE_FILTER, REMOVE_ALL_FILTERS, changeFilter, removeSingleFilter, removeFilters, updateFilter, removeFilter, removeAllFilters */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_FILTER", function() { return UPDATE_FILTER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_FILTER", function() { return REMOVE_FILTER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_ALL_FILTERS", function() { return REMOVE_ALL_FILTERS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "changeFilter", function() { return changeFilter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeSingleFilter", function() { return removeSingleFilter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeFilters", function() { return removeFilters; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateFilter", function() { return updateFilter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeFilter", function() { return removeFilter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeAllFilters", function() { return removeAllFilters; });
 /* harmony import */ var _spot_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./spot_actions */ "./frontend/actions/spot_actions.js");
 
 var UPDATE_FILTER = 'UPDATE_FILTER';
+var REMOVE_FILTER = 'REMOVE_FILTER';
+var REMOVE_ALL_FILTERS = "REMOVE_ALL_FILTERS";
 var changeFilter = function changeFilter(filter, value) {
   return {
     type: UPDATE_FILTER,
@@ -108,9 +116,32 @@ var changeFilter = function changeFilter(filter, value) {
     value: value
   };
 };
+var removeSingleFilter = function removeSingleFilter(filter) {
+  return {
+    type: REMOVE_FILTER,
+    filter: filter
+  };
+};
+var removeFilters = function removeFilters() {
+  return {
+    type: REMOVE_ALL_FILTERS
+  };
+};
 var updateFilter = function updateFilter(filter, value) {
   return function (dispatch, getState) {
     dispatch(changeFilter(filter, value));
+    return Object(_spot_actions__WEBPACK_IMPORTED_MODULE_0__["fetchSpots"])(getState().ui.filters)(dispatch);
+  };
+};
+var removeFilter = function removeFilter(filter) {
+  return function (dispatch, getState) {
+    dispatch(removeSingleFilter(filter));
+    return Object(_spot_actions__WEBPACK_IMPORTED_MODULE_0__["fetchSpots"])(getState().ui.filters)(dispatch);
+  };
+};
+var removeAllFilters = function removeAllFilters() {
+  return function (dispatch, getState) {
+    dispatch(removeFilters());
     return Object(_spot_actions__WEBPACK_IMPORTED_MODULE_0__["fetchSpots"])(getState().ui.filters)(dispatch);
   };
 };
@@ -527,6 +558,99 @@ var Root = function Root(_ref) {
 
 /***/ }),
 
+/***/ "./frontend/components/search/filter_button.jsx":
+/*!******************************************************!*\
+  !*** ./frontend/components/search/filter_button.jsx ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var Button =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Button, _React$Component);
+
+  function Button(props) {
+    var _this;
+
+    _classCallCheck(this, Button);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Button).call(this, props));
+    _this.state = {
+      buttonState: 'unclicked'
+    };
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(Button, [{
+    key: "handleClick",
+    value: function handleClick(e) {
+      var newButtonState = this.state.buttonState === 'unclicked' ? 'clicked' : 'unclicked';
+      this.setState({
+        buttonState: newButtonState
+      });
+
+      if (this.state.buttonState === 'unclicked') {
+        this.props.updateFilter(this.props.filterType, this.props.filterValue);
+      } else {
+        this.props.removeFilter(this.props.filterType);
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var btnStyle = {
+        backgroundColor: 'white',
+        color: 'black'
+      };
+
+      if (this.state.buttonState === 'clicked') {
+        btnStyle = {
+          backgroundColor: '#f3fbfb',
+          color: '#40d9ac',
+          border: '1px solid #40d9ac'
+        };
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.handleClick,
+        style: btnStyle
+      }, this.props.description);
+    }
+  }]);
+
+  return Button;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Button);
+
+/***/ }),
+
 /***/ "./frontend/components/search/search.jsx":
 /*!***********************************************!*\
   !*** ./frontend/components/search/search.jsx ***!
@@ -540,18 +664,170 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _spot_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./spot_index */ "./frontend/components/search/spot_index.jsx");
 /* harmony import */ var _spot_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_map */ "./frontend/components/search/spot_map.jsx");
+/* harmony import */ var _filter_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./filter_button */ "./frontend/components/search/filter_button.jsx");
+
 
 
 
 
 var Search = function Search(_ref) {
   var spots = _ref.spots,
-      updateFilter = _ref.updateFilter;
+      updateFilter = _ref.updateFilter,
+      removeFilter = _ref.removeFilter,
+      removeAllFilters = _ref.removeAllFilters;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spot-search-section"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "spot-filters-container"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Group size")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Pricing")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Amenities")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Activities")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Accessibility")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Clear filters"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "spot-dropdown"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: function onClick() {
+      return showDropdown('spot-group-filter');
+    },
+    className: "dropbtn"
+  }, "Group size"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "spot-group-filter",
+    className: "spot-filter-items"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    updateFilter: updateFilter,
+    removeFilter: removeFilter,
+    filterType: "groupSize",
+    filterValue: 5,
+    description: "5+ Campers"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    updateFilter: updateFilter,
+    removeFilter: removeFilter,
+    filterType: "groupSize",
+    filterValue: 10,
+    description: "10+ Campers"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    updateFilter: updateFilter,
+    removeFilter: removeFilter,
+    filterType: "groupSize",
+    filterValue: 20,
+    description: "20+ Campers"
+  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "spot-dropdown"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: function onClick() {
+      return showDropdown('spot-price-filter');
+    },
+    className: "dropbtn"
+  }, "Price"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "spot-price-filter",
+    className: "spot-filter-items"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    updateFilter: updateFilter,
+    removeFilter: removeFilter,
+    filterType: "price",
+    filterValue: 50,
+    description: "Under $50"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    updateFilter: updateFilter,
+    removeFilter: removeFilter,
+    filterType: "price",
+    filterValue: 100,
+    description: "Under $100"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    updateFilter: updateFilter,
+    removeFilter: removeFilter,
+    filterType: "price",
+    filterValue: 175,
+    description: "Under $175"
+  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "spot-dropdown"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: function onClick() {
+      return showDropdown('spot-amenity-filter');
+    },
+    className: "dropbtn"
+  }, "Amenities"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "spot-amenity-filter",
+    className: "spot-filter-items"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    updateFilter: updateFilter,
+    removeFilter: removeFilter,
+    filterType: "pets",
+    filterValue: true,
+    description: "Pets allowed"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    updateFilter: updateFilter,
+    removeFilter: removeFilter,
+    filterType: "toilet",
+    filterValue: true,
+    description: "Toilets"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    updateFilter: updateFilter,
+    removeFilter: removeFilter,
+    filterType: "campfire",
+    filterValue: true,
+    description: "Campfires"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    updateFilter: updateFilter,
+    removeFilter: removeFilter,
+    filterType: "water",
+    filterValue: true,
+    description: "Water"
+  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "spot-dropdown"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: function onClick() {
+      return showDropdown('spot-activity-filter');
+    },
+    className: "dropbtn"
+  }, "Activities"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "spot-activity-filter",
+    className: "spot-filter-items"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    updateFilter: updateFilter,
+    removeFilter: removeFilter,
+    filterType: "hiking",
+    filterValue: true,
+    description: "Hiking"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    updateFilter: updateFilter,
+    removeFilter: removeFilter,
+    filterType: "swimming",
+    filterValue: true,
+    description: "Swimming"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    updateFilter: updateFilter,
+    removeFilter: removeFilter,
+    filterType: "fishing",
+    filterValue: true,
+    description: "Fishing"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    updateFilter: updateFilter,
+    removeFilter: removeFilter,
+    filterType: "wildlife",
+    filterValue: true,
+    description: "Wildlife watching"
+  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "spot-dropdown"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: function onClick() {
+      return showDropdown('spot-access-filter');
+    },
+    className: "dropbtn"
+  }, "Accessibility"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "spot-access-filter",
+    className: "spot-filter-items"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    updateFilter: updateFilter,
+    removeFilter: removeFilter,
+    filterType: "tent",
+    filterValue: true,
+    description: "Tent"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    updateFilter: updateFilter,
+    removeFilter: removeFilter,
+    filterType: "parking",
+    filterValue: true,
+    description: "Parking"
+  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: removeAllFilters
+  }, "Clear filters"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spot-search-main"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spot-index"
@@ -903,7 +1179,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    spots: Object.values(state.entities.spots)
+    spots: Object.values(state.entities.spots),
+    price: state.ui.filters.price,
+    groupSize: state.ui.filters.groupSize
   };
 };
 
@@ -911,6 +1189,12 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     updateFilter: function updateFilter(filter, value) {
       return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__["updateFilter"])(filter, value));
+    },
+    removeFilter: function removeFilter(filter) {
+      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__["removeFilter"])(filter));
+    },
+    removeAllFilters: function removeAllFilters() {
+      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__["removeAllFilters"])());
     }
   };
 };
@@ -1483,6 +1767,16 @@ var filtersReducer = function filtersReducer() {
       var newFilter = _defineProperty({}, action.filter, action.value);
 
       return Object.assign({}, state, newFilter);
+
+    case _actions_filter_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_FILTER"]:
+      var newState = Object.assign({}, state);
+      delete newState[action.filter];
+      return newState;
+
+    case _actions_filter_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_ALL_FILTERS"]:
+      return Object.assign({}, {
+        bounds: state.bounds
+      });
 
     default:
       return state;
