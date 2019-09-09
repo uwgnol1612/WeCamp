@@ -1,0 +1,180 @@
+.spot-show {
+    width: 50%;
+    margin-left: 150px;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.spot-div {
+    padding:20px;
+    border-bottom: 1px solid #ebebeb;
+    display: flex;
+    justify-content: space-between;
+}
+
+.spot-div > h1 {
+    padding-top:0;
+    font-size: 32px;
+    font-weight: 700;
+    display: inline;
+}
+
+.spot-host {
+    width: 30%
+}
+
+.spot-description {
+    width: 70%;
+    line-height: 1.5;
+    
+}
+
+#spot-div-2 {
+    border-bottom: none;
+}
+
+.spot-host {
+    display: flex;
+    justify-content: left;
+}
+
+.spot-host img {
+    margin-right: 15px;
+    height: 70px;
+    width: 70px;
+    border: 2px solid #ebebeb;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+    background-color: #ebebeb;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    margin-top:25px;
+}
+
+.spot-host p {
+    font-size:15px;
+    font-weight:500;
+}
+
+.spot-host h5 {
+    font-size:17px;
+    font-weight: 300;
+    margin:0;
+    margin-top: 5px;
+    border-bottom: 1px solid #ebebeb
+}
+
+.host-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.spot-section {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    padding: 10px;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.spot-subsection-info li img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.spot-subsection {
+
+    height: 340px;
+    width: 20%;
+    min-width: 180px;
+    padding: 15px;
+    border-bottom: 1px solid #ebebeb;
+    border: 1px solid #ebebeb;
+    margin: 10px
+}
+
+.spot-subsection-info li {
+    width: 100%;
+    display: flex;
+    margin-bottom: 5px;
+    padding:5px;
+
+}
+
+.spot-subsection h3 {
+    margin-left: 10px;
+}
+
+
+
+#spot-details h1 {
+    font-size:15px;
+    width:50%
+}
+
+.spot-detail-sub {
+    font-size: 15px;
+    width: 50%
+}
+
+.catogory {
+    font-weight:700;
+    margin-right:15px;
+}
+
+.spot-detail-sub li {
+    padding: 5px;
+    list-style: none;
+}
+
+.spot-activity-section {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.spot-activity-header p {
+    font-size: 15px;
+    color:gray
+}
+
+.spot-activity-header h3 {
+    font-size: 15px;
+}
+
+.spot-activities {
+    margin-top: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.tile-wrapper {
+    text-align: center;
+    margin: 0 10px 20px 10px;
+    width: 100px;
+    height: 137px;
+    line-height: 1;
+    float: left;
+}
+
+.tile {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+    border: 1px solid #ebebeb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    height: 100px;
+}
+
+.tile img {
+    width: 50px;
+    height: 50px;
+}
+
+.tile-name {
+    font-size: 15px;
+    font-weight: 700;
+
+}

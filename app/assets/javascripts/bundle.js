@@ -1975,44 +1975,44 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       if (!this.props.spot) return null;
-      var campIconUrl = this.props.spot.tent ? 'url' : 'url';
+      var campIconUrl = this.props.spot.tent ? 'https://we-camp-seeds.s3.us-east-2.amazonaws.com/cabin.png' : 'https://we-camp-seeds.s3.us-east-2.amazonaws.com/no-camping.png';
       var campText = this.props.spot.tent ? 'Cabin provided' : 'Bring your own tents';
-      var campfireIconUrl = this.props.spot.campfire ? 'url' : 'url';
+      var campfireIconUrl = this.props.spot.campfire ? 'https://we-camp-seeds.s3.us-east-2.amazonaws.com/bonfire.png' : 'https://we-camp-seeds.s3.us-east-2.amazonaws.com/no-fire.png';
       var campfireText = this.props.spot.campfire ? 'Campfires allowed' : 'No campfire';
-      var toiletIconUrl = this.props.spot.toilet ? 'url' : 'url';
+      var toiletIconUrl = this.props.spot.toilet ? 'https://we-camp-seeds.s3.us-east-2.amazonaws.com/toilet.png' : 'https://we-camp-seeds.s3.us-east-2.amazonaws.com/no-toileting.png';
       var toiletText = this.props.spot.toilet ? 'Toilet available' : 'No toilet';
-      var petsIconUrl = this.props.spot.pets ? 'url' : 'url';
+      var petsIconUrl = this.props.spot.pets ? 'https://we-camp-seeds.s3.us-east-2.amazonaws.com/pet-friendly.png' : 'https://we-camp-seeds.s3.us-east-2.amazonaws.com/no-pets.png';
       var petsText = this.props.spot.pets ? 'Pets allowed' : 'No pets';
-      var waterIconUrl = this.props.spot.water ? 'url' : 'url';
-      var waterText = this.props.spot.water ? 'Potable water available' : 'No potable water';
-      var checkIn = parseInt(this.props.spot.check_in) > 12 ? (parseInt(this.props.spot.check_in) - 12).toString + 'PM' : parseInt(this.props.spot.check_in).toString + 'AM';
-      var checkOut = parseInt(this.props.spot.check_out) > 12 ? (parseInt(this.props.spot.check_out) - 12).toString + 'PM' : parseInt(this.props.spot.check_out).toString + 'AM';
+      var waterIconUrl = this.props.spot.water ? 'https://we-camp-seeds.s3.us-east-2.amazonaws.com/water.png' : 'https://we-camp-seeds.s3.us-east-2.amazonaws.com/no-water.png';
+      var waterText = this.props.spot.water ? 'Portable water available' : 'No portable water';
+      var checkIn = parseInt(this.props.spot.check_in) > 12 ? (parseInt(this.props.spot.check_in) - 12).toString() + 'PM' : parseInt(this.props.spot.check_in).toString() + 'AM';
+      var checkOut = parseInt(this.props.spot.check_out) > 12 ? (parseInt(this.props.spot.check_out) - 12).toString() + 'PM' : parseInt(this.props.spot.check_out).toString() + 'AM';
       var activites = [];
 
       if (this.props.spot.hiking) {
         activites.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SpotActivity, {
-          activityUrl: "",
+          activityUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/hiking.png",
           activityText: "Hiking"
         }));
       }
 
       if (this.props.spot.swimming) {
         activites.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SpotActivity, {
-          activityUrl: "",
+          activityUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/swimming.png",
           activityText: "Swimming"
         }));
       }
 
       if (this.props.spot.fishing) {
         activites.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SpotActivity, {
-          activityUrl: "",
+          activityUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/fishing.png",
           activityText: "Fishing"
         }));
       }
 
       if (this.props.spot.wildlife) {
         activites.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SpotActivity, {
-          activityUrl: "",
+          activityUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/dove.png",
           activityText: "Wildlife watching"
         }));
       }
@@ -2024,17 +2024,18 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_react_slider__WEBPACK_IMPORTED_MODULE_2__["default"], {
         imgUrls: this.props.spot.photoUrls
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-show-main"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-show"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-div"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-        className: "spot-title"
-      }, this.props.spot.title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "spot-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.spot.title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-div",
+        id: "spot-div-2"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-host"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "#",
+        src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/camplogo.png",
         alt: "avatar"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "host-detail"
@@ -2050,13 +2051,13 @@ function (_React$Component) {
         src: campIconUrl,
         alt: ""
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, campText)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "siteUrl",
+        src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/tent2.png",
         alt: ""
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.spot.sites, " sites")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "guestsUrl",
+        src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/family.png",
         alt: ""
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Up to ", this.props.spot.max_capacity, " guests per site")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "parkingUrl",
+        src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/parking.png",
         alt: ""
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Parking at listing")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-subsection"
@@ -2083,15 +2084,23 @@ function (_React$Component) {
         id: "spot-details"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Details"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-detail-sub"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "On arrival: ", this.props.spot.on_arrival), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Check in: After ", checkIn), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Check out: Before ", checkOut))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "catogory"
+      }, "On arrival:"), this.props.spot.on_arrival), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "catogory"
+      }, "Check in:"), "After ", checkIn), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "catogory"
+      }, " Check out:"), "Before ", checkOut))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-activity-section"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-activity-header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Activities"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Offered on Host's property or nearby.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-activities"
-      }, spotActivities)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, activites)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-review-container"
-      })));
+      }, "reviews go here....")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "booking-container"
+      }, "bookingForm goes here...")));
     }
   }]);
 

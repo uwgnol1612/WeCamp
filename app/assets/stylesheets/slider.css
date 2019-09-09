@@ -2,6 +2,7 @@
 .spot-show-container {
 	position: relative;
 	overflow: hidden;
+
  
 }
 
@@ -10,13 +11,15 @@
     margin: 0 auto;
     width: 90%;
     background: #fff;
-	height: 400px;
+	height: 380px;
 	overflow: hidden;
+	margin-bottom: 15px;
 	
 }
 
 .slick-list {
-	height: 400px;
+	height: 100%;
+
 }
 
 

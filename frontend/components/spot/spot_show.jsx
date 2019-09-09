@@ -20,129 +20,136 @@ class SpotShow extends React.Component {
     render() {
         if (!this.props.spot) return null;
 
-        const campIconUrl = this.props.spot.tent ? 'url' : 'url'
+        const campIconUrl = this.props.spot.tent ? 'https://we-camp-seeds.s3.us-east-2.amazonaws.com/cabin.png' : 'https://we-camp-seeds.s3.us-east-2.amazonaws.com/no-camping.png'
         const campText = this.props.spot.tent ? 'Cabin provided' : 'Bring your own tents'
 
-        const campfireIconUrl = this.props.spot.campfire ? 'url' : 'url'
+        const campfireIconUrl = this.props.spot.campfire ? 'https://we-camp-seeds.s3.us-east-2.amazonaws.com/bonfire.png' : 'https://we-camp-seeds.s3.us-east-2.amazonaws.com/no-fire.png'
         const campfireText = this.props.spot.campfire ? 'Campfires allowed' : 'No campfire'
 
-        const toiletIconUrl = this.props.spot.toilet ? 'url' : 'url'
+        const toiletIconUrl = this.props.spot.toilet ? 'https://we-camp-seeds.s3.us-east-2.amazonaws.com/toilet.png' : 'https://we-camp-seeds.s3.us-east-2.amazonaws.com/no-toileting.png'
         const toiletText = this.props.spot.toilet ? 'Toilet available' : 'No toilet'
 
-        const petsIconUrl = this.props.spot.pets ? 'url' : 'url'
+        const petsIconUrl = this.props.spot.pets ? 'https://we-camp-seeds.s3.us-east-2.amazonaws.com/pet-friendly.png' : 'https://we-camp-seeds.s3.us-east-2.amazonaws.com/no-pets.png'
         const petsText = this.props.spot.pets ? 'Pets allowed' : 'No pets'
 
-        const waterIconUrl = this.props.spot.water ? 'url' : 'url'
-        const waterText = this.props.spot.water ? 'Potable water available' : 'No potable water'
+        const waterIconUrl = this.props.spot.water ? 'https://we-camp-seeds.s3.us-east-2.amazonaws.com/water.png' : 'https://we-camp-seeds.s3.us-east-2.amazonaws.com/no-water.png'
+        const waterText = this.props.spot.water ? 'Portable water available' : 'No portable water'
 
-        const checkIn = parseInt(this.props.spot.check_in) > 12 ? (parseInt(this.props.spot.check_in) - 12).toString + 'PM' : parseInt(this.props.spot.check_in).toString + 'AM'
-        const checkOut = parseInt(this.props.spot.check_out) > 12 ? (parseInt(this.props.spot.check_out) - 12).toString + 'PM' : parseInt(this.props.spot.check_out).toString + 'AM'
+        const checkIn = parseInt(this.props.spot.check_in) > 12 ? (parseInt(this.props.spot.check_in) - 12).toString() + 'PM' : parseInt(this.props.spot.check_in).toString() + 'AM'
+        const checkOut = parseInt(this.props.spot.check_out) > 12 ? (parseInt(this.props.spot.check_out) - 12).toString() + 'PM' : parseInt(this.props.spot.check_out).toString() + 'AM'
 
         
         const activites = []
         if (this.props.spot.hiking) {
-            activites.push(<SpotActivity activityUrl=''  activityText='Hiking'/>)
+            activites.push(<SpotActivity activityUrl='https://we-camp-seeds.s3.us-east-2.amazonaws.com/hiking.png'  activityText='Hiking'/>)
         }
         if (this.props.spot.swimming) {
-            activites.push(<SpotActivity activityUrl='' activityText='Swimming' />)
+            activites.push(<SpotActivity activityUrl='https://we-camp-seeds.s3.us-east-2.amazonaws.com/swimming.png' activityText='Swimming' />)
         } 
         if (this.props.spot.fishing) {
-            activites.push(<SpotActivity activityUrl='' activityText='Fishing' />)
+            activites.push(<SpotActivity activityUrl='https://we-camp-seeds.s3.us-east-2.amazonaws.com/fishing.png' activityText='Fishing' />)
         }
         if (this.props.spot.wildlife) {
-            activites.push(<SpotActivity activityUrl='' activityText='Wildlife watching' />)
+            activites.push(<SpotActivity activityUrl='https://we-camp-seeds.s3.us-east-2.amazonaws.com/dove.png' activityText='Wildlife watching' />)
         }
 
   
         return (
             <div className='spot-show-container'>
                 <div className='slideshow-container'>
-                    {/* <Slider imgUrls={this.props.spot.photoUrls} /> */}
                     <SpotSlider imgUrls={this.props.spot.photoUrls} />
                 </div>
 
-                <div className= 'spot-show'>
-                    <div className='spot-div'>
-                        <h1 className='spot-title'>{this.props.spot.title}</h1>
-                    </div>
-                    <div className='spot-div'>
-                        <div className='spot-host'>
-                            <img src="#" alt="avatar"/>
-                            <div className='host-detail'>
-                                <p>Hosted By</p>
-                                <h5>Long M.</h5>
+                <div className= 'spot-show-main'>
+                    <div className= 'spot-show'>
+                        <div className='spot-div'>
+                            <h1>{this.props.spot.title}</h1>
+                        </div>
+                        <div className='spot-div' id='spot-div-2'>
+                            <div className='spot-host'>
+                                <img src="https://we-camp-seeds.s3.us-east-2.amazonaws.com/camplogo.png" alt="avatar"/>
+                                <div className='host-detail'>
+                                    <p>Hosted By</p>
+                                    <h5>Long M.</h5>
+                                </div>
+                            </div>
+                            <p className='spot-description'>{this.props.spot.description}</p>
+                        </div>
+                        <div className='spot-section'>
+                            <div className='spot-subsection'>
+                                <h3>Campsite area</h3>
+                                <ul className='spot-subsection-info'>
+                                    <li>
+                                        <img src={campIconUrl} alt=""/>
+                                        <p>{campText}</p>
+                                    </li>
+                                    <li>
+                                        <img src='https://we-camp-seeds.s3.us-east-2.amazonaws.com/tent2.png' alt="" />
+                                        <p>{this.props.spot.sites} sites</p>
+                                    </li>
+                                    <li>
+                                        <img src='https://we-camp-seeds.s3.us-east-2.amazonaws.com/family.png' alt="" />
+                                        <p>Up to {this.props.spot.max_capacity} guests per site</p>
+                                    </li>
+                                    <li>
+                                        <img src='https://we-camp-seeds.s3.us-east-2.amazonaws.com/parking.png' alt="" />
+                                        <p>Parking at listing</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className='spot-subsection'>
+                                <h3>Essentials</h3>
+                                <ul className='spot-subsection-info'>
+                                    <li>
+                                        <img src={campfireIconUrl} alt="" />
+                                        <p>{campfireText}</p>
+                                    </li>
+                                    <li>
+                                        <img src={toiletIconUrl} alt="" />
+                                        <p>{toiletText}</p>
+                                    </li>
+                                    <li>
+                                        <img src={petsIconUrl} alt="" />
+                                        <p>{petsText}</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className='spot-subsection'>
+                                <h3>Amenities</h3>
+                                <ul className='spot-subsection-info'>
+                                    <li>
+                                        <img src={waterIconUrl} alt="" />
+                                        <p>{waterText}</p>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <p className='spot-description'>{this.props.spot.description}</p>
-                    </div>
-                    <div className='spot-section'>
-                        <div className='spot-subsection'>
-                            <h3>Campsite area</h3>
-                            <ul className='spot-subsection-info'>
-                                <li>
-                                    <img src={campIconUrl} alt=""/>
-                                    <p>{campText}</p>
-                                </li>
-                                <li>
-                                    <img src='siteUrl' alt="" />
-                                    <p>{this.props.spot.sites} sites</p>
-                                </li>
-                                <li>
-                                    <img src='guestsUrl' alt="" />
-                                    <p>Up to {this.props.spot.max_capacity} guests per site</p>
-                                </li>
-                                <li>
-                                    <img src='parkingUrl' alt="" />
-                                    <p>Parking at listing</p>
-                                </li>
-                            </ul>
+                        <div className='spot-div' id='spot-details'>
+                            <h1>Details</h1>
+                            <div className='spot-detail-sub'>
+                                <li><span className='catogory'>On arrival:</span>{this.props.spot.on_arrival}</li>
+                                <li><span className='catogory'>Check in:</span>After {checkIn}</li>
+                                <li><span className='catogory'> Check out:</span>Before {checkOut}</li>
+                            </div>
                         </div>
-                        <div className='spot-subsection'>
-                            <h3>Essentials</h3>
-                            <ul className='spot-subsection-info'>
-                                <li>
-                                    <img src={campfireIconUrl} alt="" />
-                                    <p>{campfireText}</p>
-                                </li>
-                                <li>
-                                    <img src={toiletIconUrl} alt="" />
-                                    <p>{toiletText}</p>
-                                </li>
-                                <li>
-                                    <img src={petsIconUrl} alt="" />
-                                    <p>{petsText}</p>
-                                </li>
-                            </ul>
+                        <div className='spot-activity-section'>
+                            <div className = 'spot-activity-header'>
+                                <h3>Activities</h3>
+                                <p>Offered on Host's property or nearby.</p>
+                            </div>
+                            <div className = 'spot-activities'>
+                                {activites}
+                            </div>
                         </div>
-                        <div className='spot-subsection'>
-                            <h3>Amenities</h3>
-                            <ul className='spot-subsection-info'>
-                                <li>
-                                    <img src={waterIconUrl} alt="" />
-                                    <p>{waterText}</p>
-                                </li>
-                            </ul>
+                        <div className='spot-review-container'>
+                            reviews go here....
                         </div>
                     </div>
-                    <div className='spot-div' id='spot-details'>
-                        <h1>Details</h1>
-                        <div className='spot-detail-sub'>
-                            <h3>On arrival: {this.props.spot.on_arrival}</h3>
-                            <h3>Check in: After {checkIn}</h3>
-                            <h3>Check out: Before {checkOut}</h3>
-                        </div>
+                    <div className='booking-container'>
+                        bookingForm goes here...
                     </div>
-                    <div className='spot-activity-section'>
-                        <div className = 'spot-activity-header'>
-                            <h3>Activities</h3>
-                            <p>Offered on Host's property or nearby.</p>
-                        </div>
-                        <div className = 'spot-activities'>
-                            {spotActivities}
-                        </div>
-                    </div>
-                    <div className='spot-review-container'></div>
                 </div>
+                
             </div>
         )
     }
