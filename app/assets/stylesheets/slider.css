@@ -1,0 +1,167 @@
+
+.spot-show-container {
+	position: relative;
+	overflow: hidden;
+ 
+}
+
+.slideshow-container {
+	position: relative;
+    margin: 0 auto;
+    width: 90%;
+    background: #fff;
+	height: 400px;
+	overflow: hidden;
+	
+}
+
+.slick-list {
+	height: 400px;
+}
+
+
+.slick-prev {
+    visibility: hidden;
+  	display: block;
+
+	font-size: 30px;
+	line-height: 1.5;
+	top: 50%;
+	width: 50px;
+	height: 50px;
+	transform: translate(0,-50%);
+	cursor: pointer;
+
+	color:white;
+	border: none;
+	position: absolute;
+	left: 10px;
+	padding: 0;
+	z-index: 15
+}
+
+.slick-next {
+  	visibility: hidden;
+	display: block;
+
+	font-size: 30px;
+	line-height: 1.5;
+	top: 50%;
+	width: 50px;
+	height: 50px;
+	transform: translate(0,-50%);
+	cursor: pointer;
+
+	color:white;
+	border: none;
+	position: absolute;
+	right: -15px;
+	padding: 0;
+	z-index:15
+ 
+}
+
+
+.slick-arrow.slick-prev:after {
+	content: '❮'; 
+	visibility: visible;
+	display: block;
+
+	font-size: 30px;
+	line-height: 1.5;
+	top: 50%;
+	width: 50px;
+	height: 50px;
+	transform: translate(0,-50%);
+	cursor: pointer;
+
+	color:white;
+	border: none;
+	position: absolute;
+	left: 25px;
+	padding: 0;
+	z-index:15
+
+}
+
+.slick-arrow.slick-next:after {
+	content:'❯'; 
+	visibility: visible;
+	display: block;
+
+	font-size: 30px;
+	line-height: 1.5;
+	top: 50%;
+	width: 50px;
+	height: 50px;
+	transform: translate(0,-50%);
+	cursor: pointer;
+
+	color:white;
+	border: none;
+	position: absolute;
+	right: 0px;
+	padding: 0;
+	z-index:15
+}
+
+
+
+.slick-slide {
+	margin-right: 15px;
+	float: left;
+	height: 100%
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+
+.slider {
+	height:450px;
+	position: relative;
+	white-space: nowrap;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.slider-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+}
+
+
+.slide-arrow {
+	cursor: pointer;
+	font-size: 2rem;
+	position: fixed;
+    top: 40%;
+	color: white;
+	z-index: 5
+}
+
+.slide-arrow.right {
+	right: 90px;
+}
+
+.slide-arrow.left {
+	left: 90px;
+} */
+
+/* .slider .image-slide {
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+} */

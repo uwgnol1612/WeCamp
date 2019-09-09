@@ -12,4 +12,4 @@ export const fetchSpot = id => {
         method: 'GET',
         url: `/api/spots/${id}`
     })
-};
+}

@@ -1,6 +1,6 @@
 .spot-filter-items {
     display: none;
-    width: 127px;
+    width: 145px;
     position: absolute;
     top: 147px;
     /* top: 140px;
@@ -19,11 +19,10 @@
     border: 1px solid black;
 }
 
-.spot-filter-items button {
-    height: 40px;
-    font-size: 10px;
+.spot-filter-items > button {
+    font-size: 14px;
     /* padding: 5px; */
-    width:75%;
+    width:78%;
 
     font-weight: 500;
     border: 1px solid #ebebeb;
@@ -40,7 +39,26 @@
     border: 1px solid #3cc69e;
     color: #40d9ac;
 }
+
 .show  {
     display:flex;
 }
 
+
+.spot-filter-items button > img {
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin-right: 15px;
+    padding-bottom:3px;
+    padding-left:0;
+
+}
+
+.dropbtn {
+    font-size: 15px;
+}
+
+.filter-button {
+    height:40px;
+}

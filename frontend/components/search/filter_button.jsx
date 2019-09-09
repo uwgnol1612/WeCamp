@@ -24,7 +24,7 @@ class Button extends React.Component{
     render() {
         let btnStyle = {
             backgroundColor: 'white',
-            color: 'black',
+            color: 'black'
         }
         if (this.state.buttonState === 'clicked') {
             btnStyle = {
@@ -33,12 +33,17 @@ class Button extends React.Component{
                 border: '1px solid #40d9ac'
             }
         }
+        let imageUrl = "";
+        if (this.props.iconUrl) {
+            imageUrl = this.props.iconUrl
+        } 
 
         return (
                 <button 
-                    onClick={this.handleClick}
                     style={btnStyle}
-                >{this.props.description}</button>
+                    onClick={this.handleClick}
+                    className='filter-button'
+            ><img src={imageUrl} alt=""/>{this.props.description}</button>
         )
     }
 

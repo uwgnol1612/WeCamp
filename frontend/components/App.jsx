@@ -1,11 +1,11 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom'
-import { AuthRoute } from '../util/route_util'
-import Modal from './modal/modal'
+import { Route, Link, Switch } from 'react-router-dom';
+import { AuthRoute } from '../util/route_util';
+import Modal from './modal/modal';
 import GreetingContainer from './greeting/greeting_container';
-import SpotIndexContainer from './search/spot_index_container';
-import SpotSearchContainer from './search/spot_search_container'
-import Splash from './splash/splash'
+import SpotSearchContainer from './search/spot_search_container';
+import Splash from './splash/splash';
+import SpotShowContainer from './spot/spot_show_container'
 
 
 const App = () => (
@@ -23,8 +23,11 @@ const App = () => (
                 <GreetingContainer />
             </div>
         </nav>
-        <Route exact path='/' component={Splash}/>
-        <Route path='/spots' component={SpotSearchContainer}/>
+        <Switch>
+            <Route exact path='/' component={Splash} />
+            <Route path='/spots/:spotId' component={SpotShowContainer} />
+            <Route path='/spots' component={SpotSearchContainer} />
+        </Switch>
         
     </div>
 )

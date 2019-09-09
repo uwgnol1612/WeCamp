@@ -6,9 +6,7 @@ import Search from './search';
 
 
 const mapStateToProps = state => ({
-    spots: Object.values(state.entities.spots),
-    price: state.ui.filters.price,
-    groupSize: state.ui.filters.groupSize,
+    spots: Object.values(state.entities.spots)
 });
 
 const mapDispatchToProps = dispatch => ({

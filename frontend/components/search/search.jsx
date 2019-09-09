@@ -42,7 +42,7 @@ const Search = ({ spots, updateFilter, removeFilter, removeAllFilters }) => (
                             removeFilter={removeFilter}
                             filterType='price'
                             filterValue={50}
-                            description='Under $50' />
+                            description='Under $50'/>
                         <Button
                             updateFilter={updateFilter}
                             removeFilter={removeFilter}
@@ -66,25 +66,29 @@ const Search = ({ spots, updateFilter, removeFilter, removeAllFilters }) => (
                             removeFilter={removeFilter}
                             filterType='pets'
                             filterValue={true}
-                            description='Pets allowed'/>
+                            description='Pets allowed'
+                            iconUrl='https://we-camp-seeds.s3.us-east-2.amazonaws.com/pet-friendly.png'/>
                         <Button
                             updateFilter={updateFilter}
                             removeFilter={removeFilter}
                             filterType='toilet'
                             filterValue={true}
-                            description='Toilets'/>
+                            description='Toilets'
+                            iconUrl='https://we-camp-seeds.s3.us-east-2.amazonaws.com/toilet-paper.png'/>
                         <Button
                             updateFilter={updateFilter}
                             removeFilter={removeFilter}
                             filterType='campfire'
                             filterValue={true}
-                            description='Campfires'/>
+                            description='Campfires'
+                            iconUrl='https://we-camp-seeds.s3.us-east-2.amazonaws.com/bonfire.png'/>
                         <Button
                             updateFilter={updateFilter}
                             removeFilter={removeFilter}
                             filterType='water'
                             filterValue={true}
-                            description='Water'/>
+                            description='Water'
+                            iconUrl='https://we-camp-seeds.s3.us-east-2.amazonaws.com/water.png'/>
                     </div>
                 </li>
             </div>
@@ -96,25 +100,29 @@ const Search = ({ spots, updateFilter, removeFilter, removeAllFilters }) => (
                             removeFilter={removeFilter}
                             filterType='hiking'
                             filterValue={true}
-                            description='Hiking' />
+                            description='Hiking'
+                            iconUrl='https://we-camp-seeds.s3.us-east-2.amazonaws.com/hiking.png' />
                         <Button
                             updateFilter={updateFilter}
                             removeFilter={removeFilter}
                             filterType='swimming'
                             filterValue={true}
-                            description='Swimming' />
+                            description='Swimming'
+                            iconUrl='https://we-camp-seeds.s3.us-east-2.amazonaws.com/swimming.png' />
                         <Button
                             updateFilter={updateFilter}
                             removeFilter={removeFilter}
                             filterType='fishing'
                             filterValue={true}
-                            description='Fishing' />
+                            description='Fishing'
+                            iconUrl='https://we-camp-seeds.s3.us-east-2.amazonaws.com/fishing.png' />
                         <Button
                             updateFilter={updateFilter}
                             removeFilter={removeFilter}
                             filterType='wildlife'
                             filterValue={true}
-                            description='Wildlife watching' />
+                            description='Wildlife watching'
+                            iconUrl='https://we-camp-seeds.s3.us-east-2.amazonaws.com/dove.png' />
                     </div>
                 </li>
             </div>
@@ -126,17 +134,21 @@ const Search = ({ spots, updateFilter, removeFilter, removeAllFilters }) => (
                             removeFilter={removeFilter}
                             filterType='tent'
                             filterValue={true}
-                            description='Tent' />
+                            description='Tent'
+                            iconUrl='https://we-camp-seeds.s3.us-east-2.amazonaws.com/tent.png' />
                         <Button
                             updateFilter={updateFilter}
                             removeFilter={removeFilter}
                             filterType='parking'
                             filterValue={true}
-                            description='Parking' />
+                            description='Parking'
+                            iconUrl='https://we-camp-seeds.s3.us-east-2.amazonaws.com/parking.png' />
                     </div>
                 </li>
             </div>
-            <li><button onClick={removeAllFilters}>Clear filters</button></li>
+            <div className="spot-dropdown">
+                <li><button onClick={removeAllFilters}>Clear filters</button></li>
+            </div>
         </ul>
         <div className="spot-search-main">
             <div className="spot-index">
