@@ -1,10 +1,14 @@
 import React from 'react';
-import Slider from './slider'
-import SpotSlider from './react_slider'
+import Slider from './slider';
+import SpotSlider from './react_slider';
+import ReviewListItemContainer from './review_list_item_container'
+import { ReviewLink } from '../../util/link_util'
+import ReviewFormContainer from './review_form_container'
 
 class SpotShow extends React.Component {
     constructor(props) {
         super(props)
+        this.navigateToReviewForm = this.navigateToReviewForm.bind(this);
     }
 
     componentDidMount() {
@@ -16,6 +20,16 @@ class SpotShow extends React.Component {
     //         this.props.fetchSpot(this.props.match.params.spotId);
     //     }
     // }
+
+    navigateToReviewForm() {
+
+        if (!this.props.currentUser) {
+            this.props.openModal('login')
+        } else {
+            const url = `/spots/${this.props.match.params.spotId}/reviews/new`
+            this.props.history.push(url);
+        }
+    }
 
     render() {
         if (!this.props.spot) return null;
@@ -142,7 +156,13 @@ class SpotShow extends React.Component {
                             </div>
                         </div>
                         <div className='spot-review-container'>
-                            reviews go here....
+                            <h3>{this.props.reviews.length} Written reviews</h3> 
+                            <button onClick={this.navigateToReviewForm}>Submit Review</button>
+
+                            <ReviewList spot={this.props.spot} 
+                                        reviews={this.props.reviews}
+                                        deleteReview={this.props.deleteReview} 
+                            />
                         </div>
                     </div>
                     <div className='booking-container'>
@@ -168,5 +188,34 @@ const SpotActivity = (props) => {
         </div>
     )
 }
+
+// const ReviewList = (props) => {
+//     // debugger
+//     if (props.reviews === []) {
+//         return; 
+//     } else {
+//         const reviews = Object.values(props.reviews).map(review => (
+//             <ReviewListItemContainer
+//                 review={review}
+//                 key={review.id}
+//             />
+//         ))
+//         return reviews;
+//     }
+// };
+
+
+const ReviewList = ({ reviews, deleteReview }) => {
+    debugger
+
+    return (
+    reviews.map(review => (
+        <ReviewListItemContainer
+            deleteReview={deleteReview}
+            review={review}
+            key={review.id}/>
+    ))
+    )       
+};
 
 export default SpotShow;

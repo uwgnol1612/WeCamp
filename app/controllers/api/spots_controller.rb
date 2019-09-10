@@ -51,8 +51,6 @@ class Api::SpotsController < ApplicationController
             spots = spots.where('parking = ?', params[:parking])
         end
 
-        
-
         @spots = spots.with_attached_photos
         render :index
     end 

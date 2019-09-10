@@ -34,6 +34,7 @@ class Spot < ApplicationRecord
     validates :tent, :parking, :campfire, :pets, :toilet, :water, :shower, :hiking, :swimming, :fishing, :wildlife, inclusion: [true, false]
 
     has_many_attached :photos
+    has_many :reviews
 
 
     def self.in_bounds(bounds)
