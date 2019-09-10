@@ -26,7 +26,7 @@ const App = () => (
             </div>
         </nav>
         <Switch>
-            <Route exact path="/spots/:spotId/reviews/new" component={ReviewFormContainer} />
+            <Route exact path="/spots/:spotId/review/new" component={ReviewFormContainer} />
             <Route exact path="/spots/:spotId/reviews/:reviewId/edit" component={ReviewEditContainer} />
             <Route exact path='/spots/:spotId' component={SpotShowContainer} />
             <Route path='/spots' component={SpotSearchContainer} />

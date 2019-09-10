@@ -86,6 +86,90 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./frontend/actions/booking_actions.js":
+/*!*********************************************!*\
+  !*** ./frontend/actions/booking_actions.js ***!
+  \*********************************************/
+/*! exports provided: RECEIVE_ALL_BOOKINGS, RECEIVE_BOOKING, REMOVE_BOOKING, RECEIVE_BOOKING_ERRORS, receiveAllBookings, receiveBooking, removeBooking, receiveBookingErrors, fetchBookings, fetchBooking, createBooking, deleteBooking */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_BOOKINGS", function() { return RECEIVE_ALL_BOOKINGS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_BOOKING", function() { return RECEIVE_BOOKING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_BOOKING", function() { return REMOVE_BOOKING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_BOOKING_ERRORS", function() { return RECEIVE_BOOKING_ERRORS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveAllBookings", function() { return receiveAllBookings; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveBooking", function() { return receiveBooking; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeBooking", function() { return removeBooking; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveBookingErrors", function() { return receiveBookingErrors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBookings", function() { return fetchBookings; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBooking", function() { return fetchBooking; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createBooking", function() { return createBooking; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteBooking", function() { return deleteBooking; });
+/* harmony import */ var _util_booking_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/booking_api_util */ "./frontend/util/booking_api_util.js");
+var RECEIVE_ALL_BOOKINGS = 'RECEIVE_ALL_BOOKINGS';
+var RECEIVE_BOOKING = 'RECEIVE_BOOKING';
+var REMOVE_BOOKING = 'REMOVE_BOOKING';
+var RECEIVE_BOOKING_ERRORS = 'RECEIVE_BOOKING_ERRORS';
+
+var receiveAllBookings = function receiveAllBookings(bookings) {
+  return {
+    type: RECEIVE_ALL_BOOKINGS,
+    bookings: bookings
+  };
+};
+var receiveBooking = function receiveBooking(booking) {
+  return {
+    type: RECEIVE_BOOKING,
+    booking: booking
+  };
+};
+var removeBooking = function removeBooking(booking) {
+  return {
+    type: REMOVE_BOOKING,
+    bookingId: booking.id
+  };
+};
+var receiveBookingErrors = function receiveBookingErrors(errors) {
+  return {
+    type: RECEIVE_BOOKING_ERRORS,
+    errors: errors
+  };
+};
+var fetchBookings = function fetchBookings() {
+  return function (dispatch) {
+    return _util_booking_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchBookings"]().then(function (bookings) {
+      return dispatch(receiveAllBookings(bookings));
+    });
+  };
+};
+var fetchBooking = function fetchBooking(id) {
+  return function (dispatch) {
+    return _util_booking_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchBooking"](id).then(function (booking) {
+      return dispatch(receiveBooking(booking));
+    });
+  };
+};
+var createBooking = function createBooking(booking) {
+  return function (dispatch) {
+    return _util_booking_api_util__WEBPACK_IMPORTED_MODULE_0__["createBooking"](booking).then(function (booking) {
+      return dispatch(receiveBooking(booking));
+    }, function (err) {
+      return dispatch(receiveBookingErrors(err.responseJSON));
+    });
+  };
+};
+var deleteBooking = function deleteBooking(id) {
+  return function (dispatch) {
+    return _util_booking_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteBooking"](id).then(function (booking) {
+      return dispatch(removeBooking(booking));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/filter_actions.js":
 /*!********************************************!*\
   !*** ./frontend/actions/filter_actions.js ***!
@@ -251,7 +335,7 @@ var signup = function signup(user) {
 /*!******************************************!*\
   !*** ./frontend/actions/spot_actions.js ***!
   \******************************************/
-/*! exports provided: RECEIVE_ALL_SPOTS, RECEIVE_SPOT, RECEIVE_REVIEW, REMOVE_REVIEW, receiveAllSpots, receiveSpot, receiveReview, removeReview, fetchSpots, fetchSpot, createReview, updateReview, deleteReview */
+/*! exports provided: RECEIVE_ALL_SPOTS, RECEIVE_SPOT, RECEIVE_REVIEW, REMOVE_REVIEW, RECEIVE_REVIEW_ERRORS, receiveAllSpots, receiveSpot, receiveReview, removeReview, receiveReviewErrors, fetchSpots, fetchSpot, createReview, updateReview, deleteReview */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -260,10 +344,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SPOT", function() { return RECEIVE_SPOT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_REVIEW", function() { return RECEIVE_REVIEW; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_REVIEW", function() { return REMOVE_REVIEW; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_REVIEW_ERRORS", function() { return RECEIVE_REVIEW_ERRORS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveAllSpots", function() { return receiveAllSpots; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveSpot", function() { return receiveSpot; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveReview", function() { return receiveReview; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeReview", function() { return removeReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveReviewErrors", function() { return receiveReviewErrors; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSpots", function() { return fetchSpots; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSpot", function() { return fetchSpot; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createReview", function() { return createReview; });
@@ -274,6 +360,7 @@ var RECEIVE_ALL_SPOTS = "RECEIVE_ALL_SPOTS";
 var RECEIVE_SPOT = "RECEIVE_SPOT";
 var RECEIVE_REVIEW = "RECEIVE_REVIEW";
 var REMOVE_REVIEW = "REMOVE_REVIEW";
+var RECEIVE_REVIEW_ERRORS = "RECEIVE_REVIEW_ERRORS";
 
 var receiveAllSpots = function receiveAllSpots(spots) {
   return {
@@ -303,6 +390,12 @@ var removeReview = function removeReview(_ref2) {
     reviewId: review.id
   };
 };
+var receiveReviewErrors = function receiveReviewErrors(errors) {
+  return {
+    type: RECEIVE_REVIEW_ERRORS,
+    errors: errors
+  };
+};
 var fetchSpots = function fetchSpots(filters) {
   return function (dispatch) {
     return _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchspots"](filters).then(function (spots) {
@@ -321,6 +414,8 @@ var createReview = function createReview(review) {
   return function (dispatch) {
     return _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__["createReview"](review).then(function (review) {
       return dispatch(receiveReview(review));
+    }, function (err) {
+      return dispatch(receiveReviewErrors(err.responseJSON));
     });
   };
 };
@@ -328,6 +423,8 @@ var updateReview = function updateReview(review) {
   return function (dispatch) {
     return _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__["updateReview"](review).then(function (review) {
       return dispatch(receiveReview(review));
+    }, function (err) {
+      return dispatch(receiveReviewErrors(err.responseJSON));
     });
   };
 };
@@ -335,6 +432,37 @@ var deleteReview = function deleteReview(id) {
   return function (dispatch) {
     return _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteReview"](id).then(function (review) {
       return dispatch(removeReview(review));
+    });
+  };
+};
+
+/***/ }),
+
+/***/ "./frontend/actions/user_actions.js":
+/*!******************************************!*\
+  !*** ./frontend/actions/user_actions.js ***!
+  \******************************************/
+/*! exports provided: RECEIVE_USERS, receiveUsers, requestUsers */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_USERS", function() { return RECEIVE_USERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveUsers", function() { return receiveUsers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestUsers", function() { return requestUsers; });
+/* harmony import */ var _util_user_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/user_api_util */ "./frontend/util/user_api_util.js");
+var RECEIVE_USERS = 'RECEIVE_USERS';
+
+var receiveUsers = function receiveUsers(users) {
+  return {
+    type: RECEIVE_USERS,
+    users: users
+  };
+};
+var requestUsers = function requestUsers() {
+  return function (dispatch) {
+    return Object(_util_user_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchUsers"])().then(function (users) {
+      return dispatch(receiveUsers(users));
     });
   };
 };
@@ -393,7 +521,7 @@ var App = function App() {
     href: "#"
   }, "Help")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_4__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
-    path: "/spots/:spotId/reviews/new",
+    path: "/spots/:spotId/review/new",
     component: _spot_review_form_container__WEBPACK_IMPORTED_MODULE_8__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
@@ -1041,6 +1169,7 @@ function (_React$Component) {
   _createClass(SpotIndexItem, [{
     key: "render",
     value: function render() {
+      debugger;
       var tentIcon = this.props.spot.tent ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/cabin.png"
       }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -1855,7 +1984,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
     spot: state.entities.spots[ownProps.match.params.spotId],
-    review: state.entities.spots[ownProps.match.params.spotId].reviews[ownProps.match.params.reviewId]
+    errors: state.errors.reviews
   };
 };
 
@@ -1894,14 +2023,14 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this$props = this.props,
-          action = _this$props.action,
-          review = _this$props.review,
-          spot = _this$props.spot;
+      if (!this.props.spot) return null;
+      var review = this.props.spot.reviews[this.props.match.params.reviewId];
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_form__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        action: action,
+        action: this.props.action,
         review: review,
-        spot: spot
+        spot: this.props.spot,
+        fetchSpot: this.props.fetchSpot,
+        errors: this.props.errors
       });
     }
   }]);
@@ -1966,6 +2095,11 @@ function (_React$Component) {
   }
 
   _createClass(ReviewForm, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchSpot(this.props.match.params.spotId);
+    }
+  }, {
     key: "navigateToSpotShow",
     value: function navigateToSpotShow() {
       var url = "/spots/".concat(this.props.match.params.spotId);
@@ -1979,8 +2113,7 @@ function (_React$Component) {
       var review = Object.assign({}, this.state, {
         spot_id: spotId
       });
-      this.props.action(review);
-      this.navigateToSpotShow();
+      this.props.action(review).then(this.navigateToSpotShow);
     }
   }, {
     key: "update",
@@ -1995,21 +2128,28 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       if (!this.props.spot) return null;
+      var errors = this.props.errors.map(function (error, i) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: "error-".concat(i)
+        }, error);
+      });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-form-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.spot.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        className: "review-form",
-        onSubmit: this.handleSubmit
+        className: "review-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         cols: "50",
-        rows: "10",
+        rows: "15",
         value: this.state.body,
         placeholder: "What do you think about the trip? Leave a review about your experience here...",
         onChange: this.update("body")
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "submit",
-        value: "Submit Review"
-      })));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "reviews-errors-messages"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, errors)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "review-btn"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("buttton", {
+        onClick: this.handleSubmit
+      }, "Submit Review"))));
     }
   }]);
 
@@ -2041,12 +2181,16 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
     spot: state.entities.spots[ownProps.match.params.spotId],
     review: {
       body: ""
-    }
+    },
+    errors: state.errors.reviews
   };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
+    fetchSpot: function fetchSpot(id) {
+      return dispatch(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_2__["fetchSpot"])(id));
+    },
     action: function action(review) {
       return dispatch(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_2__["createReview"])(review));
     }
@@ -2077,25 +2221,36 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Review = function Review(props) {
-  // debugger
   var formatedDate = Object(_util_date_util__WEBPACK_IMPORTED_MODULE_1__["formatDate"])(props.review.created_at);
+  var ReviewLink; // debugger
+
+  if (props.currentUser === props.author.id) {
+    ReviewLink = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "review-links"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+      to: "/spots/".concat(props.review.spot_id, "/reviews/").concat(props.review.id, "/edit")
+    }, "Edit"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      onClick: function onClick() {
+        return props.deleteReview(props.review.id);
+      }
+    }, "Delete"));
+  } else {
+    ReviewLink = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+  }
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "review-list-item-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "review-list-item"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "review-detail"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, props.author.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, formatedDate)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: "review-body"
-  }, props.review.body)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "review-links"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-    to: "/spots/".concat(props.review.spot_id, "/reviews/").concat(props.review.id, "/edit")
-  }, "Edit"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    onClick: function onClick() {
-      return props.deleteReview(props.review.id);
-    }
-  }, "Delete")));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    id: "review-name"
+  }, props.author.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    id: "review-date"
+  }, formatedDate)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    id: "review-body"
+  }, props.review.body)), ReviewLink);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Review);
@@ -2116,11 +2271,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mapStateToProps = function mapStateToProps(_ref, _ref2) {
-  var users = _ref.entities.users;
-  var review = _ref2.review;
+var mapStateToProps = function mapStateToProps(state, props) {
+  // debugger
   return {
-    author: users[review.user_id]
+    author: state.entities.users[props.review.user_id]
   };
 };
 
@@ -2347,7 +2501,9 @@ function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchSpot(this.props.match.params.spotId);
+      this.props.requestUsers();
     } // componentDidUpdate(prevProps) {
+    //     debugger
     //     if (prevProps.spot.id !== this.props.match.params.spotId) {
     //         this.props.fetchSpot(this.props.match.params.spotId);
     //     }
@@ -2359,7 +2515,7 @@ function (_React$Component) {
       if (!this.props.currentUser) {
         this.props.openModal('login');
       } else {
-        var url = "/spots/".concat(this.props.match.params.spotId, "/reviews/new");
+        var url = "/spots/".concat(this.props.match.params.spotId, "/review/new");
         this.props.history.push(url);
       }
     }
@@ -2490,12 +2646,15 @@ function (_React$Component) {
         className: "spot-activities"
       }, activites)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-review-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-review-header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, this.props.reviews.length, " Written reviews"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.navigateToReviewForm
-      }, "Submit Review"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ReviewList, {
+      }, "Submit Review")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ReviewList, {
         spot: this.props.spot,
         reviews: this.props.reviews,
-        deleteReview: this.props.deleteReview
+        deleteReview: this.props.deleteReview,
+        currentUser: this.props.currentUser
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "booking-container"
       }, "bookingForm goes here...")));
@@ -2516,28 +2675,18 @@ var SpotActivity = function SpotActivity(props) {
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "tile-name"
   }, props.activityText));
-}; // const ReviewList = (props) => {
-//     // debugger
-//     if (props.reviews === []) {
-//         return; 
-//     } else {
-//         const reviews = Object.values(props.reviews).map(review => (
-//             <ReviewListItemContainer
-//                 review={review}
-//                 key={review.id}
-//             />
-//         ))
-//         return reviews;
-//     }
-// };
-
+};
 
 var ReviewList = function ReviewList(_ref) {
   var reviews = _ref.reviews,
-      deleteReview = _ref.deleteReview;
-  debugger;
+      deleteReview = _ref.deleteReview,
+      spot = _ref.spot,
+      currentUser = _ref.currentUser;
+  // debugger
   return reviews.map(function (review) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_list_item_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      spot: spot,
+      currentUser: currentUser,
       deleteReview: deleteReview,
       review: review,
       key: review.id
@@ -2563,6 +2712,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _spot_show__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_show */ "./frontend/components/spot/spot_show.jsx");
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
 /* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
+/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
+
 
 
 
@@ -2570,7 +2721,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
-  debugger;
+  // debugger
   var spot = state.entities.spots[ownProps.match.params.spotId];
   var reviews = Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_4__["selectReviewsForSpot"])(state.entities, spot);
   var currentUser = state.session.id;
@@ -2591,11 +2742,87 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     deleteReview: function deleteReview(id) {
       return dispatch(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["deleteReview"])(id));
+    },
+    requestUsers: function requestUsers() {
+      return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_5__["requestUsers"])());
     }
   };
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_spot_show__WEBPACK_IMPORTED_MODULE_2__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/reducers/booking_errors_reducer.js":
+/*!*****************************************************!*\
+  !*** ./frontend/reducers/booking_errors_reducer.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_booking_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/booking_actions */ "./frontend/actions/booking_actions.js");
+
+
+var bookingErrorsReducer = function bookingErrorsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_booking_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_BOOKING_ERRORS"]:
+      return action.errors;
+
+    case _actions_booking_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_BOOKING"]:
+      return [];
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (bookingErrorsReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/booking_reducer.js":
+/*!**********************************************!*\
+  !*** ./frontend/reducers/booking_reducer.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_booking_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/booking_actions */ "./frontend/actions/booking_actions.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var bookingsReducer = function bookingsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freesze(state);
+
+  switch (action.type) {
+    case _actions_booking_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_BOOKINGS"]:
+      return Object.assign({}, action.bookings);
+
+    case _actions_booking_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_BOOKING"]:
+      return Object.assign({}, state, _defineProperty({}, action.booking.id, action.booking));
+
+    case _actions_booking_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_BOOKING"]:
+      var newState = Object.assign({}, state);
+      delete newState[action.bookingId];
+      return newState;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (bookingsReducer);
 
 /***/ }),
 
@@ -2612,6 +2839,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
 /* harmony import */ var _spots_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spots_reducer */ "./frontend/reducers/spots_reducer.js");
 /* harmony import */ var _reviews_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./reviews_reducer */ "./frontend/reducers/reviews_reducer.js");
+/* harmony import */ var _booking_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./booking_reducer */ "./frontend/reducers/booking_reducer.js");
+
 
 
 
@@ -2619,7 +2848,8 @@ __webpack_require__.r(__webpack_exports__);
 var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
   spots: _spots_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
-  reviews: _reviews_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
+  reviews: _reviews_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
+  bookings: _booking_reducer__WEBPACK_IMPORTED_MODULE_4__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 
@@ -2636,10 +2866,16 @@ var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./session_errors_reducer */ "./frontend/reducers/session_errors_reducer.js");
+/* harmony import */ var _review_errors_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./review_errors_reducer */ "./frontend/reducers/review_errors_reducer.js");
+/* harmony import */ var _booking_errors_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./booking_errors_reducer */ "./frontend/reducers/booking_errors_reducer.js");
+
+
 
 
 var errorsReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  reviews: _review_errors_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
+  bookings: _booking_errors_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (errorsReducer);
 
@@ -2724,6 +2960,39 @@ var modalReducer = function modalReducer() {
 
 /***/ }),
 
+/***/ "./frontend/reducers/review_errors_reducer.js":
+/*!****************************************************!*\
+  !*** ./frontend/reducers/review_errors_reducer.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/spot_actions */ "./frontend/actions/spot_actions.js");
+
+
+var reviewErrorsReducer = function reviewErrorsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_REVIEW_ERRORS"]:
+      return action.errors;
+
+    case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_SPOT"]:
+      return [];
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (reviewErrorsReducer);
+
+/***/ }),
+
 /***/ "./frontend/reducers/reviews_reducer.js":
 /*!**********************************************!*\
   !*** ./frontend/reducers/reviews_reducer.js ***!
@@ -2741,7 +3010,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var reviewsReducer = function reviewsReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  debugger;
+  // debugger
   Object.freeze(state);
 
   switch (action.type) {
@@ -2806,7 +3075,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectReviewsForSpot", function() { return selectReviewsForSpot; });
 var selectReviewsForSpot = function selectReviewsForSpot(props, spot) {
   if (spot) {
-    debugger;
+    // debugger
     return Object.values(props.reviews);
   } else {
     return [];
@@ -2961,7 +3230,11 @@ var uiReducer = Object(redux__WEBPACK_IMPORTED_MODULE_2__["combineReducers"])({
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/spot_actions */ "./frontend/actions/spot_actions.js");
+/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/user_actions */ "./frontend/actions/user_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -2973,6 +3246,12 @@ var usersReducer = function usersReducer() {
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
       return Object.assign({}, state, _defineProperty({}, action.currentUser.id, action.currentUser));
+
+    case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_REVIEW"]:
+      return Object.assign({}, state, _defineProperty({}, action.user.id, action.user));
+
+    case _actions_user_actions__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_USERS"]:
+      return Object.assign({}, action.users);
 
     default:
       return state;
@@ -3008,6 +3287,49 @@ var configureStore = function configureStore() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);
+
+/***/ }),
+
+/***/ "./frontend/util/booking_api_util.js":
+/*!*******************************************!*\
+  !*** ./frontend/util/booking_api_util.js ***!
+  \*******************************************/
+/*! exports provided: fetchBookings, fetchBooking, createBooking, deleteBooking */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBookings", function() { return fetchBookings; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBooking", function() { return fetchBooking; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createBooking", function() { return createBooking; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteBooking", function() { return deleteBooking; });
+var fetchBookings = function fetchBookings() {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/bookings'
+  });
+};
+var fetchBooking = function fetchBooking(id) {
+  return $.ajax({
+    method: 'GET',
+    url: "/api/bookings/".concat(id)
+  });
+};
+var createBooking = function createBooking(booking) {
+  return $.ajax({
+    method: 'POST',
+    url: '/api/bookings',
+    data: {
+      booking: booking
+    }
+  });
+};
+var deleteBooking = function deleteBooking(id) {
+  return $.ajax({
+    method: 'DELETE',
+    url: "/api/bookings/".concat(id)
+  });
+};
 
 /***/ }),
 
@@ -3373,6 +3695,25 @@ var deleteReview = function deleteReview(reviewId) {
   return $.ajax({
     method: 'DELETE',
     url: "/api/reviews/".concat(reviewId)
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/user_api_util.js":
+/*!****************************************!*\
+  !*** ./frontend/util/user_api_util.js ***!
+  \****************************************/
+/*! exports provided: fetchUsers */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUsers", function() { return fetchUsers; });
+var fetchUsers = function fetchUsers() {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/users'
   });
 };
 

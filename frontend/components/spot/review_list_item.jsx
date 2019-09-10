@@ -4,22 +4,32 @@ import { Link, withRouter } from 'react-router-dom'
 import { deleteReview } from '../../actions/spot_actions';
 
 const Review = (props) => {
-    // debugger
+  
     const formatedDate = formatDate(props.review.created_at);
+
+    let ReviewLink;
+
+    // debugger
+    
+    if (props.currentUser === props.author.id) {
+        ReviewLink = <div className='review-links'>
+            <Link to={`/spots/${props.review.spot_id}/reviews/${props.review.id}/edit`}>Edit</Link>
+            <button onClick={() => props.deleteReview(props.review.id)}>Delete</button>
+        </div>
+    } else {
+        ReviewLink = <div></div>
+    }
 
     return (
         <div className='review-list-item-container'>
             <div className='review-list-item'>
                 <div className='review-detail'>
-                    <li>{props.author.username}</li>
-                    <li>{formatedDate}</li>
+                    <li id='review-name'>{props.author.username}</li>
+                    <li id='review-date'>{formatedDate}</li>
                 </div>
-                <p className='review-body'>{props.review.body}</p>
+                <p id='review-body'>{props.review.body}</p>
             </div>
-            <div className='review-links'>
-                <Link to={`/spots/${props.review.spot_id}/reviews/${props.review.id}/edit`}>Edit</Link>
-                <button onClick={() => props.deleteReview(props.review.id)}>Delete</button>
-            </div>
+            {ReviewLink}
         </div>
     );
 };

@@ -4,8 +4,8 @@ import ReviewForm from './review_form';
 import { updateReview, fetchSpot } from '../../actions/spot_actions';
 
 const mapStateToProps = (state, ownProps) => ({
-    spot: state.entities.spots[ownProps.match.params.spotId],
-    review: (state.entities.spots[ownProps.match.params.spotId]).reviews[ownProps.match.params.reviewId]
+   spot: state.entities.spots[ownProps.match.params.spotId],
+   errors: state.errors.reviews
 });
 
 const mapDispatchToProps = dispatch => {
@@ -16,6 +16,7 @@ const mapDispatchToProps = dispatch => {
 };
 
 class EditReviewForm extends React.Component {
+
     componentDidMount() {
         this.props.fetchSpot(this.props.match.params.spotId);
     }
@@ -27,13 +28,16 @@ class EditReviewForm extends React.Component {
     // }
 
     render() {
+        if (!this.props.spot) return null
         
-        const { action, review, spot } = this.props;
+        const review = this.props.spot.reviews[this.props.match.params.reviewId]
         return (
             <ReviewForm
-                action={action}
+                action={this.props.action}
                 review={review}
-                spot={spot} 
+                spot={this.props.spot}
+                fetchSpot={this.props.fetchSpot}
+                errors={this.props.errors} 
             />
         );
     }

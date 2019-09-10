@@ -2,7 +2,7 @@ import { RECEIVE_SPOT, RECEIVE_REVIEW, REMOVE_REVIEW } from '../actions/spot_act
 
 
 const reviewsReducer = (state = {}, action) => {
-    debugger
+    // debugger
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_SPOT:

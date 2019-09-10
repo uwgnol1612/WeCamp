@@ -35,6 +35,7 @@ class Spot < ApplicationRecord
 
     has_many_attached :photos
     has_many :reviews
+    has_many :bookings
 
 
     def self.in_bounds(bounds)

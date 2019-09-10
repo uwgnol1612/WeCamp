@@ -2,9 +2,10 @@ import { connect } from 'react-redux'
 import Review from './review_list_item'
 
 
-const mapStateToProps = ({ entities: { users } }, { review }) => {
+const mapStateToProps = (state, props) => {
+    // debugger
     return {
-        author: users[review.user_id]
+        author: state.entities.users[props.review.user_id]
     };
 };
 

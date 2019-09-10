@@ -12,7 +12,7 @@ class Api::ReviewsController < ApplicationController
     if @review.save
       render :show
     else
-      render json: @review, status: 422
+      render json: @review.errors.full_messages, status: 422
     end
   end
 
@@ -33,7 +33,7 @@ class Api::ReviewsController < ApplicationController
     if @review.destroy
       render :show
     else
-      render json: @post.errors.full_messages, status: 422
+      render json: @review.errors.full_messages, status: 422
     end
   end
 

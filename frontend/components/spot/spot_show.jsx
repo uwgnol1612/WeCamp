@@ -13,9 +13,12 @@ class SpotShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchSpot(this.props.match.params.spotId);
+        this.props.requestUsers();
+
     }
 
     // componentDidUpdate(prevProps) {
+    //     debugger
     //     if (prevProps.spot.id !== this.props.match.params.spotId) {
     //         this.props.fetchSpot(this.props.match.params.spotId);
     //     }
@@ -26,7 +29,7 @@ class SpotShow extends React.Component {
         if (!this.props.currentUser) {
             this.props.openModal('login')
         } else {
-            const url = `/spots/${this.props.match.params.spotId}/reviews/new`
+            const url = `/spots/${this.props.match.params.spotId}/review/new`
             this.props.history.push(url);
         }
     }
@@ -156,12 +159,15 @@ class SpotShow extends React.Component {
                             </div>
                         </div>
                         <div className='spot-review-container'>
-                            <h3>{this.props.reviews.length} Written reviews</h3> 
-                            <button onClick={this.navigateToReviewForm}>Submit Review</button>
+                            <div className='spot-review-header'>
+                                <h3>{this.props.reviews.length} Written reviews</h3> 
+                                <button onClick={this.navigateToReviewForm}>Submit Review</button>
+                            </div>
 
                             <ReviewList spot={this.props.spot} 
                                         reviews={this.props.reviews}
-                                        deleteReview={this.props.deleteReview} 
+                                        deleteReview={this.props.deleteReview}
+                                        currentUser={this.props.currentUser}
                             />
                         </div>
                     </div>
@@ -189,28 +195,15 @@ const SpotActivity = (props) => {
     )
 }
 
-// const ReviewList = (props) => {
-//     // debugger
-//     if (props.reviews === []) {
-//         return; 
-//     } else {
-//         const reviews = Object.values(props.reviews).map(review => (
-//             <ReviewListItemContainer
-//                 review={review}
-//                 key={review.id}
-//             />
-//         ))
-//         return reviews;
-//     }
-// };
 
-
-const ReviewList = ({ reviews, deleteReview }) => {
-    debugger
+const ReviewList = ({ reviews, deleteReview, spot, currentUser }) => {
+    // debugger
 
     return (
     reviews.map(review => (
         <ReviewListItemContainer
+            spot={spot}
+            currentUser={currentUser}
             deleteReview={deleteReview}
             review={review}
             key={review.id}/>

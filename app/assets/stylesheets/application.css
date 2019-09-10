@@ -16,7 +16,13 @@
  */
 
 
-
+.reviews-errors-messages {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 15px;
+}
 
 
 

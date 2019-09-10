@@ -19,6 +19,7 @@ class User < ApplicationRecord
     after_initialize :ensure_session_token
 
     has_many :reviews
+    has_many :bookings
 
     attr_reader :password
 

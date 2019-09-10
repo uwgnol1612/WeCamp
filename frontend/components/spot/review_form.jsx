@@ -11,6 +11,11 @@ class ReviewForm extends React.Component {
 
     }
 
+    componentDidMount() {
+        this.props.fetchSpot(this.props.match.params.spotId);
+    }
+
+    
     navigateToSpotShow() {
         const url = `/spots/${this.props.match.params.spotId}`
         this.props.history.push(url);
@@ -22,8 +27,8 @@ class ReviewForm extends React.Component {
         const review = Object.assign({}, this.state, {
             spot_id: spotId
         });
-        this.props.action(review);
-        this.navigateToSpotShow();
+
+        this.props.action(review).then(this.navigateToSpotShow);
     }
 
     update(field) {
@@ -31,21 +36,31 @@ class ReviewForm extends React.Component {
     }
 
     render() {
-
         if (!this.props.spot) return null;
+
+        const errors = this.props.errors.map((error, i) => <li key={`error-${i}`}>{error}</li>)
 
         return (
             <div className="review-form-container">
                 <h2>{this.props.spot.title}</h2>
-                <form className="review-form" onSubmit={this.handleSubmit}>
+                <form className="review-form">
                     <textarea
                         cols="50"
-                        rows="10"
+                        rows="15"
                         value={this.state.body}
                         placeholder="What do you think about the trip? Leave a review about your experience here..."
                         onChange={this.update("body")}
                     />
-                    <input type="submit" value="Submit Review"/>
+
+                    <div class="reviews-errors-messages">
+                        <ul>
+                            {errors}
+                        </ul>
+                    </div>
+
+                    <div className='review-btn'>
+                    <buttton onClick={this.handleSubmit}>Submit Review</buttton>
+                    </div>
                 </form>
             </div>
         );
