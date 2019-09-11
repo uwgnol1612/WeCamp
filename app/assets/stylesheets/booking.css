@@ -1,0 +1,178 @@
+.booking-form-container {
+
+    position: absolute;
+    width: 350px;
+    top: 325px;
+    right: 150px;
+    height: x;
+    background: white;
+    font-family: 'Open Sans', sans-serif;
+    z-index: 99;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.booking-banner {
+    min-height: 50px;
+    background-color: #fff;
+    border: 1px solid #ebebeb;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+    padding: 15px 10px 10px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-size: 20px;
+    font-weight: 700;
+    color: #333333;
+    border-bottom: none;
+
+}
+
+.booking-banner > span {
+    font-size: 13px;
+    font-weight: 400;
+    color: gray;
+}
+
+.booking-widget {
+    width:100%
+
+}
+
+.dates-guests {
+    min-height: 50px;
+    border-top: none;
+    font-size: 16px;
+    background-color: #fff;
+    border: 1px solid #ebebeb;
+    font-weight: 400;
+    line-height: 1.42;
+    color: #333333;
+    display: flex;
+    border-bottom: none;
+}
+
+.check-in {
+
+    width: 30%;
+    border-right: 1px solid #ebebeb;
+    padding: 10px 10px 10px 15px;
+
+}
+
+.check-out{
+
+    width: 30%;
+    border-right: 1px solid #ebebeb;
+    padding: 10px 10px 10px 15px;
+
+
+}
+.guest-number {
+        
+    width: 40%;
+    cursor: pointer;
+    padding: 10px 10px 10px 15px;
+}
+
+
+label {
+    display: block;
+    padding-top: 0;
+    padding-right: 0;
+    padding-left: 0;
+    font-size: .9rem;
+    color: #333333;
+    font-weight: 600;
+}
+
+.total-price {
+    min-height: 50px;
+    align-items: center;
+    font-size: 16px;
+    background-color: #fff;
+    border: 1px solid #ebebeb;
+    font-weight: 400;
+    line-height: 1.42;
+    color: #333333;
+    display: flex;
+    padding: 10px 10px 10px 15px;
+    border-bottom: none;
+    justify-content: space-between;
+
+}
+
+#price {
+    margin-right: 5px;
+    font-size: 15px;
+}
+
+
+.booking-submit {
+    min-height: 50px;
+
+    font-size: 16px;
+    background-color: #fff;
+    border: 1px solid #ebebeb;
+    font-weight: 700;
+    line-height: 1.42;
+    color: #333333;
+    display: flex;
+    padding: 10px 10px 10px 15px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#booking-submit-btn {
+
+    display: flex;
+    font-family: 'Open Sans', sans-serif;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 3px solid #40d9ac;
+    background: #40d9ac;
+    color: #fff;
+    margin: auto;
+    padding: 10px 20px;
+    width: 85%;
+    cursor: pointer;
+
+}
+
+
+#booking-submit-btn:hover {
+    background: #fff;
+    color: #40d9ac;
+}
+
+
+.DayPickerInput {
+    font-size: 14px;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.guest-counter {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 15px;
+}
+
+.guest-counter button:first-child {
+    font-weight: 700;
+    padding-right: 8px;
+}
+
+.guest-counter button:nth-child(3) {
+    font-weight: 700;
+    padding-left: 8px;
+}
+
+
+.DayPicker-Caption > div {
+    font-weight: 500;
+    font-size: 20px;
+
+}

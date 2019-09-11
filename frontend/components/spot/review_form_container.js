@@ -12,7 +12,6 @@ const mapStateToProps = (state, ownProps) => {
     
 }
 
-
 const mapDispatchToProps = (dispatch) => ({
     fetchSpot: id => dispatch(fetchSpot(id)),
     action: review => dispatch(createReview(review))

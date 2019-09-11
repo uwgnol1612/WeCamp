@@ -2,7 +2,7 @@ import { RECEIVE_ALL_BOOKINGS, RECEIVE_BOOKING, REMOVE_BOOKING } from '../action
 
 
 const bookingsReducer = (state= {}, action) => {
-    Object.freesze(state);
+    Object.freeze(state);
     switch (action.type) {
         case RECEIVE_ALL_BOOKINGS:
             return Object.assign({}, action.bookings)

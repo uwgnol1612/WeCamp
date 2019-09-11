@@ -8,8 +8,6 @@ class SpotIndexItem extends React.Component {
 
     render() {
 
-        debugger
-
         const tentIcon = this.props.spot.tent ? <img src="https://we-camp-seeds.s3.us-east-2.amazonaws.com/cabin.png" /> : <img src="https://we-camp-seeds.s3.us-east-2.amazonaws.com/tent.png" /> 
 
         return (

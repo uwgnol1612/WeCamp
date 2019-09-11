@@ -4,6 +4,7 @@ import SpotSlider from './react_slider';
 import ReviewListItemContainer from './review_list_item_container'
 import { ReviewLink } from '../../util/link_util'
 import ReviewFormContainer from './review_form_container'
+import BookingFormContainer from '../booking/booking_form_container'
 
 class SpotShow extends React.Component {
     constructor(props) {
@@ -171,9 +172,7 @@ class SpotShow extends React.Component {
                             />
                         </div>
                     </div>
-                    <div className='booking-container'>
-                        bookingForm goes here...
-                    </div>
+                    <BookingFormContainer />
                 </div>
                 
             </div>

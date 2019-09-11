@@ -15,11 +15,11 @@
 }
 
 .spot-review-header button {
-    border: 3px solid #39C39A;
+    border: 3px solid #40d9ac;
     height: 30px;
     width: 140px;
     min-width: 140px;
-    background: #39C39A;
+    background: #40d9ac;
     color: #fff;
     font-weight: 700;
     cursor: pointer;
@@ -35,7 +35,7 @@
 .spot-review-header button:hover {
     transition: background-color 0.3s ease 0s, border-color 0.4s ease 0s, color 0.4s ease 0s;
     background: #fff;
-    color: #39C39A
+    color: #40d9ac
 
 }
 
@@ -96,7 +96,7 @@
 }
 
 .review-links a:hover {
-    border-bottom: 1px solid #39C39A;
+    border-bottom: 1px solid #40d9ac;
     font-weight: bold;   
 }
 
@@ -142,13 +142,13 @@
 .review-btn {
     margin: 20px auto;
     width: 60%;
-    border: 3px solid #39C39A;
+    border: 3px solid #40d9ac;
     border-radius: 5px;
 
     height: 20px;
     padding: 10px 0px;
 
-    background: #39C39A;
+    background: #40d9ac;
     color: #fff;
     font-weight: 700;
     cursor: pointer;
@@ -162,7 +162,7 @@
 .review-btn:hover {
 
     background: #fff;
-    color: #39C39A
+    color: #40d9ac
 } ;
 
 .reviews-errors-messages {
