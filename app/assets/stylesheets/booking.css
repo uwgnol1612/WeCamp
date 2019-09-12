@@ -92,10 +92,10 @@ label {
 .total-price {
     min-height: 50px;
     align-items: center;
-    font-size: 16px;
+    font-size: 20px;
     background-color: #fff;
     border: 1px solid #ebebeb;
-    font-weight: 400;
+   
     line-height: 1.42;
     color: #333333;
     display: flex;
@@ -107,9 +107,9 @@ label {
 
 #price {
     margin-right: 5px;
-    font-size: 15px;
+    font-size: 19px;
+    font-weight: 700;
 }
-
 
 .booking-submit {
     min-height: 50px;
@@ -160,6 +160,11 @@ label {
     font-size: 15px;
 }
 
+.guest-counter input {
+    width: 20%;
+    text-align: center;
+}
+
 .guest-counter button:first-child {
     font-weight: 700;
     padding-right: 8px;
@@ -170,9 +175,3 @@ label {
     padding-left: 8px;
 }
 
-
-.DayPicker-Caption > div {
-    font-weight: 500;
-    font-size: 20px;
-
-}

@@ -16,6 +16,11 @@ class Api::ReviewsController < ApplicationController
     end
   end
 
+  def index 
+    @reviews = Review.all
+    render :index
+  end 
+
   def update
 
     @review = current_user.reviews.find(params[:id])

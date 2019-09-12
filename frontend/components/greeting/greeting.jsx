@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 const Greeting = ({ currentUser, logout, openModal }) => {
     const sessionLinks = () => (
@@ -14,7 +15,9 @@ const Greeting = ({ currentUser, logout, openModal }) => {
             </span>
                 <div className="dropdown-content">
                     <li><a href="#">Host</a></li>
-                    <li><a href="#">Bookings</a></li>
+                    <Link to={`/users/${currentUser.id}`}>
+                        <li>Bookings</li>
+                    </Link>
                     <li><button onClick={logout}>Log out</button></li>
                 </div>
         </div>

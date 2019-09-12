@@ -13,8 +13,10 @@ class SpotShow extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchSpot(this.props.match.params.spotId);
+        this.props.fetchReviews();
         this.props.requestUsers();
+        this.props.fetchSpot(this.props.match.params.spotId);
+        
 
     }
 
@@ -196,7 +198,7 @@ const SpotActivity = (props) => {
 
 
 const ReviewList = ({ reviews, deleteReview, spot, currentUser }) => {
-    // debugger
+    
 
     return (
     reviews.map(review => (

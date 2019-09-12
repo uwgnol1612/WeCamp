@@ -1,10 +1,14 @@
 export const selectReviewsForSpot = (props, spot) => {
     if (spot) {
         // debugger
-        return Object.values(props.reviews)
+        return spot.reviewIds.map(id => props.reviews[id])
     } else {
         return [];
     }
 };
+
+
+
+
 
 

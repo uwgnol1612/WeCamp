@@ -9,9 +9,11 @@ class Counter extends React.Component {
         }
         this.increaseCount = this.increaseCount.bind(this);
         this.decreaseCount = this.decreaseCount.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    componentDidMount() {
+    handleSubmit(e) {
+        e.preventDefault();
         this.props.updateGuestNum(this.state.count)
     }
 
@@ -34,11 +36,11 @@ class Counter extends React.Component {
 
     render() {
         return (
-        <div className='guest-counter'>
+        <form className='guest-counter' onSubmit={this.handleSubmit}>
             <button onClick={() => this.decreaseCount()}>&#8722;</button>
-            <p>{this.state.count}</p>
+                <input readOnly value={this.state.count}></input>
             <button onClick={() => this.increaseCount()}>&#43;</button>
-        </div>
+        </form>
         )
     }
 

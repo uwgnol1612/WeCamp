@@ -20,16 +20,18 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/i,
-        use: ['css-loader'],
+        test: /\.css$/,
+        use: ['style-loader','css-loader'],
       }
       
-
     ]
   },
   devtool: 'source-map',
   resolve: {
-    extensions: [".js", ".jsx", "*"]
+    extensions: [".js", ".jsx", '.css'],
+    modules: [
+      'node_modules'
+    ]
   }
 };
 

@@ -3,6 +3,7 @@ export const RECEIVE_SPOT = "RECEIVE_SPOT";
 export const RECEIVE_REVIEW = "RECEIVE_REVIEW";
 export const REMOVE_REVIEW = "REMOVE_REVIEW"
 export const RECEIVE_REVIEW_ERRORS = "RECEIVE_REVIEW_ERRORS";
+export const RECEIVE_ALL_REVIEWS = "RECEIVE_ALL_REVIEWS";
 
 import * as SpotApiUtil from '../util/spot_api_util';
 
@@ -22,7 +23,13 @@ export const receiveReview = ({review, user}) => ({
     review, 
     user
 })
- 
+
+export const receiveAllReviews = (reviews) => ({
+    type: RECEIVE_ALL_REVIEWS,
+    reviews
+})
+
+
 export const removeReview = ({ review }) => ({
     type: REMOVE_REVIEW,
     reviewId: review.id
@@ -43,6 +50,10 @@ export const fetchSpot = (id) => dispatch => {
     return SpotApiUtil.fetchSpot(id).then((spot) => dispatch(receiveSpot(spot)))
 }
 
+
+export const fetchReviews = () => dispatch => {
+    return SpotApiUtil.fetchReviews().then((reviews) => dispatch(receiveAllReviews(reviews)))
+}
 
 
 export const createReview = (review) => dispatch => {

@@ -5,9 +5,10 @@ import Modal from './modal/modal';
 import GreetingContainer from './greeting/greeting_container';
 import SpotSearchContainer from './search/spot_search_container';
 import Splash from './splash/splash';
-import SpotShowContainer from './spot/spot_show_container'
-import ReviewFormContainer from './spot/review_form_container'
-import ReviewEditContainer from './spot/review_edit_container'
+import SpotShowContainer from './spot/spot_show_container';
+import ReviewFormContainer from './spot/review_form_container';
+import ReviewEditContainer from './spot/review_edit_container';
+import UserShowContainer from './user/user_show_container'
 
 
 const App = () => (
@@ -26,9 +27,11 @@ const App = () => (
             </div>
         </nav>
         <Switch>
+            <Route exact path='/spots/:spotId' component={SpotShowContainer} />
             <Route exact path="/spots/:spotId/review/new" component={ReviewFormContainer} />
             <Route exact path="/spots/:spotId/reviews/:reviewId/edit" component={ReviewEditContainer} />
-            <Route exact path='/spots/:spotId' component={SpotShowContainer} />
+            <ProtectedRoute exact path="/users/:userId" component={UserShowContainer} />
+
             <Route path='/spots' component={SpotSearchContainer} />
             <Route exact path='/' component={Splash} />
         </Switch>

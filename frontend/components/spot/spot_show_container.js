@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
-import { fetchSpot, deleteReview } from '../../actions/spot_actions';
+import { fetchSpot, deleteReview, fetchReviews } from '../../actions/spot_actions';
 import SpotShow from './spot_show';
 import { openModal } from '../../actions/modal_actions'
-import { selectReviewsForSpot, selectSpot } from '../../reducers/selectors'
+import { selectReviewsForSpot } from '../../reducers/selectors'
 import { requestUsers } from '../../actions/user_actions'
 
 
@@ -22,6 +22,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
+    fetchReviews: ()=> dispatch(fetchReviews()),
     fetchSpot: (id) => dispatch(fetchSpot(id)),
     openModal: modal => dispatch(openModal(modal)),
     deleteReview: (id) => dispatch(deleteReview(id)),
