@@ -11,23 +11,17 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "babel-loader": "^8.0.6",
     "moment": "^2.24.0",
-    "native": "^0.3.3",
     "react": "^16.9.0",
-    "react-calendar": "^2.19.2",
-    "react-day-picker": "^7.3.2",
     "react-dom": "^16.9.0",
-    "react-native-calendars": "^1.212.0",
-    "react-native-numeric-input": "^1.8.3",
-    "react-native-vector-icons": "^6.6.0",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.0.1",
     "react-slick": "^0.25.2",
     "redux": "^4.0.4",
-    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "style-loader": "^1.0.0",
     "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.7"
+    "webpack-cli": "^3.3.7",
+    "css-loader": "^3.2.0"
   },
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
   "version": "1.0.0",
@@ -49,6 +43,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "css-loader": "^3.2.0"
+    "redux-logger": "^3.0.6"
   }
 }
+
+

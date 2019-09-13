@@ -16,7 +16,6 @@ class SpotShow extends React.Component {
         this.props.fetchReviews();
         this.props.requestUsers();
         this.props.fetchSpot(this.props.match.params.spotId);
-        
 
     }
 
@@ -185,7 +184,7 @@ class SpotShow extends React.Component {
 
 const SpotActivity = (props) => {
     return (
-        <div className='tile-wrapper'>
+        <div className='tile-wrapper' key={props.activityText}>
             <div className='tile'>
                 <img src={props.activityUrl} alt="" />
             </div>
@@ -199,17 +198,23 @@ const SpotActivity = (props) => {
 
 const ReviewList = ({ reviews, deleteReview, spot, currentUser }) => {
     
+    if (reviews.length === 0) {
+        return [];
+    } else {
 
-    return (
-    reviews.map(review => (
-        <ReviewListItemContainer
-            spot={spot}
-            currentUser={currentUser}
-            deleteReview={deleteReview}
-            review={review}
-            key={review.id}/>
-    ))
-    )       
+        return (
+            reviews.map(review =>
+                <ReviewListItemContainer
+                    spot={spot}
+                    currentUser={currentUser}
+                    deleteReview={deleteReview}
+                    review={review}
+                    key={review.id} 
+                />
+            ))
+    
+    }
+         
 };
 
 export default SpotShow;

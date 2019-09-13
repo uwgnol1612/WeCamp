@@ -1,0 +1,289 @@
+.user-profile-container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    margin-top:50px;
+    font-family: 'Open Sans', sans-serif
+}
+
+.user-detail {
+    width: 25%;
+    min-width: 260px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+
+}
+
+.user-bio {
+    margin-bottom: 20px;
+    border: 1px solid #ebebeb; 
+    padding: 15px 20px;
+}
+
+.user-pannel {
+    border: 1px solid #ebebeb; 
+    padding: 15px 20px;
+
+}
+
+.bookings-and-reviews {
+    padding: 15px 30px;
+    width:60%
+    
+}
+
+.user-name {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 15px;
+}
+.user-name img {
+    border-radius: 50%;
+    width:60px;
+    height: 60px;
+    margin-right:15px;
+}
+
+
+.user-time, .user-geo, .user-intro {
+    font-size:14px;
+    display: flex;
+    padding-bottom: 5px;
+}
+
+.user-geo {
+    margin-bottom:10px;
+}
+
+.pin-icon {
+    margin-right:5px;
+    width: 20px;
+    height:20px;
+}
+
+.heart-icon {
+    margin-right:7px;
+    width: 20px;
+    height:20px;
+}
+
+.intro {
+    font-weight:700;
+    margin-right:10px;
+
+}
+
+.user-intro {
+    font-size:13px;
+}
+
+.user-pannel {
+    display: flex;
+    flex-direction: column;
+    font-size:14px;
+}
+
+.hipcamper {
+    font-size:14px;
+    font-weight:500;
+    color: #777777
+}
+.user-email {
+    display: flex;
+    padding: 10px 0px;
+}
+
+.check-icon {
+    margin-right:10px;
+    width: 14px;
+    height:14px;
+
+}
+
+.facebook {
+    display: flex;
+    justify-content: space-between
+}
+
+.facebook button {
+    background-color: #3b5998;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 1px 5px;
+    line-height: 1.5;
+    border-radius: 0;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-weight: 500;
+    text-align: center;
+
+}
+.bookings-and-reviews-header {
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+.booking-list {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.user-bookings {
+    padding-right:20px;
+    margin-right:20px;
+}
+
+.user-bookings > h3 {
+    margin-top: 0;
+}
+
+.user-reviews > h3 {
+    margin-top: 0;
+}
+
+.user-bookings > a {
+    font-size: 17px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    border-bottom: 3px solid #ebebeb
+}
+
+.user-reviews > a {
+    font-size: 17px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    border-bottom: 3px solid #ebebeb
+}
+
+.user-bookings > a:focus {
+    border-bottom: 3px solid #40d9ac
+}
+
+.user-reviews > a:focus {
+    border-bottom: 3px solid #40d9ac
+}
+
+.booking-list-item {
+    
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ebebeb
+}
+
+.booking-list-item:first-child {
+    margin-top:50px;
+}
+
+
+.user-booking-pan {
+    display: flex;
+}
+
+.user-booking-image {
+    width: 40%;
+    height: 180px;
+    margin-right:50px;
+    overflow: hidden;
+}
+
+.user-booking-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-booking-details p {
+    padding-top:10px;
+    font-size: 14px;
+}
+
+.user-booking-details p:first-child {
+    padding-top:0px;
+}
+
+.user-booking-details span {
+    padding-right: 10px;
+    font-weight: 700;
+}
+
+.booking-delete-btn {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.booking-delete-btn button {
+    border: 3px solid #40d9ac;
+    height: 30px;
+    width: 130px;
+    min-width: 120px;
+    background: #40d9ac;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 20px;
+    text-align: center;
+    align-items: center;
+    font-size: 15px;
+    justify-content: center;
+}
+
+.booking-delete-btn button:hover {
+    transition: background-color 0.3s ease 0s, border-color 0.4s ease 0s, color 0.4s ease 0s;
+    background: #fff;
+    color: #40d9ac
+}
+
+.user-review-date {
+    font-size:15px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    margin-bottom:10px;
+
+}
+
+.user-review-body {
+    padding-bottom: 20px;
+    font-size:15px;
+}
+
+.review-btns {
+    padding: 0 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: #757575;
+    font-size: 14px;
+    font-weight:500;  
+}
+
+.review-btns a {
+    cursor: pointer;
+    margin-right: 20px;
+    border-bottom: 1px solid #ebebeb 
+}
+
+.review-btns a:hover {
+    border-bottom: 1px solid #40d9ac;
+    font-weight: bold;   
+}
+
+.review-btns button {
+    cursor: pointer;
+    border-bottom: 1px solid #ebebeb 
+}
+
+.review-btns button:hover {
+    border-bottom: 1px solid #39C39A;
+    font-weight: bold;   
+}
+
+.no-booking-list {
+    padding-top: 100px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #757575;
+}

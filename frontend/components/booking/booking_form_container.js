@@ -5,7 +5,7 @@ import { fetchSpot } from '../../actions/spot_actions'
 import { createBooking } from '../../actions/booking_actions'
 
 const mapStateToProps = (state, ownProps) => {
-    // debugger
+
     return {
     spot: Object.values(state.entities.spots)[0],
     currentUserId: state.session.id,

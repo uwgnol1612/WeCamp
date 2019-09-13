@@ -10,6 +10,9 @@ import ReviewFormContainer from './spot/review_form_container';
 import ReviewEditContainer from './spot/review_edit_container';
 import UserShowContainer from './user/user_show_container'
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
 
 const App = () => (
     <div className="app-container">
@@ -17,6 +20,10 @@ const App = () => (
         <nav className="splash-nav">
             <div className="left-nav">
                 <Link to="/"><h1>WeCamp</h1></Link>
+                <form className='search-bar-input'>
+                    <span className="search-bar-icon-nav"><FontAwesomeIcon icon={faSearch} /></span>
+                    <input placeholder='Search...' type="text" />
+                </form>
             </div>
             <div className="right-nav">
                 <li><a href="#">Camp</a></li>
@@ -27,7 +34,7 @@ const App = () => (
             </div>
         </nav>
         <Switch>
-            <Route exact path='/spots/:spotId' component={SpotShowContainer} />
+            <Route exact path="/spots/:spotId" component={SpotShowContainer} />
             <Route exact path="/spots/:spotId/review/new" component={ReviewFormContainer} />
             <Route exact path="/spots/:spotId/reviews/:reviewId/edit" component={ReviewEditContainer} />
             <ProtectedRoute exact path="/users/:userId" component={UserShowContainer} />

@@ -1,12 +1,12 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import DayPickerInput from 'react-day-picker/DayPickerInput';
+// import DayPickerInput from 'react-day-picker/DayPickerInput';
 import Counter from '../../util/counter_util'
 
-import "react-day-picker/lib/style.css"
+// import "react-day-picker/lib/style.css"
 
-import { formatDate, parseDate } from 'react-day-picker/moment';
-import 'moment/locale/it';
+// import { formatDate, parseDate } from 'react-day-picker/moment';
+// import 'moment/locale/it';
 
 
 class BookingForm extends React.Component {
@@ -30,6 +30,7 @@ class BookingForm extends React.Component {
     // componentDidMount() {
     //     this.props.fetchSpot(this.props.spot.id);
     // }
+
 
     navigateToUserShow() {
         const url = `/users/${this.props.currentUserId}`
@@ -99,19 +100,6 @@ class BookingForm extends React.Component {
             const days = Math.ceil((checkOutDate - checkInDate) / (1000 * 60 * 60 * 24));
             totalPrice = days * this.props.spot.price
         }
-
-        const modifiers = {
-            day: new Date(),
-        }
-        
-        const modifiersStyles = {
-            day: {
-                color: '#40d9ac'
-            },
-            selected: {
-                backgroundColor: '#40d9ac'
-            }
-        }
     
         return (
             <div className="booking-form-container">
@@ -125,7 +113,7 @@ class BookingForm extends React.Component {
                             <div className="check-in">
                                 <label>Check in</label>
                                 
-                                <DayPickerInput
+                                {/* <DayPickerInput
                                     placeholder='Select date'
                                     onDayChange={day => this.handleCheckInDayChange(day)}
                                     formatDate={formatDate}
@@ -133,16 +121,14 @@ class BookingForm extends React.Component {
 
                                     dayPickerProps={{
                                         disabledDays: { before: new Date() },
-                                        modifiers: { modifiers },
-                                        modifiersStyles: { modifiersStyles }
                                     }}
                                                                         
-                                />
+                                /> */}
                             </div>
 
                             <div className="check-out">
                                 <label>Check out</label>
-                                <DayPickerInput
+                                {/* <DayPickerInput
                                     placeholder='Select date'
                                     onDayChange={day => this.handleCheckOutDayChange(day)}
                                     formatDate={formatDate}
@@ -153,8 +139,7 @@ class BookingForm extends React.Component {
                                        
                                     }}
 
-                                  
-                                />
+                                /> */}
                             </div>
                             <div className="guest-number">
                                 <label>Guests</label>

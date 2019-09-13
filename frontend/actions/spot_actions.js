@@ -5,6 +5,8 @@ export const REMOVE_REVIEW = "REMOVE_REVIEW"
 export const RECEIVE_REVIEW_ERRORS = "RECEIVE_REVIEW_ERRORS";
 export const RECEIVE_ALL_REVIEWS = "RECEIVE_ALL_REVIEWS";
 
+export const START_LOADING_ALL_SPOTS = 'START_LOADING_ALL_SPOTS';
+
 import * as SpotApiUtil from '../util/spot_api_util';
 
 
@@ -42,9 +44,17 @@ export const receiveReviewErrors = (errors) => ({
 })
 
 
+export const startLoadingAllSpots = () => ({
+    type: START_LOADING_ALL_SPOTS
+});
+
+
+
 export const fetchSpots = (filters) => dispatch => {
+    dispatch(startLoadingAllSpots());
     return SpotApiUtil.fetchspots(filters).then((spots) => dispatch(receiveAllSpots(spots)))
 }
+
 
 export const fetchSpot = (id) => dispatch => {
     return SpotApiUtil.fetchSpot(id).then((spot) => dispatch(receiveSpot(spot)))
@@ -73,4 +83,3 @@ export const updateReview = (review) => dispatch => {
 export const deleteReview = (id) => dispatch => {
     return SpotApiUtil.deleteReview(id).then((review) => dispatch(removeReview(review)))
 }
-

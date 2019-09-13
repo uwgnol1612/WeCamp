@@ -28,9 +28,12 @@ class EditReviewForm extends React.Component {
     // }
 
     render() {
+        debugger
+
         if (!this.props.spot) return null
         
         const review = this.props.spot.reviews[this.props.match.params.reviewId]
+
         return (
             <ReviewForm
                 action={this.props.action}

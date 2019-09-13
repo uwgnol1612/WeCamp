@@ -7,6 +7,10 @@ class ReviewList extends React.Component {
         super(props)
     }
 
+    componentDidMount() {
+        this.props.requestUser(this.props.currentUser.id);
+    }
+
     render() {
 
         const reviews = this.props.reviews.map(review => {
@@ -15,11 +19,11 @@ class ReviewList extends React.Component {
 
             return (
                 <li key={review.id} className='booking-list-item'>
-                        <div>{formatedDate}</div>
-                        <div>{review.body}</div>
+                        <div className='user-review-date'>{formatedDate}</div>
+                        <div className='user-review-body'>{review.body}</div>
                         <div className='review-btns'>
-                            <Link to={`/spots/${review.spot_id}/reviews/${review.id}/edit`}>Edit</Link>
-                            <button onClick={() => props.deleteReview(review.id)}>Delete</button>
+                            {/* <Link to={`/spots/${review.spot_id}/reviews/${review.id}/edit`}>Edit</Link> */}
+                            <button onClick={() => this.props.deleteReview(review.id)}>Delete</button>
                         </div>
                 </li>
             )

@@ -12,13 +12,13 @@ export const receiveAllBookings = (bookings) => ({
     bookings
 })
 
-export const receiveBooking = (booking) => ({
+export const receiveBooking = ( {booking} ) => ({
     type: RECEIVE_BOOKING,
     booking
 })
 
 
-export const removeBooking = (booking) => ({
+export const removeBooking = ( {booking} ) => ({
     type: REMOVE_BOOKING,
     bookingId: booking.id
 })

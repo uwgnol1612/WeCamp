@@ -1,7 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+
+// import DayPickerInput from 'react-day-picker/DayPickerInput';
+// import "react-day-picker/lib/style.css"
 
 const Splash = () => (
     <div>
@@ -9,7 +14,20 @@ const Splash = () => (
             <div className="splash-title">Everywhere you want to camp.</div>
             <div className="splash-subtitle1"> Book unique camping experiences on over <strong className ="bold"> 300,000 </strong> campsites, ranches, vineyards, public parks and more.</div>
             <div className="splash-search-container">
-                <span className="search-bar-icon"><FontAwesomeIcon icon={faSearch}/></span>
+                <form className='geo-input'>
+                    <span className="search-bar-icon"><FontAwesomeIcon icon={faSearch}/></span>
+                    <input placeholder='Find camping near...' type="text"/>
+                </form>
+                <div className='date-input'>
+                    <span className="date-search-icon"><FontAwesomeIcon icon={faCalendarAlt} /></span>
+                {/* <DayPickerInput
+                    placeholder='Enter Dates'
+                    dayPickerProps={{
+                        disabledDays: { before: new Date() },
+                    }}
+                /> */}
+                </div>
+                    <div className='spash-search-btn' id='search-link'><Link to='/spots'>Search</Link></div>
             </div>
             <div className="splash-subtitle2">Discover camping...</div>
             <div className="splash-spots-section">
@@ -131,8 +149,14 @@ const Splash = () => (
                     <div className="col-1-2 col-1-3">
                         <h5>Social</h5>
                         <ul>
-                            <li><span className="social-icon"><FontAwesomeIcon icon={faGithub} /></span>Github</li>
-                            <li><span className="social-icon"><FontAwesomeIcon icon={faLinkedin} /></span>Linkedin</li>
+                            <li><a href="https://github.com/uwgnol1612">
+                                <span className="social-icon"><FontAwesomeIcon icon={faGithub} /></span>Github
+                                </a>
+                            </li>
+                            <li><a href="https://www.linkedin.com/in/long-wu-7bb60994/">
+                                <span className="social-icon"><FontAwesomeIcon icon={faLinkedin} /></span>Linkedin
+                            </a>
+                            </li>
                         </ul>
                     </div>
                 </div>

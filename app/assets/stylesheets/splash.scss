@@ -31,7 +31,9 @@
     width: 100%;
     box-shadow: 1px 2px 5px 2px rgba(0,0,0,0.1);
     margin: 10px 0px;
-    height: 75px;
+    height: 100px;
+    display: flex;
+    align-items: center
 }
 
 .search-bar-icon {
@@ -40,6 +42,82 @@
     float: left;
     font-weight: 700;
     padding: 25px 15px;
+}
+
+.geo-input {
+    height:60%;
+    width:70%; 
+    border: 1px solid #ebebeb; 
+    box-shadow: 1px 2px 2px rgba(0,0,0,0.1);
+    color: #555555;
+    border-radius: 2px;
+    font-size: 16px;
+    line-height: 1.42;
+    background-color: #fff;
+    margin-left:15px;
+    display: flex;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.date-input {
+    display:flex;
+    justify-content: flex-start;
+    height:60%;
+    width:15%; 
+    border: 1px solid #ebebeb; 
+    box-shadow: 1px 2px 2px rgba(0,0,0,0.1);
+    color: #555555;
+    border-radius: 2px;
+    line-height: 1.42;
+    background-color: #fff;
+    margin-left:10px;
+    align-items: center;
+    cursor: pointer;
+
+    font-family: Arial, Helvetica, sans-serif
+}
+
+
+.date-input:hover {
+    background-color: #f3fbfb;
+    border: 1px solid #3cc69e;
+    color: #40d9ac;
+}
+
+.date-search-icon {
+    font-size: 25px;
+    color: black;
+    float: left;
+    font-weight: 700;
+    padding: 25px 15px;
+}
+
+
+.spash-search-btn {
+    display: flex;
+
+    width:15%;
+    height:60%;
+    background-color: #40d9ac;
+    border: 3px solid #40d9ac;
+    color: #fff;
+
+    cursor: pointer;
+    border-radius: 2px;
+    font-size: 16px;
+    line-height: 1.42;
+    margin-left:10px;
+    margin-right:15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:700;
+    align-items: center
+}
+
+.spash-search-btn:hover {
+    background: #fff;
+    color: #40d9ac
+
 }
 
 .splash-subtitle2 {
@@ -103,6 +181,12 @@
     
 }
 
+.spash-search-btn > a {
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding: 15px;
+}
 
 
 

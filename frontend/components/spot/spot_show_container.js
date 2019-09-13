@@ -8,7 +8,7 @@ import { requestUsers } from '../../actions/user_actions'
 
 
 const mapStateToProps = (state, ownProps) => {
-    // debugger
+
 
     const spot = state.entities.spots[ownProps.match.params.spotId]
     const reviews = selectReviewsForSpot(state.entities, spot);

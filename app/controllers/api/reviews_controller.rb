@@ -16,9 +16,8 @@ class Api::ReviewsController < ApplicationController
     end
   end
 
-  def index 
+  def index
     @reviews = Review.all
-    render :index
   end 
 
   def update

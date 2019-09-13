@@ -4,13 +4,20 @@ class Counter extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            count: 0,
+            count: 1,
             max: this.props.maxNum
         }
         this.increaseCount = this.increaseCount.bind(this);
         this.decreaseCount = this.decreaseCount.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.maxNum != this.props.maxNum) {
+            this.setState({ max: this.props.maxNum })
+        }
+    }
+
 
     handleSubmit(e) {
         e.preventDefault();
@@ -27,11 +34,15 @@ class Counter extends React.Component {
     }
 
     decreaseCount() {
-        if (this.state.count > 0) {
+        if (this.state.count > 1) {
             this.setState({
                 count: this.state.count - 1
             })
-        } 
+        } else {
+            this.setState({
+                count: 1
+            })
+        }
     }
 
     render() {

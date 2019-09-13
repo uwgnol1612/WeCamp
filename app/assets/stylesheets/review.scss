@@ -50,7 +50,6 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-
 }
 
 .review-detail {
@@ -71,6 +70,7 @@
     font-weight: 500;
     color: gray
 }
+
 #review-body {
     font-size: 14px;
     line-height: 1.42;
@@ -174,5 +174,13 @@
 }
    
 
+.review-detail-img img {
+    border-radius: 50%;
+    width:60px;
+    height: 60px;
+}
+.review-detail-img {
+    float:left;
+}
 
 

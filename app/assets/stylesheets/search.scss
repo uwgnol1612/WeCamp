@@ -48,6 +48,8 @@
     display: flex;
     flex-direction: column;
     width:60%;
+    height: 580px;
+    overflow: scroll;
 }
 
 .spot-index-description {
@@ -160,14 +162,22 @@
     width: 40%;
     height: 500px;
     padding-top: 10px;
-
-
 }
 
 
+#map-container {
+    height: 570px;
+}
 
 
+#spot-group-filter button img {
+    height: 0;
+    width: 0;
 
+}
 
+#spot-price-filter button img {
+    height: 0;
+    width: 0;
 
-
+}

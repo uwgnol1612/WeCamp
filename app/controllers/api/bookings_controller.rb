@@ -3,14 +3,13 @@ class Api::BookingsController < ApplicationController
     before_action :require_logged_in
 
     def index
-        @bookings = current_user.bookings
+        @bookings = Booking.all
         render :index
     end
 
     def show
         @booking = Booking.find(params[:id])
         render :show
-
     end
 
     def create
