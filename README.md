@@ -1,6 +1,6 @@
 # WeCamp
 
-WeCamp, a HipCamp clone, is a web application that allows users to search, browse and make reservations of campsites of interests, as well as share their camping experiences.
+WeCamp, a HipCamp clone, is a web application that allows users to search, browse and make reservations of campsites, as well as share their camping experiences.
 
 ![WeCamp](https://we-camp-seeds.s3.us-east-2.amazonaws.com/1.png)
 
@@ -11,10 +11,11 @@ The technlogies used to create WeCamp include: React and Redux, PostgresSQL, Rub
 ## Features
 ### User Authentication
 
-The User Auth was created using BCrypty on a rails backend:
+The User Auth was created using BCrypt on rails backend:
+
 * Users can sign up, sign in, and log out
 * Users can use a demo login to try the site
-* Users don't have access to certain features such as making reservations & leaving comments without logging in.
+* Users don't have access to certain features such as making reservations & leaving comments without logging in
 
 ![UserAuth](https://we-camp-seeds.s3.us-east-2.amazonaws.com/2.png)
 
@@ -67,7 +68,7 @@ The User Auth was created using BCrypty on a rails backend:
 ```
 ### Spots Search
 
-Users can search for campsites by applying one or more filters from a list of categories such as group size, price, amenities and activties offered by the spot.
+Users can search campsites by applying one or more filters from a list of categories such as group size, price, amenities and activties offered by the spot.
 
 ![SpotFilter](https://we-camp-seeds.s3.us-east-2.amazonaws.com/3.png)
 
