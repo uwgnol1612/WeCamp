@@ -5,8 +5,8 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 
-// import DayPickerInput from 'react-day-picker/DayPickerInput';
-// import "react-day-picker/lib/style.css"
+import DayPickerInput from 'react-day-picker/DayPickerInput';
+import "react-day-picker/lib/style.css"
 
 const Splash = () => (
     <div>
@@ -20,12 +20,12 @@ const Splash = () => (
                 </form>
                 <div className='date-input'>
                     <span className="date-search-icon"><FontAwesomeIcon icon={faCalendarAlt} /></span>
-                {/* <DayPickerInput
+                <DayPickerInput
                     placeholder='Enter Dates'
                     dayPickerProps={{
                         disabledDays: { before: new Date() },
                     }}
-                /> */}
+                />
                 </div>
                     <div className='spash-search-btn' id='search-link'><Link to='/spots'>Search</Link></div>
             </div>

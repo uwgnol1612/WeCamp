@@ -1,8 +1,7 @@
-/* DayPicker styles */
 
 .DayPicker {
   display: inline-block;
-  font-size: 1rem;
+  font-size: 15px;
 }
 
 .DayPicker-wrapper {
@@ -106,6 +105,7 @@
   color: #8B9898;
   text-align: center;
   font-size: 0.875em;
+  font-weight: 700;
 }
 
 .DayPicker-Weekday abbr[title] {
@@ -124,7 +124,7 @@
 .DayPicker-Day {
   display: table-cell;
   padding: 0.5em;
-  border-radius: 50%;
+  border-radius: 0;
   vertical-align: middle;
   text-align: center;
   cursor: pointer;
@@ -160,7 +160,7 @@
   cursor: pointer;
 }
 
-/* Default modifiers */
+
 
 .DayPicker-Day--today {
   color: #40d9ac;
@@ -175,10 +175,10 @@
 .DayPicker-Day--disabled {
   color: #DCE0E0;
   cursor: default;
-  /* background-color: #eff1f1; */
+
 }
 
-/* Example modifiers */
+
 
 .DayPicker-Day--sunday {
   background-color: #F7F8F8;
@@ -204,7 +204,7 @@
   background-color: #F0F8FF;
 }
 
-/* DayPickerInput */
+
 
 .DayPickerInput {
   display: inline-block;

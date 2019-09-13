@@ -1,12 +1,14 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-// import DayPickerInput from 'react-day-picker/DayPickerInput';
+import DayPickerInput from 'react-day-picker/DayPickerInput';
 import Counter from '../../util/counter_util'
 
-// import "react-day-picker/lib/style.css"
+import "react-day-picker/lib/style.css"
+import styles from '../../../app/assets/stylesheets/style.css';
 
-// import { formatDate, parseDate } from 'react-day-picker/moment';
-// import 'moment/locale/it';
+
+import { formatDate, parseDate } from 'react-day-picker/moment';
+import 'moment/locale/it';
 
 
 class BookingForm extends React.Component {
@@ -113,22 +115,23 @@ class BookingForm extends React.Component {
                             <div className="check-in">
                                 <label>Check in</label>
                                 
-                                {/* <DayPickerInput
+                                <DayPickerInput
                                     placeholder='Select date'
                                     onDayChange={day => this.handleCheckInDayChange(day)}
                                     formatDate={formatDate}
                                     parseDate={parseDate}
+                                    // classNames={styles}
 
                                     dayPickerProps={{
                                         disabledDays: { before: new Date() },
                                     }}
                                                                         
-                                /> */}
+                                />
                             </div>
 
                             <div className="check-out">
                                 <label>Check out</label>
-                                {/* <DayPickerInput
+                                <DayPickerInput
                                     placeholder='Select date'
                                     onDayChange={day => this.handleCheckOutDayChange(day)}
                                     formatDate={formatDate}
@@ -139,7 +142,7 @@ class BookingForm extends React.Component {
                                        
                                     }}
 
-                                /> */}
+                                />
                             </div>
                             <div className="guest-number">
                                 <label>Guests</label>

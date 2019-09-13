@@ -7,7 +7,7 @@ const Review = (props) => {
   
     const formatedDate = formatDate(props.review.created_at);
 
-    debugger
+    // debugger
     
     if (!props.author) return null;
 

@@ -28,7 +28,7 @@ class EditReviewForm extends React.Component {
     // }
 
     render() {
-        debugger
+        // debugger
 
         if (!this.props.spot) return null
         
