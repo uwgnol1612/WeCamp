@@ -1,6 +1,6 @@
 # WeCamp
 
-WeCamp, a HipCamp clone, is a web application that allows users to search, browse and make reservations of campsites of interests, as well as share their camping experience.
+WeCamp, a HipCamp clone, is a web application that allows users to search, browse and make reservations of campsites of interests, as well as share their camping experiences.
 
 ![WeCamp](https://we-camp-seeds.s3.us-east-2.amazonaws.com/1.png)
 
@@ -110,7 +110,7 @@ Users can search for campsites by applying one or more filters from a list of ca
 ## Future Directions
 
 * User profile and host
-  * User can upload avatar, edit and delete their profile
+  * User can upload avatar, edit and delete their profiles
   * User can host a spot
 
 * Messaging
