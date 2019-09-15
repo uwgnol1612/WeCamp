@@ -4,28 +4,42 @@ class Button extends React.Component{
     constructor(props) {
         super(props)
         this.state = { 
-            buttonState: 'unclicked' 
+            buttonState: 'unclicked'
         } 
         this.handleClick = this.handleClick.bind(this);
     }
 
+    // componentDidUpdate(){
+    //     if (this.props.filterState === 'Off') {
+    //         this.setState({
+    //             buttonState: 'unclicked'
+    //         })
+    //     }
+    
+    // }
+
     handleClick(e) {
-        const newButtonState = this.state.buttonState === 'unclicked' ? 'clicked' : 'unclicked'
-        this.setState({
-            buttonState: newButtonState
-        })
+       
         if (this.state.buttonState === 'unclicked') {
             this.props.updateFilter(this.props.filterType, this.props.filterValue); 
         } else {
             this.props.removeFilter(this.props.filterType); 
         }
+        const newButtonState = this.state.buttonState === 'unclicked' ? 'clicked' : 'unclicked'
+        this.setState({
+            buttonState: newButtonState
+        })
+
     }
 
     render() {
+        // debugger
+
         let btnStyle = {
             backgroundColor: 'white',
             color: 'black'
         }
+
         if (this.state.buttonState === 'clicked') {
             btnStyle = {
                 backgroundColor: '#f3fbfb',

@@ -16,7 +16,7 @@ const Splash = () => (
             <div className="splash-search-container">
                 <form className='geo-input'>
                     <span className="search-bar-icon"><FontAwesomeIcon icon={faSearch}/></span>
-                    <input placeholder='Find camping near...' type="text"/>
+                    <input id='pact-input' placeholder='Find camping near...' type="text"/>
                 </form>
                 <div className='date-input'>
                     <span className="date-search-icon"><FontAwesomeIcon icon={faCalendarAlt} /></span>

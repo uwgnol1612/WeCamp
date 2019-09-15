@@ -261,6 +261,35 @@ var removeAllFilters = function removeAllFilters() {
 
 /***/ }),
 
+/***/ "./frontend/actions/map_action.js":
+/*!****************************************!*\
+  !*** ./frontend/actions/map_action.js ***!
+  \****************************************/
+/*! exports provided: RECEIVE_LOCATION, RESET_LOCATION, receiveLocation, resetgeoLoc */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_LOCATION", function() { return RECEIVE_LOCATION; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RESET_LOCATION", function() { return RESET_LOCATION; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveLocation", function() { return receiveLocation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetgeoLoc", function() { return resetgeoLoc; });
+var RECEIVE_LOCATION = "RECEIVE_LOCATION";
+var RESET_LOCATION = "RESET_LOCATION";
+var receiveLocation = function receiveLocation(geoLoc) {
+  return {
+    type: RECEIVE_LOCATION,
+    geoLoc: geoLoc
+  };
+};
+var resetgeoLoc = function resetgeoLoc() {
+  return {
+    type: RESET_LOCATION
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/modal_actions.js":
 /*!*******************************************!*\
   !*** ./frontend/actions/modal_actions.js ***!
@@ -562,9 +591,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _spot_review_form_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./spot/review_form_container */ "./frontend/components/spot/review_form_container.js");
 /* harmony import */ var _spot_review_edit_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./spot/review_edit_container */ "./frontend/components/spot/review_edit_container.jsx");
 /* harmony import */ var _user_user_show_container__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./user/user_show_container */ "./frontend/components/user/user_show_container.js");
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
-/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
-
+/* harmony import */ var _components_search_google_map_search_container__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/search/google_map_search_container */ "./frontend/components/search/google_map_search_container.js");
 
 
 
@@ -587,16 +614,7 @@ var App = function App() {
     className: "left-nav"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "WeCamp")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-    className: "search-bar-input"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "search-bar-icon-nav"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_11__["FontAwesomeIcon"], {
-    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faSearch"]
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    placeholder: "Search...",
-    type: "text"
-  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "WeCamp")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_search_google_map_search_container__WEBPACK_IMPORTED_MODULE_11__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "right-nav"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "#"
@@ -700,8 +718,7 @@ function (_React$Component) {
     _this.state = {
       check_in: undefined,
       check_out: undefined,
-      total_price: 0,
-      guest_number: 0
+      guest_number: 1
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.navigateToUserShow = _this.navigateToUserShow.bind(_assertThisInitialized(_this));
@@ -709,10 +726,7 @@ function (_React$Component) {
     _this.handleCheckOutDayChange = _this.handleCheckOutDayChange.bind(_assertThisInitialized(_this));
     _this.updateGuestNum = _this.updateGuestNum.bind(_assertThisInitialized(_this));
     return _this;
-  } // componentDidMount() {
-  //     this.props.fetchSpot(this.props.spot.id);
-  // }
-
+  }
 
   _createClass(BookingForm, [{
     key: "navigateToUserShow",
@@ -808,8 +822,7 @@ function (_React$Component) {
           return _this2.handleCheckInDayChange(day);
         },
         formatDate: react_day_picker_moment__WEBPACK_IMPORTED_MODULE_6__["formatDate"],
-        parseDate: react_day_picker_moment__WEBPACK_IMPORTED_MODULE_6__["parseDate"] // classNames={styles}
-        ,
+        parseDate: react_day_picker_moment__WEBPACK_IMPORTED_MODULE_6__["parseDate"],
         dayPickerProps: {
           disabledDays: {
             before: new Date()
@@ -833,7 +846,8 @@ function (_React$Component) {
         className: "guest-number"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Guests"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_counter_util__WEBPACK_IMPORTED_MODULE_3__["default"], {
         updateGuestNum: this.updateGuestNum,
-        maxNum: this.props.spot.max_capacity
+        maxNum: this.props.spot.max_capacity,
+        minNum: 1
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "total-price"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Subtotal"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -1151,25 +1165,33 @@ function (_React$Component) {
     };
     _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
     return _this;
-  }
+  } // componentDidUpdate(){
+  //     if (this.props.filterState === 'Off') {
+  //         this.setState({
+  //             buttonState: 'unclicked'
+  //         })
+  //     }
+  // }
+
 
   _createClass(Button, [{
     key: "handleClick",
     value: function handleClick(e) {
-      var newButtonState = this.state.buttonState === 'unclicked' ? 'clicked' : 'unclicked';
-      this.setState({
-        buttonState: newButtonState
-      });
-
       if (this.state.buttonState === 'unclicked') {
         this.props.updateFilter(this.props.filterType, this.props.filterValue);
       } else {
         this.props.removeFilter(this.props.filterType);
       }
+
+      var newButtonState = this.state.buttonState === 'unclicked' ? 'clicked' : 'unclicked';
+      this.setState({
+        buttonState: newButtonState
+      });
     }
   }, {
     key: "render",
     value: function render() {
+      // debugger
       var btnStyle = {
         backgroundColor: 'white',
         color: 'black'
@@ -1207,10 +1229,38 @@ function (_React$Component) {
 
 /***/ }),
 
-/***/ "./frontend/components/search/search.jsx":
-/*!***********************************************!*\
-  !*** ./frontend/components/search/search.jsx ***!
-  \***********************************************/
+/***/ "./frontend/components/search/google_map_search_container.js":
+/*!*******************************************************************!*\
+  !*** ./frontend/components/search/google_map_search_container.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _google_map_search_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./google_map_search_form */ "./frontend/components/search/google_map_search_form.jsx");
+/* harmony import */ var _actions_map_action__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/map_action */ "./frontend/actions/map_action.js");
+
+
+
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    receiveLocation: function receiveLocation(location) {
+      return dispatch(Object(_actions_map_action__WEBPACK_IMPORTED_MODULE_2__["receiveLocation"])(location));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(null, mapDispatchToProps)(_google_map_search_form__WEBPACK_IMPORTED_MODULE_1__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/search/google_map_search_form.jsx":
+/*!***************************************************************!*\
+  !*** ./frontend/components/search/google_map_search_form.jsx ***!
+  \***************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1218,201 +1268,98 @@ function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _spot_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./spot_index */ "./frontend/components/search/spot_index.jsx");
-/* harmony import */ var _spot_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_map */ "./frontend/components/search/spot_map.jsx");
-/* harmony import */ var _filter_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./filter_button */ "./frontend/components/search/filter_button.jsx");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
 
 
 
-var Search = function Search(_ref) {
-  var spots = _ref.spots,
-      updateFilter = _ref.updateFilter,
-      removeFilter = _ref.removeFilter,
-      removeAllFilters = _ref.removeAllFilters;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "spot-search-section"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-    className: "spot-filters-container"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "spot-dropdown"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    onClick: function onClick() {
-      return showDropdown('spot-group-filter');
-    },
-    className: "dropbtn"
-  }, "Group size"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "spot-group-filter",
-    className: "spot-filter-items"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    updateFilter: updateFilter,
-    removeFilter: removeFilter,
-    filterType: "groupSize",
-    filterValue: 5,
-    description: "5+ Campers"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    updateFilter: updateFilter,
-    removeFilter: removeFilter,
-    filterType: "groupSize",
-    filterValue: 10,
-    description: "10+ Campers"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    updateFilter: updateFilter,
-    removeFilter: removeFilter,
-    filterType: "groupSize",
-    filterValue: 20,
-    description: "20+ Campers"
-  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "spot-dropdown"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    onClick: function onClick() {
-      return showDropdown('spot-price-filter');
-    },
-    className: "dropbtn"
-  }, "Price"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "spot-price-filter",
-    className: "spot-filter-items"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    updateFilter: updateFilter,
-    removeFilter: removeFilter,
-    filterType: "price",
-    filterValue: 50,
-    description: "Under $50"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    updateFilter: updateFilter,
-    removeFilter: removeFilter,
-    filterType: "price",
-    filterValue: 100,
-    description: "Under $100"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    updateFilter: updateFilter,
-    removeFilter: removeFilter,
-    filterType: "price",
-    filterValue: 175,
-    description: "Under $175"
-  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "spot-dropdown"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    onClick: function onClick() {
-      return showDropdown('spot-amenity-filter');
-    },
-    className: "dropbtn"
-  }, "Amenities"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "spot-amenity-filter",
-    className: "spot-filter-items"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    updateFilter: updateFilter,
-    removeFilter: removeFilter,
-    filterType: "pets",
-    filterValue: true,
-    description: "Pets allowed",
-    iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/pet-friendly.png"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    updateFilter: updateFilter,
-    removeFilter: removeFilter,
-    filterType: "toilet",
-    filterValue: true,
-    description: "Toilets",
-    iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/toilet-paper.png"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    updateFilter: updateFilter,
-    removeFilter: removeFilter,
-    filterType: "campfire",
-    filterValue: true,
-    description: "Campfires",
-    iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/bonfire.png"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    updateFilter: updateFilter,
-    removeFilter: removeFilter,
-    filterType: "water",
-    filterValue: true,
-    description: "Water",
-    iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/water.png"
-  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "spot-dropdown"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    onClick: function onClick() {
-      return showDropdown('spot-activity-filter');
-    },
-    className: "dropbtn"
-  }, "Activities"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "spot-activity-filter",
-    className: "spot-filter-items"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    updateFilter: updateFilter,
-    removeFilter: removeFilter,
-    filterType: "hiking",
-    filterValue: true,
-    description: "Hiking",
-    iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/hiking.png"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    updateFilter: updateFilter,
-    removeFilter: removeFilter,
-    filterType: "swimming",
-    filterValue: true,
-    description: "Swimming",
-    iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/swimming.png"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    updateFilter: updateFilter,
-    removeFilter: removeFilter,
-    filterType: "fishing",
-    filterValue: true,
-    description: "Fishing",
-    iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/fishing.png"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    updateFilter: updateFilter,
-    removeFilter: removeFilter,
-    filterType: "wildlife",
-    filterValue: true,
-    description: "Wildlife watching",
-    iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/dove.png"
-  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "spot-dropdown"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    onClick: function onClick() {
-      return showDropdown('spot-access-filter');
-    },
-    className: "dropbtn"
-  }, "Accessibility"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "spot-access-filter",
-    className: "spot-filter-items"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    updateFilter: updateFilter,
-    removeFilter: removeFilter,
-    filterType: "tent",
-    filterValue: true,
-    description: "Tent",
-    iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/tent.png"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    updateFilter: updateFilter,
-    removeFilter: removeFilter,
-    filterType: "parking",
-    filterValue: true,
-    description: "Parking",
-    iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/parking.png"
-  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "spot-dropdown"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    onClick: removeAllFilters
-  }, "Clear filters")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "spot-search-main"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "spot-index"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "spot-index-description"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, "Colorado"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "The best camping in Colorado."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Where else can you find ancestral cliff dwellings, arid desert, river canyons, and snow-covered Rocky Mountains?")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spot_index__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    spots: spots
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "spot-map"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spot_map__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    spots: spots,
-    updateFilter: updateFilter,
-    singleSpot: false
-  }))));
-};
 
-/* harmony default export */ __webpack_exports__["default"] = (Search);
+var MapSearch =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(MapSearch, _React$Component);
+
+  function MapSearch(props) {
+    var _this;
+
+    _classCallCheck(this, MapSearch);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(MapSearch).call(this, props));
+    _this.state = {
+      geoLoc: ""
+    };
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.navigateToSpotIndex = _this.navigateToSpotIndex.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(MapSearch, [{
+    key: "navigateToSpotIndex",
+    value: function navigateToSpotIndex() {
+      var url = '/spots';
+      this.props.history.push(url);
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      // debugger
+      e.preventDefault();
+      this.props.receiveLocation(this.state);
+      this.navigateToSpotIndex();
+    }
+  }, {
+    key: "update",
+    value: function update(field) {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.setState(_defineProperty({}, field, e.target.value));
+      };
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "search-bar-input",
+        onSubmit: this.handleSubmit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "search-bar-icon-nav"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faSearch"]
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.update('geoLoc'),
+        placeholder: "Try Denver...",
+        type: "text"
+      }));
+    }
+  }]);
+
+  return MapSearch;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["withRouter"])(MapSearch));
 
 /***/ }),
 
@@ -1630,36 +1577,44 @@ function (_React$Component) {
     value: function componentDidMount() {
       this.map = new google.maps.Map(this.mapNode, mapOptions);
       this.MarkerManager = new _util_marker_manager__WEBPACK_IMPORTED_MODULE_1__["default"](this.map, this.handleMarkerClick.bind(this));
-
-      if (this.props.singleSpot) {
-        this.props.fetchSpot(this.props.spotId);
-      } else {
-        this.registerListeners();
-        this.MarkerManager.updateMarkers(this.props.spots);
-      }
+      this.registerListeners();
+      this.MarkerManager.updateMarkers(this.props.spots);
     }
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate() {
-      if (this.props.singleSpot) {
-        var targetSpotKey = Object.keys(this.props.spots)[0];
-        var targetSpot = this.props.spots[targetSpotKey];
-        this.MarkerManager.updateMarkers([targetSpot]);
-      } else {
-        this.MarkerManager.updateMarkers(this.props.spots);
+      if (this.props.geoLoc) {
+        this.geoSearch();
+        this.props.resetgeoLoc();
       }
+
+      this.MarkerManager.updateMarkers(this.props.spots);
+    }
+  }, {
+    key: "geoSearch",
+    value: function geoSearch() {
+      var _this = this;
+
+      var geoCoder = new google.maps.Geocoder();
+      geoCoder.geocode({
+        address: this.props.geoLoc
+      }, function (results, status) {
+        if (status === 'OK') {
+          _this.map.setCenter(results[0].geometry.location);
+        }
+      });
     }
   }, {
     key: "registerListeners",
     value: function registerListeners() {
-      var _this = this;
+      var _this2 = this;
 
       google.maps.event.addListener(this.map, 'idle', function () {
-        var _this$map$getBounds$t = _this.map.getBounds().toJSON(),
-            north = _this$map$getBounds$t.north,
-            south = _this$map$getBounds$t.south,
-            east = _this$map$getBounds$t.east,
-            west = _this$map$getBounds$t.west;
+        var _this2$map$getBounds$ = _this2.map.getBounds().toJSON(),
+            north = _this2$map$getBounds$.north,
+            south = _this2$map$getBounds$.south,
+            east = _this2$map$getBounds$.east,
+            west = _this2$map$getBounds$.west;
 
         var bounds = {
           northEast: {
@@ -1672,7 +1627,7 @@ function (_React$Component) {
           }
         };
 
-        _this.props.updateFilter('bounds', bounds);
+        _this2.props.updateFilter('bounds', bounds);
       });
     }
   }, {
@@ -1683,12 +1638,12 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "map-container",
         ref: function ref(map) {
-          return _this2.mapNode = map;
+          return _this3.mapNode = map;
         }
       });
     }
@@ -1698,6 +1653,288 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(SpotMap));
+
+/***/ }),
+
+/***/ "./frontend/components/search/spot_search.jsx":
+/*!****************************************************!*\
+  !*** ./frontend/components/search/spot_search.jsx ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _spot_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./spot_index */ "./frontend/components/search/spot_index.jsx");
+/* harmony import */ var _spot_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_map */ "./frontend/components/search/spot_map.jsx");
+/* harmony import */ var _filter_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./filter_button */ "./frontend/components/search/filter_button.jsx");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+var SpotSearch =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(SpotSearch, _React$Component);
+
+  function SpotSearch(props) {
+    var _this;
+
+    _classCallCheck(this, SpotSearch);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(SpotSearch).call(this, props));
+    _this.state = {
+      filters: "On"
+    };
+    _this.handleClearFilters = _this.handleClearFilters.bind(_assertThisInitialized(_this));
+    _this.resetFilterState = _this.resetFilterState.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(SpotSearch, [{
+    key: "handleClearFilters",
+    value: function handleClearFilters(e) {
+      e.preventDefault();
+      this.props.removeAllFilters();
+      this.setState({
+        filters: "Off"
+      });
+    }
+  }, {
+    key: "resetFilterState",
+    value: function resetFilterState() {
+      this.setState({
+        filters: "On"
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-search-section"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "spot-filters-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-dropdown"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          return showDropdown('spot-group-filter');
+        },
+        className: "dropbtn"
+      }, "Group size"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "spot-group-filter",
+        className: "spot-filter-items"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
+      , {
+        updateFilter: this.props.updateFilter,
+        removeFilter: this.props.removeFilter,
+        filterType: "groupSize",
+        filterValue: 5,
+        description: "5+ Campers"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
+      , {
+        updateFilter: this.props.updateFilter,
+        removeFilter: this.props.removeFilter,
+        filterType: "groupSize",
+        filterValue: 10,
+        description: "10+ Campers"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
+      , {
+        updateFilter: this.props.updateFilter,
+        removeFilter: this.props.removeFilter,
+        filterType: "groupSize",
+        filterValue: 20,
+        description: "20+ Campers"
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-dropdown"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          return showDropdown('spot-price-filter');
+        },
+        className: "dropbtn"
+      }, "Price"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "spot-price-filter",
+        className: "spot-filter-items"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
+      , {
+        updateFilter: this.props.updateFilter,
+        removeFilter: this.props.removeFilter,
+        filterType: "price",
+        filterValue: 50,
+        description: "Under $50"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
+      , {
+        updateFilter: this.props.updateFilter,
+        removeFilter: this.props.removeFilter,
+        filterType: "price",
+        filterValue: 100,
+        description: "Under $100"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
+      , {
+        updateFilter: this.props.updateFilter,
+        removeFilter: this.props.removeFilter,
+        filterType: "price",
+        filterValue: 175,
+        description: "Under $175"
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-dropdown"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          return showDropdown('spot-amenity-filter');
+        },
+        className: "dropbtn"
+      }, "Amenities"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "spot-amenity-filter",
+        className: "spot-filter-items"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters} 
+      , {
+        updateFilter: this.props.updateFilter,
+        removeFilter: this.props.removeFilter,
+        filterType: "pets",
+        filterValue: true,
+        description: "Pets allowed",
+        iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/pet-friendly.png"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
+      , {
+        updateFilter: this.props.updateFilter,
+        removeFilter: this.props.removeFilter,
+        filterType: "toilet",
+        filterValue: true,
+        description: "Toilets",
+        iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/toilet-paper.png"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
+      , {
+        updateFilter: this.props.updateFilter,
+        removeFilter: this.props.removeFilter,
+        filterType: "campfire",
+        filterValue: true,
+        description: "Campfires",
+        iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/bonfire.png"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
+      , {
+        updateFilter: this.props.updateFilter,
+        removeFilter: this.props.removeFilter,
+        filterType: "water",
+        filterValue: true,
+        description: "Water",
+        iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/water.png"
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-dropdown"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          return showDropdown('spot-activity-filter');
+        },
+        className: "dropbtn"
+      }, "Activities"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "spot-activity-filter",
+        className: "spot-filter-items"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
+      , {
+        updateFilter: this.props.updateFilter,
+        removeFilter: this.props.removeFilter,
+        filterType: "hiking",
+        filterValue: true,
+        description: "Hiking",
+        iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/hiking.png"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
+      , {
+        updateFilter: this.props.updateFilter,
+        removeFilter: this.props.removeFilter,
+        filterType: "swimming",
+        filterValue: true,
+        description: "Swimming",
+        iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/swimming.png"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
+      , {
+        updateFilter: this.props.updateFilter,
+        removeFilter: this.props.removeFilter,
+        filterType: "fishing",
+        filterValue: true,
+        description: "Fishing",
+        iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/fishing.png"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
+      , {
+        updateFilter: this.props.updateFilter,
+        removeFilter: this.props.removeFilter,
+        filterType: "wildlife",
+        filterValue: true,
+        description: "Wildlife watching",
+        iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/dove.png"
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-dropdown"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          return showDropdown('spot-access-filter');
+        },
+        className: "dropbtn"
+      }, "Accessibility"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "spot-access-filter",
+        className: "spot-filter-items"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
+      , {
+        updateFilter: this.props.updateFilter,
+        removeFilter: this.props.removeFilter,
+        filterType: "tent",
+        filterValue: true,
+        description: "Tent",
+        iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/tent.png"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
+      , {
+        updateFilter: this.props.updateFilter,
+        removeFilter: this.props.removeFilter,
+        filterType: "parking",
+        filterValue: true,
+        description: "Parking",
+        iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/parking.png"
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-dropdown"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.handleClearFilters
+      }, "Clear filters")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-search-main"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-index"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-index-description"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, "Colorado"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "The best camping in Colorado."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Where else can you find ancestral cliff dwellings, arid desert, river canyons, and snow-covered Rocky Mountains?")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spot_index__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        spots: this.props.spots
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-map"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spot_map__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        spots: this.props.spots,
+        updateFilter: this.props.updateFilter,
+        geoLoc: this.props.geoLoc,
+        resetgeoLoc: this.props.resetgeoLoc
+      }))));
+    }
+  }]);
+
+  return SpotSearch;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+;
+/* harmony default export */ __webpack_exports__["default"] = (SpotSearch);
 
 /***/ }),
 
@@ -1712,14 +1949,17 @@ function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/filter_actions */ "./frontend/actions/filter_actions.js");
-/* harmony import */ var _search__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./search */ "./frontend/components/search/search.jsx");
+/* harmony import */ var _actions_map_action__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/map_action */ "./frontend/actions/map_action.js");
+/* harmony import */ var _spot_search__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./spot_search */ "./frontend/components/search/spot_search.jsx");
+
 
 
 
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    spots: Object.values(state.entities.spots)
+    spots: Object.values(state.entities.spots),
+    geoLoc: state.ui.geoLoc.geoLoc
   };
 };
 
@@ -1733,11 +1973,14 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     removeAllFilters: function removeAllFilters() {
       return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__["removeAllFilters"])());
+    },
+    resetgeoLoc: function resetgeoLoc() {
+      return dispatch(Object(_actions_map_action__WEBPACK_IMPORTED_MODULE_2__["resetgeoLoc"])());
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_search__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_spot_search__WEBPACK_IMPORTED_MODULE_3__["default"]));
 
 /***/ }),
 
@@ -2126,6 +2369,7 @@ var Splash = function Splash() {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
     icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faSearch"]
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    id: "pact-input",
     placeholder: "Find camping near...",
     type: "text"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2548,7 +2792,7 @@ function (_React$Component) {
         "class": "reviews-errors-messages"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, errors)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-btn"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("buttton", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.handleSubmit
       }, "Submit Review"))));
     }
@@ -2912,13 +3156,7 @@ function (_React$Component) {
       this.props.fetchReviews();
       this.props.requestUsers();
       this.props.fetchSpot(this.props.match.params.spotId);
-    } // componentDidUpdate(prevProps) {
-    //     debugger
-    //     if (prevProps.spot.id !== this.props.match.params.spotId) {
-    //         this.props.fetchSpot(this.props.match.params.spotId);
-    //     }
-    // }
-
+    }
   }, {
     key: "navigateToReviewForm",
     value: function navigateToReviewForm() {
@@ -3908,6 +4146,39 @@ var loadingReducer = function loadingReducer() {
 
 /***/ }),
 
+/***/ "./frontend/reducers/location_reducer.js":
+/*!***********************************************!*\
+  !*** ./frontend/reducers/location_reducer.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_map_action__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/map_action */ "./frontend/actions/map_action.js");
+
+
+var locationReducer = function locationReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_map_action__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_LOCATION"]:
+      return Object.assign({}, action.geoLoc);
+
+    case _actions_map_action__WEBPACK_IMPORTED_MODULE_0__["RESET_LOCATION"]:
+      return {};
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (locationReducer);
+
+/***/ }),
+
 /***/ "./frontend/reducers/modal_reducer.js":
 /*!********************************************!*\
   !*** ./frontend/reducers/modal_reducer.js ***!
@@ -4245,15 +4516,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modal_reducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modal_reducer */ "./frontend/reducers/modal_reducer.js");
 /* harmony import */ var _filters_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./filters_reducer */ "./frontend/reducers/filters_reducer.js");
 /* harmony import */ var _loading_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./loading_reducer */ "./frontend/reducers/loading_reducer.js");
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var _location_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./location_reducer */ "./frontend/reducers/location_reducer.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 
 
 
 
-var uiReducer = Object(redux__WEBPACK_IMPORTED_MODULE_3__["combineReducers"])({
+
+var uiReducer = Object(redux__WEBPACK_IMPORTED_MODULE_4__["combineReducers"])({
   modal: _modal_reducer__WEBPACK_IMPORTED_MODULE_0__["default"],
   filters: _filters_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
-  loading: _loading_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
+  loading: _loading_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
+  geoLoc: _location_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (uiReducer);
 
@@ -4424,7 +4698,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Counter).call(this, props));
     _this.state = {
-      count: 1,
+      count: _this.props.minNum,
       max: _this.props.maxNum
     };
     _this.increaseCount = _this.increaseCount.bind(_assertThisInitialized(_this));

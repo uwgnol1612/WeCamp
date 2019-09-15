@@ -19,13 +19,6 @@ class SpotShow extends React.Component {
 
     }
 
-    // componentDidUpdate(prevProps) {
-    //     debugger
-    //     if (prevProps.spot.id !== this.props.match.params.spotId) {
-    //         this.props.fetchSpot(this.props.match.params.spotId);
-    //     }
-    // }
-
     navigateToReviewForm() {
 
         if (!this.props.currentUser) {

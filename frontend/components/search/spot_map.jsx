@@ -18,24 +18,32 @@ class SpotMap extends React.Component {
     componentDidMount() {
         this.map = new google.maps.Map(this.mapNode, mapOptions);
         this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
+        this.registerListeners();
+        this.MarkerManager.updateMarkers(this.props.spots);
 
-        if (this.props.singleSpot) {
-            this.props.fetchSpot(this.props.spotId);
-        } else {
-            this.registerListeners();
-            this.MarkerManager.updateMarkers(this.props.spots);
-        }
     }
 
     componentDidUpdate() {
-        if (this.props.singleSpot) {
-            const targetSpotKey = Object.keys(this.props.spots)[0];
-            const targetSpot = this.props.spots[targetSpotKey];
-            this.MarkerManager.updateMarkers([targetSpot]);
-        } else {
-            this.MarkerManager.updateMarkers(this.props.spots);
-        }
+        if (this.props.geoLoc) {
+            this.geoSearch();
+            this.props.resetgeoLoc();
+        } 
+
+        this.MarkerManager.updateMarkers(this.props.spots);
+
     }
+
+
+    geoSearch() {
+        const geoCoder = new google.maps.Geocoder();
+        
+        geoCoder.geocode( {address: this.props.geoLoc } , (results, status) => {
+            if (status === 'OK') {
+                this.map.setCenter(results[0].geometry.location);
+            }
+        })
+    }
+
 
     registerListeners() {
         google.maps.event.addListener(this.map, 'idle', () => {
@@ -52,6 +60,7 @@ class SpotMap extends React.Component {
         this.props.history.push(`/spots/${spot.id}`);
     }
 
+
     render() {
         return (
             <div id="map-container" ref={map => this.mapNode = map}>
@@ -61,4 +70,5 @@ class SpotMap extends React.Component {
             
 
 }
+
 export default withRouter(SpotMap);

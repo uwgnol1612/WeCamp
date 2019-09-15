@@ -59,7 +59,7 @@ class ReviewForm extends React.Component {
                     </div>
 
                     <div className='review-btn'>
-                    <buttton onClick={this.handleSubmit}>Submit Review</buttton>
+                    <button onClick={this.handleSubmit}>Submit Review</button>
                     </div>
                 </form>
             </div>

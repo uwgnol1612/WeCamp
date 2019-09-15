@@ -4,7 +4,7 @@ class Counter extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            count: 1,
+            count: this.props.minNum,
             max: this.props.maxNum
         }
         this.increaseCount = this.increaseCount.bind(this);
@@ -16,6 +16,7 @@ class Counter extends React.Component {
         if (prevProps.maxNum != this.props.maxNum) {
             this.setState({ max: this.props.maxNum })
         }
+
     }
 
 

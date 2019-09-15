@@ -17,8 +17,7 @@ class BookingForm extends React.Component {
         this.state = {
             check_in: undefined,
             check_out: undefined,
-            total_price: 0,
-            guest_number: 0
+            guest_number: 1
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,11 +27,6 @@ class BookingForm extends React.Component {
         this.updateGuestNum = this.updateGuestNum.bind(this);
 
     }
-
-    // componentDidMount() {
-    //     this.props.fetchSpot(this.props.spot.id);
-    // }
-
 
     navigateToUserShow() {
         const url = `/users/${this.props.currentUserId}`
@@ -120,8 +114,7 @@ class BookingForm extends React.Component {
                                     onDayChange={day => this.handleCheckInDayChange(day)}
                                     formatDate={formatDate}
                                     parseDate={parseDate}
-                                    // classNames={styles}
-
+ 
                                     dayPickerProps={{
                                         disabledDays: { before: new Date() },
                                     }}
@@ -149,6 +142,7 @@ class BookingForm extends React.Component {
                                 <Counter 
                                     updateGuestNum={this.updateGuestNum}
                                     maxNum={this.props.spot.max_capacity}
+                                    minNum={1}
                                 />
                             </div>
                         </div>
