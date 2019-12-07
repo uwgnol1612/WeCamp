@@ -26,7 +26,6 @@ class MapSearch extends React.Component {
         e.preventDefault();
         this.props.receiveLocation(this.state);
         this.navigateToSpotIndex();
-
     }
 
     update(field) {

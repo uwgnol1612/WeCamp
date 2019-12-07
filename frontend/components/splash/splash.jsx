@@ -1,33 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
-
-import DayPickerInput from 'react-day-picker/DayPickerInput';
-import "react-day-picker/lib/style.css"
+import SplashSearchContainer from '../search/splash_search_container'
 
 const Splash = () => (
     <div>
         <div className="splash-main">
             <div className="splash-title">Everywhere you want to camp.</div>
             <div className="splash-subtitle1"> Book unique camping experiences on over <strong className ="bold"> 300,000 </strong> campsites, ranches, vineyards, public parks and more.</div>
-            <div className="splash-search-container">
-                <form className='geo-input'>
-                    <span className="search-bar-icon"><FontAwesomeIcon icon={faSearch}/></span>
-                    <input id='pact-input' placeholder='Find camping near...' type="text"/>
-                </form>
-                <div className='date-input'>
-                    <span className="date-search-icon"><FontAwesomeIcon icon={faCalendarAlt} /></span>
-                <DayPickerInput
-                    placeholder='Enter Dates'
-                    dayPickerProps={{
-                        disabledDays: { before: new Date() },
-                    }}
-                />
-                </div>
-                    <div className='spash-search-btn' id='search-link'><Link to='/spots'>Search</Link></div>
-            </div>
+            <SplashSearchContainer />
             <div className="splash-subtitle2">Discover camping...</div>
             <div className="splash-spots-section">
                 <div className="splash-spot">
