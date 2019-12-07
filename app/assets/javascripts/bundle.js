@@ -618,7 +618,10 @@ var App = function App() {
     className: "left-nav"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "WeCamp")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_search_google_map_search_container__WEBPACK_IMPORTED_MODULE_11__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/wecamp_logo.png",
+    alt: "logo"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_search_google_map_search_container__WEBPACK_IMPORTED_MODULE_11__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "right-nav"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "#"
@@ -1352,7 +1355,6 @@ function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      // debugger
       e.preventDefault();
       this.props.receiveLocation(this.state);
       this.navigateToSpotIndex();
@@ -1441,7 +1443,7 @@ function (_React$Component) {
       if (this.props.spots.length === 0) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "no-search-results"
-        }, "Oops! No spots match your search...");
+        }, "No spots match your search...");
       }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

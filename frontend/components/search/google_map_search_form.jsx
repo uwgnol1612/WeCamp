@@ -23,7 +23,6 @@ class MapSearch extends React.Component {
 
 
     handleSubmit(e){
-        // debugger
         e.preventDefault();
         this.props.receiveLocation(this.state);
         this.navigateToSpotIndex();

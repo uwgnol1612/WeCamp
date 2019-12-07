@@ -22,7 +22,7 @@ const App = () => (
         <Modal />
         <nav className="splash-nav">
             <div className="left-nav">
-                <Link to="/"><h1>WeCamp</h1></Link>
+                <Link to="/"><img src="https://we-camp-seeds.s3.us-east-2.amazonaws.com/wecamp_logo.png" alt="logo" /></Link>
                 <MapSearchContainer />
             </div>
             <div className="right-nav">
