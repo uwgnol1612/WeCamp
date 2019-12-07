@@ -592,6 +592,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _spot_review_edit_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./spot/review_edit_container */ "./frontend/components/spot/review_edit_container.jsx");
 /* harmony import */ var _user_user_show_container__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./user/user_show_container */ "./frontend/components/user/user_show_container.js");
 /* harmony import */ var _components_search_google_map_search_container__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/search/google_map_search_container */ "./frontend/components/search/google_map_search_container.js");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @fortawesome/free-brands-svg-icons */ "./node_modules/@fortawesome/free-brands-svg-icons/index.es.js");
+
+
 
 
 
@@ -647,7 +651,31 @@ var App = function App() {
     exact: true,
     path: "/",
     component: _splash_splash__WEBPACK_IMPORTED_MODULE_6__["default"]
-  })));
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+    className: "footer-main"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "footer-container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-1-2"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "WeCamp is everywhere you want to camp."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Discover unique experiences on ranches, nature preserves, farms, vineyards, and public campgrounds across the U.S. Book tent camping, treehouses, cabins, yurts, primitive backcountry sites, car camping, airstreams, tiny houses, RV camping, glamping tents and more.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-1-2 col-1-3"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Browse"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Discover Camps"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Help"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Contact"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-1-2 col-1-3"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "About"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Journal"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Our Story"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "The Team"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-1-2 col-1-3"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Social"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "https://github.com/uwgnol1612"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "social-icon"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_12__["FontAwesomeIcon"], {
+    icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faGithub"]
+  })), "Github")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "https://www.linkedin.com/in/long-wu-7bb60994/"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "social-icon"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_12__["FontAwesomeIcon"], {
+    icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faLinkedin"]
+  })), "Linkedin"))))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -2337,12 +2365,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
-/* harmony import */ var _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/free-brands-svg-icons */ "./node_modules/@fortawesome/free-brands-svg-icons/index.es.js");
-/* harmony import */ var react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-day-picker/DayPickerInput */ "./node_modules/react-day-picker/DayPickerInput.js");
-/* harmony import */ var react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var react_day_picker_lib_style_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-day-picker/lib/style.css */ "./node_modules/react-day-picker/lib/style.css");
-/* harmony import */ var react_day_picker_lib_style_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_day_picker_lib_style_css__WEBPACK_IMPORTED_MODULE_6__);
-
+/* harmony import */ var react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-day-picker/DayPickerInput */ "./node_modules/react-day-picker/DayPickerInput.js");
+/* harmony import */ var react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_day_picker_lib_style_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-day-picker/lib/style.css */ "./node_modules/react-day-picker/lib/style.css");
+/* harmony import */ var react_day_picker_lib_style_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_day_picker_lib_style_css__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
@@ -2378,7 +2404,7 @@ var Splash = function Splash() {
     className: "date-search-icon"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
     icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faCalendarAlt"]
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_5___default.a, {
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_4___default.a, {
     placeholder: "Enter Dates",
     dayPickerProps: {
       disabledDays: {
@@ -2484,31 +2510,7 @@ var Splash = function Splash() {
     alt: "grand_cayon"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spot-details"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Grand Canyon"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Arizona"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
-    className: "footer-main"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "footer-container"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-1-2"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "WeCamp is everywhere you want to camp."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Discover unique experiences on ranches, nature preserves, farms, vineyards, and public campgrounds across the U.S. Book tent camping, treehouses, cabins, yurts, primitive backcountry sites, car camping, airstreams, tiny houses, RV camping, glamping tents and more.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-1-2 col-1-3"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Browse"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Discover Camps"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Help"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Contact"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-1-2 col-1-3"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "About"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Journal"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Our Story"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "The Team"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-1-2 col-1-3"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Social"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "https://github.com/uwgnol1612"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "social-icon"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
-    icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faGithub"]
-  })), "Github")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "https://www.linkedin.com/in/long-wu-7bb60994/"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "social-icon"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
-    icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faLinkedin"]
-  })), "Linkedin"))))))));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Grand Canyon"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Arizona"))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Splash);

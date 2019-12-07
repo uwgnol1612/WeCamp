@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 
 import DayPickerInput from 'react-day-picker/DayPickerInput';
@@ -123,45 +122,7 @@ const Splash = () => (
 
             </div>
         </div>
-        <footer>
-            <section className="footer-main">
-                <div className="footer-container">
-                    <div className="col-1-2">
-                        <h5>WeCamp is everywhere you want to camp.</h5>
-                        <p>Discover unique experiences on ranches, nature preserves, farms, vineyards, and public campgrounds across the U.S. Book tent camping, treehouses, cabins, yurts, primitive backcountry sites, car camping, airstreams, tiny houses, RV camping, glamping tents and more.</p>
-                    </div>
-                    <div className="col-1-2 col-1-3">
-                        <h5>Browse</h5>
-                        <ul>
-                            <li>Discover Camps</li>
-                            <li>Help</li>
-                            <li>Contact</li>
-                        </ul>
-                    </div>
-                    <div className="col-1-2 col-1-3">
-                        <h5>About</h5>
-                        <ul>
-                            <li>Journal</li>
-                            <li>Our Story</li>
-                            <li>The Team</li>
-                        </ul>
-                    </div>
-                    <div className="col-1-2 col-1-3">
-                        <h5>Social</h5>
-                        <ul>
-                            <li><a href="https://github.com/uwgnol1612">
-                                <span className="social-icon"><FontAwesomeIcon icon={faGithub} /></span>Github
-                                </a>
-                            </li>
-                            <li><a href="https://www.linkedin.com/in/long-wu-7bb60994/">
-                                <span className="social-icon"><FontAwesomeIcon icon={faLinkedin} /></span>Linkedin
-                            </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-        </footer>
+       
     </div>
 )
 
