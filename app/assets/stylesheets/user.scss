@@ -3,7 +3,8 @@
     margin: 0 auto;
     display: flex;
     margin-top:50px;
-    font-family: 'Open Sans', sans-serif
+    font-family: 'Open Sans', sans-serif;
+    min-height: 600px;
 }
 
 .user-detail {
@@ -188,6 +189,7 @@
     height: 180px;
     margin-right:50px;
     overflow: hidden;
+    box-shadow: 5px 5px 5px grey
 }
 
 .user-booking-details {
