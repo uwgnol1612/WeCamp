@@ -1,12 +1,20 @@
 # WeCamp
 
+[Live](https://we--camp.herokuapp.com/#/)
+
 WeCamp, a HipCamp clone, is a web application that allows users to search, browse and make reservations of campsites, as well as share their camping experiences.
 
-![WeCamp](https://we-camp-seeds.s3.us-east-2.amazonaws.com/1.png)
+![WeCamp](https://we-camp-seeds.s3.us-east-2.amazonaws.com/wecamp_landing.png)
 
-You can visit WeCamp [here](https://we--camp.herokuapp.com/#/)!
+## Technologies
 
-The technlogies used to create WeCamp include: React and Redux, PostgresSQL, Ruby on Rails, AWS, Google Maps API, Sass/SCSS, HTML5, and CSS3.
+* Ruby on Rails
+* React and Redux
+* PostgreSQL
+* AWS
+* Google Maps API
+* HTML5
+* CSS3/SCSS
 
 ## Features
 ### User Authentication
@@ -73,40 +81,40 @@ Users can search campsites by applying one or more filters from a list of catego
 ![SpotFilter](https://we-camp-seeds.s3.us-east-2.amazonaws.com/3.png)
 
 ```Javascript
-<div className="spot-dropdown">
-                <li><button onClick={() => showDropdown('spot-activity-filter')} className="dropbtn" >Activities</button>
-                    <div id="spot-activity-filter" className="spot-filter-items">
-                        <Button
-                            updateFilter={updateFilter}
-                            removeFilter={removeFilter}
-                            filterType='hiking'
-                            filterValue={true}
-                            description='Hiking'
-                            iconUrl='https://we-camp-seeds.s3.us-east-2.amazonaws.com/hiking.png' />
-                        <Button
-                            updateFilter={updateFilter}
-                            removeFilter={removeFilter}
-                            filterType='swimming'
-                            filterValue={true}
-                            description='Swimming'
-                            iconUrl='https://we-camp-seeds.s3.us-east-2.amazonaws.com/swimming.png' />
-                        <Button
-                            updateFilter={updateFilter}
-                            removeFilter={removeFilter}
-                            filterType='fishing'
-                            filterValue={true}
-                            description='Fishing'
-                            iconUrl='https://we-camp-seeds.s3.us-east-2.amazonaws.com/fishing.png' />
-                        <Button
-                            updateFilter={updateFilter}
-                            removeFilter={removeFilter}
-                            filterType='wildlife'
-                            filterValue={true}
-                            description='Wildlife watching'
-                            iconUrl='https://we-camp-seeds.s3.us-east-2.amazonaws.com/dove.png' />
-                    </div>
-                </li>
-            </div>
+                 <div className="spot-dropdown">
+                    <li><button onClick={() => showDropdown('spot-amenity-filter')} className="dropbtn" >Amenities</button>
+                        <div id="spot-amenity-filter" className="spot-filter-items">
+                            <button
+                                className="filter-button"
+                                id="pet-filter"
+                                onClick={() => this.handleClick('pets', true, 'pet-filter')}>
+                                <img src='https://we-camp-seeds.s3.us-east-2.amazonaws.com/pet-friendly.png' />
+                                Pets allowed
+                            </button>
+                            <button
+                                className="filter-button"
+                                id="toilet-filter"
+                                onClick={() => this.handleClick('toilet', true, 'toilet-filter')}>
+                                <img src='https://we-camp-seeds.s3.us-east-2.amazonaws.com/toilet-paper.png' />
+                                Toilets
+                            </button>
+                            <button
+                                className="filter-button"
+                                id="campfire-filter"
+                                onClick={() => this.handleClick('campfire', true, 'campfire-filter')}>
+                                <img src='https://we-camp-seeds.s3.us-east-2.amazonaws.com/bonfire.png' />
+                                Campfires
+                            </button>
+                            <button
+                                className="filter-button"
+                                id="water-filter"
+                                onClick={() => this.handleClick('water', true, 'water-filter')}>
+                                <img src='https://we-camp-seeds.s3.us-east-2.amazonaws.com/water.png' />
+                                Water
+                            </button>
+                        </div>
+                    </li>
+                </div>
 ```
 ## Future Directions
 
