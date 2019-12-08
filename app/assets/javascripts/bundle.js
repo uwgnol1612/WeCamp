@@ -2839,7 +2839,7 @@ var Review = function Review(props) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "review-detail-img"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/camplogo.png",
+    src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/apple-touch-icon.png",
     alt: ""
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "review-list-item"

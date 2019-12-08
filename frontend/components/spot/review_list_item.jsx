@@ -24,7 +24,7 @@ const Review = (props) => {
     return (
         <div className='review-list-item-container'>
             <div className='review-detail-img'>
-                <img src="https://we-camp-seeds.s3.us-east-2.amazonaws.com/camplogo.png" alt="" />
+                <img src="https://we-camp-seeds.s3.us-east-2.amazonaws.com/apple-touch-icon.png" alt="" />
             </div>
             <div>
             <div className='review-list-item'>
