@@ -3,8 +3,8 @@ import React from 'react'
 class Slider extends React.Component {
     constructor(props) {
         super(props);
-        // const images = this.props.imgUrls
         this.state = {
+            images: this.props.imgUrls,
             currentImageIndex: 0,
             translateValue: 0,
 

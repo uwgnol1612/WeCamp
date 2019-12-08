@@ -15,9 +15,9 @@ class SpotSearch extends React.Component{
        
     }
 
-    componentWillUnmount() {
-        this.props.removeAllFilters();
-    }
+    // componentDidMount() {
+    //     this.props.removeAllFilters();
+    // }
 
 
     handleClick(filterType, filterValue, filterId) {

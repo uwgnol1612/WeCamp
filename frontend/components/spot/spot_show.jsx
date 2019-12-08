@@ -1,9 +1,6 @@
 import React from 'react';
-import Slider from './slider';
-import SpotSlider from './react_slider';
+import SpotSlider from './spot_slider';
 import ReviewListItemContainer from './review_list_item_container'
-import { ReviewLink } from '../../util/link_util'
-import ReviewFormContainer from './review_form_container'
 import BookingFormContainer from '../booking/booking_form_container'
 
 class SpotShow extends React.Component {

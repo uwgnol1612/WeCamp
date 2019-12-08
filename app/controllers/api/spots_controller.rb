@@ -16,15 +16,15 @@ class Api::SpotsController < ApplicationController
         end
         
         if params[:toilet]
-            spots = spots.where('pets = ?', params[:toilet])
+            spots = spots.where('toilet = ?', params[:toilet])
         end 
 
         if params[:campfire]
-            spots = spots.where('pets = ?', params[:campfire])
+            spots = spots.where('campfire = ?', params[:campfire])
         end 
 
         if params[:water]
-            spots = spots.where('pets = ?', params[:water])
+            spots = spots.where('water = ?', params[:water])
         end 
 
         if params[:hiking]
@@ -63,8 +63,6 @@ class Api::SpotsController < ApplicationController
     def spot_params
         params.require(:spot).permit(:pets, :toilet,:campfire, :water, :groupSize, :price, photos:[])
     end 
-
-    
 
     def bounds
         params[:bounds]

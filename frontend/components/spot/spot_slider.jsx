@@ -9,8 +9,8 @@ class SpotSlider extends React.Component {
             slidesToShow: 2
             // slidesToScroll: 2
         }
-        const photos = this.props.imgUrls.map(url => 
-            <div className='image-slide'>
+        const photos = this.props.imgUrls.map((url, idx) => 
+            <div className='image-slide' key={`img-${idx}`}>
                 <img src={url} alt=""/>
             </div>)
         return (
