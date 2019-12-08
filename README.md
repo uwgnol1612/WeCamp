@@ -25,7 +25,7 @@ The User Auth was created using BCrypt on rails backend:
 * Users can use a demo login to try the site
 * Users don't have access to certain features such as making reservations & leaving comments without logging in
 
-![UserAuth](https://we-camp-seeds.s3.us-east-2.amazonaws.com/2.png)
+![UserAuth](https://we-camp-seeds.s3.us-east-2.amazonaws.com/wecamp_userAuth.png)
 
 ```Javascript
    render() {
@@ -81,40 +81,44 @@ Users can search campsites by applying one or more filters from a list of catego
 ![SpotFilter](https://we-camp-seeds.s3.us-east-2.amazonaws.com/3.png)
 
 ```Javascript
-                 <div className="spot-dropdown">
-                    <li><button onClick={() => showDropdown('spot-amenity-filter')} className="dropbtn" >Amenities</button>
-                        <div id="spot-amenity-filter" className="spot-filter-items">
-                            <button
-                                className="filter-button"
-                                id="pet-filter"
-                                onClick={() => this.handleClick('pets', true, 'pet-filter')}>
-                                <img src='https://we-camp-seeds.s3.us-east-2.amazonaws.com/pet-friendly.png' />
-                                Pets allowed
-                            </button>
-                            <button
-                                className="filter-button"
-                                id="toilet-filter"
-                                onClick={() => this.handleClick('toilet', true, 'toilet-filter')}>
-                                <img src='https://we-camp-seeds.s3.us-east-2.amazonaws.com/toilet-paper.png' />
-                                Toilets
-                            </button>
-                            <button
-                                className="filter-button"
-                                id="campfire-filter"
-                                onClick={() => this.handleClick('campfire', true, 'campfire-filter')}>
-                                <img src='https://we-camp-seeds.s3.us-east-2.amazonaws.com/bonfire.png' />
-                                Campfires
-                            </button>
-                            <button
-                                className="filter-button"
-                                id="water-filter"
-                                onClick={() => this.handleClick('water', true, 'water-filter')}>
-                                <img src='https://we-camp-seeds.s3.us-east-2.amazonaws.com/water.png' />
-                                Water
-                            </button>
-                        </div>
-                    </li>
-                </div>
+        <div className="spot-dropdown">
+           <li><button 
+                  onClick={() => showDropdown('spot-amenity-filter')} 
+                  className="dropbtn" >
+                  Amenities
+               </button>
+               <div id="spot-amenity-filter" className="spot-filter-items">
+                   <button
+                       className="filter-button"
+                       id="pet-filter"
+                       onClick={() => this.handleClick('pets', true, 'pet-filter')}>
+                       <img src='https://we-camp-seeds.s3.us-east-2.amazonaws.com/pet-friendly.png' />
+                       Pets allowed
+                   </button>
+                   <button
+                       className="filter-button"
+                       id="toilet-filter"
+                       onClick={() => this.handleClick('toilet', true, 'toilet-filter')}>
+                       <img src='https://we-camp-seeds.s3.us-east-2.amazonaws.com/toilet-paper.png' />
+                       Toilets
+                   </button>
+                   <button
+                       className="filter-button"
+                       id="campfire-filter"
+                       onClick={() => this.handleClick('campfire', true, 'campfire-filter')}>
+                       <img src='https://we-camp-seeds.s3.us-east-2.amazonaws.com/bonfire.png' />
+                       Campfires
+                   </button>
+                   <button
+                       className="filter-button"
+                       id="water-filter"
+                       onClick={() => this.handleClick('water', true, 'water-filter')}>
+                       <img src='https://we-camp-seeds.s3.us-east-2.amazonaws.com/water.png' />
+                       Water
+                   </button>
+               </div>
+           </li>
+       </div>
 ```
 ## Future Directions
 
