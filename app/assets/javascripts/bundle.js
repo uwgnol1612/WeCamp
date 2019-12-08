@@ -1150,117 +1150,6 @@ var Root = function Root(_ref) {
 
 /***/ }),
 
-/***/ "./frontend/components/search/filter_button.jsx":
-/*!******************************************************!*\
-  !*** ./frontend/components/search/filter_button.jsx ***!
-  \******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
-var Button =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(Button, _React$Component);
-
-  function Button(props) {
-    var _this;
-
-    _classCallCheck(this, Button);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Button).call(this, props));
-    _this.state = {
-      buttonState: 'unclicked'
-    };
-    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
-    return _this;
-  } // componentDidUpdate(){
-  //     if (this.props.filterState === 'Off') {
-  //         this.setState({
-  //             buttonState: 'unclicked'
-  //         })
-  //     }
-  // }
-
-
-  _createClass(Button, [{
-    key: "handleClick",
-    value: function handleClick(e) {
-      if (this.state.buttonState === 'unclicked') {
-        this.props.updateFilter(this.props.filterType, this.props.filterValue);
-      } else {
-        this.props.removeFilter(this.props.filterType);
-      }
-
-      var newButtonState = this.state.buttonState === 'unclicked' ? 'clicked' : 'unclicked';
-      this.setState({
-        buttonState: newButtonState
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      // debugger
-      var btnStyle = {
-        backgroundColor: 'white',
-        color: 'black'
-      };
-
-      if (this.state.buttonState === 'clicked') {
-        btnStyle = {
-          backgroundColor: '#f3fbfb',
-          color: '#40d9ac',
-          border: '1px solid #40d9ac'
-        };
-      }
-
-      var imageUrl = "";
-
-      if (this.props.iconUrl) {
-        imageUrl = this.props.iconUrl;
-      }
-
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        style: btnStyle,
-        onClick: this.handleClick,
-        className: "filter-button"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: imageUrl,
-        alt: ""
-      }), this.props.description);
-    }
-  }]);
-
-  return Button;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-/* harmony default export */ __webpack_exports__["default"] = (Button);
-
-/***/ }),
-
 /***/ "./frontend/components/search/google_map_search_container.js":
 /*!*******************************************************************!*\
   !*** ./frontend/components/search/google_map_search_container.js ***!
@@ -1618,14 +1507,16 @@ function (_React$Component) {
         }, "No spots match your search...");
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-index-description"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, "Colorado"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "The best camping in Colorado."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Where else can you find ancestral cliff dwellings, arid desert, river canyons, and snow-covered Rocky Mountains?")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-index-items"
       }, this.props.spots.map(function (spot) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spot_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           spot: spot,
           key: spot.id
         });
-      }));
+      })));
     }
   }]);
 
@@ -1871,7 +1762,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _spot_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./spot_index */ "./frontend/components/search/spot_index.jsx");
 /* harmony import */ var _spot_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_map */ "./frontend/components/search/spot_map.jsx");
-/* harmony import */ var _filter_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./filter_button */ "./frontend/components/search/filter_button.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1894,7 +1784,6 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-
 var SpotSearch =
 /*#__PURE__*/
 function (_React$Component) {
@@ -1906,33 +1795,40 @@ function (_React$Component) {
     _classCallCheck(this, SpotSearch);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SpotSearch).call(this, props));
-    _this.state = {
-      filters: "On"
-    };
+    _this.state = _this.props.filters;
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
     _this.handleClearFilters = _this.handleClearFilters.bind(_assertThisInitialized(_this));
-    _this.resetFilterState = _this.resetFilterState.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(SpotSearch, [{
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.props.removeAllFilters();
+    }
+  }, {
+    key: "handleClick",
+    value: function handleClick(filterType, filterValue, filterId) {
+      $("#".concat(filterId)).toggleClass('clicked');
+
+      if (!this.props.filters[filterType]) {
+        this.props.updateFilter(filterType, filterValue);
+      } else {
+        this.props.removeFilter(filterType);
+      }
+    }
+  }, {
     key: "handleClearFilters",
     value: function handleClearFilters(e) {
       e.preventDefault();
+      $('.clicked').toggleClass('clicked');
       this.props.removeAllFilters();
-      this.setState({
-        filters: "Off"
-      });
-    }
-  }, {
-    key: "resetFilterState",
-    value: function resetFilterState() {
-      this.setState({
-        filters: "On"
-      });
     }
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-search-section"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
@@ -1941,34 +1837,31 @@ function (_React$Component) {
         className: "spot-dropdown"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
-          return showDropdown('spot-group-filter');
+          return showDropdown("spot-group-filter");
         },
         className: "dropbtn"
       }, "Group size"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "spot-group-filter",
         className: "spot-filter-items"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
-      , {
-        updateFilter: this.props.updateFilter,
-        removeFilter: this.props.removeFilter,
-        filterType: "groupSize",
-        filterValue: 5,
-        description: "5+ Campers"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
-      , {
-        updateFilter: this.props.updateFilter,
-        removeFilter: this.props.removeFilter,
-        filterType: "groupSize",
-        filterValue: 10,
-        description: "10+ Campers"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
-      , {
-        updateFilter: this.props.updateFilter,
-        removeFilter: this.props.removeFilter,
-        filterType: "groupSize",
-        filterValue: 20,
-        description: "20+ Campers"
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "filter-button",
+        id: "groupSize-filter-5",
+        onClick: function onClick() {
+          return _this2.handleClick('groupSize', 5, 'groupSize-filter-5');
+        }
+      }, "5+ Campers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "filter-button",
+        id: "groupSize-filter-10",
+        onClick: function onClick() {
+          return _this2.handleClick('groupSize', 10, 'groupSize-filter-10');
+        }
+      }, "10+ Campers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "filter-button",
+        id: "groupSize-filter-20",
+        onClick: function onClick() {
+          return _this2.handleClick('groupSize', 20, 'groupSize-filter-20');
+        }
+      }, "20+ Campers")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-dropdown"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
@@ -1978,28 +1871,25 @@ function (_React$Component) {
       }, "Price"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "spot-price-filter",
         className: "spot-filter-items"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
-      , {
-        updateFilter: this.props.updateFilter,
-        removeFilter: this.props.removeFilter,
-        filterType: "price",
-        filterValue: 50,
-        description: "Under $50"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
-      , {
-        updateFilter: this.props.updateFilter,
-        removeFilter: this.props.removeFilter,
-        filterType: "price",
-        filterValue: 100,
-        description: "Under $100"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
-      , {
-        updateFilter: this.props.updateFilter,
-        removeFilter: this.props.removeFilter,
-        filterType: "price",
-        filterValue: 175,
-        description: "Under $175"
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "filter-button",
+        id: "price-filter-50",
+        onClick: function onClick() {
+          return _this2.handleClick('price', 50, 'price-filter-50');
+        }
+      }, "Under $50"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "filter-button",
+        id: "price-filter-100",
+        onClick: function onClick() {
+          return _this2.handleClick('price', 100, 'price-filter-100');
+        }
+      }, "Under $100"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "filter-button",
+        id: "price-filter-175",
+        onClick: function onClick() {
+          return _this2.handleClick('price', 175, 'price-filter-175');
+        }
+      }, "Under $175")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-dropdown"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
@@ -2009,39 +1899,39 @@ function (_React$Component) {
       }, "Amenities"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "spot-amenity-filter",
         className: "spot-filter-items"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters} 
-      , {
-        updateFilter: this.props.updateFilter,
-        removeFilter: this.props.removeFilter,
-        filterType: "pets",
-        filterValue: true,
-        description: "Pets allowed",
-        iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/pet-friendly.png"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
-      , {
-        updateFilter: this.props.updateFilter,
-        removeFilter: this.props.removeFilter,
-        filterType: "toilet",
-        filterValue: true,
-        description: "Toilets",
-        iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/toilet-paper.png"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
-      , {
-        updateFilter: this.props.updateFilter,
-        removeFilter: this.props.removeFilter,
-        filterType: "campfire",
-        filterValue: true,
-        description: "Campfires",
-        iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/bonfire.png"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
-      , {
-        updateFilter: this.props.updateFilter,
-        removeFilter: this.props.removeFilter,
-        filterType: "water",
-        filterValue: true,
-        description: "Water",
-        iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/water.png"
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "filter-button",
+        id: "pet-filter",
+        onClick: function onClick() {
+          return _this2.handleClick('pets', true, 'pet-filter');
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/pet-friendly.png"
+      }), "Pets allowed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "filter-button",
+        id: "toilet-filter",
+        onClick: function onClick() {
+          return _this2.handleClick('toilet', true, 'toilet-filter');
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/toilet-paper.png"
+      }), "Toilets"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "filter-button",
+        id: "campfire-filter",
+        onClick: function onClick() {
+          return _this2.handleClick('campfire', true, 'campfire-filter');
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/bonfire.png"
+      }), "Campfires"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "filter-button",
+        id: "water-filter",
+        onClick: function onClick() {
+          return _this2.handleClick('water', true, 'water-filter');
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/water.png"
+      }), "Water")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-dropdown"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
@@ -2051,39 +1941,39 @@ function (_React$Component) {
       }, "Activities"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "spot-activity-filter",
         className: "spot-filter-items"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
-      , {
-        updateFilter: this.props.updateFilter,
-        removeFilter: this.props.removeFilter,
-        filterType: "hiking",
-        filterValue: true,
-        description: "Hiking",
-        iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/hiking.png"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
-      , {
-        updateFilter: this.props.updateFilter,
-        removeFilter: this.props.removeFilter,
-        filterType: "swimming",
-        filterValue: true,
-        description: "Swimming",
-        iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/swimming.png"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
-      , {
-        updateFilter: this.props.updateFilter,
-        removeFilter: this.props.removeFilter,
-        filterType: "fishing",
-        filterValue: true,
-        description: "Fishing",
-        iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/fishing.png"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
-      , {
-        updateFilter: this.props.updateFilter,
-        removeFilter: this.props.removeFilter,
-        filterType: "wildlife",
-        filterValue: true,
-        description: "Wildlife watching",
-        iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/dove.png"
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "filter-button",
+        id: "hiking-filter",
+        onClick: function onClick() {
+          return _this2.handleClick('hiking', true, 'hiking-filter');
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/hiking.png"
+      }), "Hiking"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "filter-button",
+        id: "swimming-filter",
+        onClick: function onClick() {
+          return _this2.handleClick('swimming', true, 'swimming-filter');
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/swimming.png"
+      }), "Swimming"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "filter-button",
+        id: "fishing-filter",
+        onClick: function onClick() {
+          return _this2.handleClick('fishing', true, 'fishing-filter');
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/fishing.png"
+      }), "Fishing"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "filter-button",
+        id: "wildlife-filter",
+        onClick: function onClick() {
+          return _this2.handleClick('wildlife', true, 'wildlife-filter');
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/dove.png"
+      }), "Wildlife watching")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-dropdown"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
@@ -2093,23 +1983,23 @@ function (_React$Component) {
       }, "Accessibility"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "spot-access-filter",
         className: "spot-filter-items"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
-      , {
-        updateFilter: this.props.updateFilter,
-        removeFilter: this.props.removeFilter,
-        filterType: "tent",
-        filterValue: true,
-        description: "Tent",
-        iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/tent.png"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filter_button__WEBPACK_IMPORTED_MODULE_3__["default"] // filterState={this.state.filters}
-      , {
-        updateFilter: this.props.updateFilter,
-        removeFilter: this.props.removeFilter,
-        filterType: "parking",
-        filterValue: true,
-        description: "Parking",
-        iconUrl: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/parking.png"
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "filter-button",
+        id: "tent-filter",
+        onClick: function onClick() {
+          return _this2.handleClick('Tent', true, 'tent-filter');
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/dove.png"
+      }), "Tent"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "filter-button",
+        id: "parking-filter",
+        onClick: function onClick() {
+          return _this2.handleClick('parking', true, 'parking-filter');
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/parking.png"
+      }), "Parking")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-dropdown"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.handleClearFilters
@@ -2117,9 +2007,7 @@ function (_React$Component) {
         className: "spot-search-main"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-index"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "spot-index-description"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, "Colorado"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "The best camping in Colorado."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Where else can you find ancestral cliff dwellings, arid desert, river canyons, and snow-covered Rocky Mountains?")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spot_index__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spot_index__WEBPACK_IMPORTED_MODULE_1__["default"], {
         spots: this.props.spots
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-map"
@@ -2161,7 +2049,8 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(state) {
   return {
     spots: Object.values(state.entities.spots),
-    geoLoc: state.ui.geoLoc.geoLoc
+    geoLoc: state.ui.geoLoc.geoLoc,
+    filters: state.ui.filters
   };
 };
 

@@ -9,7 +9,8 @@ import SpotSearch from './spot_search';
 
 const mapStateToProps = state => ({
     spots: Object.values(state.entities.spots),
-    geoLoc: state.ui.geoLoc.geoLoc
+    geoLoc: state.ui.geoLoc.geoLoc,
+    filters: state.ui.filters
 });
 
 const mapDispatchToProps = dispatch => ({

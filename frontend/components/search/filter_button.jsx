@@ -4,22 +4,13 @@ class Button extends React.Component{
     constructor(props) {
         super(props)
         this.state = { 
-            buttonState: 'unclicked'
+            buttonState: this.props.buttonState
         } 
         this.handleClick = this.handleClick.bind(this);
     }
 
-    // componentDidUpdate(){
-    //     if (this.props.filterState === 'Off') {
-    //         this.setState({
-    //             buttonState: 'unclicked'
-    //         })
-    //     }
-    
-    // }
-
     handleClick(e) {
-       
+  
         if (this.state.buttonState === 'unclicked') {
             this.props.updateFilter(this.props.filterType, this.props.filterValue); 
         } else {
@@ -30,35 +21,6 @@ class Button extends React.Component{
             buttonState: newButtonState
         })
 
-    }
-
-    render() {
-        // debugger
-
-        let btnStyle = {
-            backgroundColor: 'white',
-            color: 'black'
-        }
-
-        if (this.state.buttonState === 'clicked') {
-            btnStyle = {
-                backgroundColor: '#f3fbfb',
-                color: '#40d9ac',
-                border: '1px solid #40d9ac'
-            }
-        }
-        let imageUrl = "";
-        if (this.props.iconUrl) {
-            imageUrl = this.props.iconUrl
-        } 
-
-        return (
-                <button 
-                    style={btnStyle}
-                    onClick={this.handleClick}
-                    className='filter-button'
-            ><img src={imageUrl} alt=""/>{this.props.description}</button>
-        )
     }
 
 
