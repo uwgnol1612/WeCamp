@@ -55,7 +55,7 @@ class UserShow extends React.Component {
                 <aside className='user-detail'>
                     <div className='user-bio'>
                         <div className='user-name'>
-                            <img src="https://we-camp-seeds.s3.us-east-2.amazonaws.com/camplogo.png" alt="avatar"/>
+                            <img src="https://we-camp-seeds.s3.us-east-2.amazonaws.com/apple-touch-icon.png" alt="avatar"/>
                             <h3>{this.props.user.username}</h3>
                         </div>
                         <div className='user-time'>

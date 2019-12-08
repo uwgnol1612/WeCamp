@@ -623,15 +623,21 @@ var App = function App() {
     alt: "logo"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_search_google_map_search_container__WEBPACK_IMPORTED_MODULE_11__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "right-nav"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: "profile-links"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "#"
-  }, "Camp")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "#"
-  }, "Host")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "#"
-  }, "About")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "#"
-  }, "Help")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_4__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    href: "https://github.com/uwgnol1612"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_12__["FontAwesomeIcon"], {
+    icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faGithub"]
+  }), "\xA0Github")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "https://www.linkedin.com/in/long-mcfarlin-7bb60994/"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_12__["FontAwesomeIcon"], {
+    icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faLinkedin"]
+  }), "\xA0LinkedIn")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "https://angel.co/long-mcfarlin"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_12__["FontAwesomeIcon"], {
+    icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faAngellist"]
+  }), "\xA0AngelList"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_4__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/spots/:spotId",
     component: _spot_spot_show_container__WEBPACK_IMPORTED_MODULE_7__["default"]
@@ -700,14 +706,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-day-picker/DayPickerInput */ "./node_modules/react-day-picker/DayPickerInput.js");
 /* harmony import */ var react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _util_counter_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../util/counter_util */ "./frontend/util/counter_util.jsx");
-/* harmony import */ var react_day_picker_lib_style_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-day-picker/lib/style.css */ "./node_modules/react-day-picker/lib/style.css");
-/* harmony import */ var react_day_picker_lib_style_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_day_picker_lib_style_css__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _app_assets_stylesheets_style_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../app/assets/stylesheets/style.css */ "./app/assets/stylesheets/style.css");
-/* harmony import */ var _app_assets_stylesheets_style_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_app_assets_stylesheets_style_css__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var react_day_picker_moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-day-picker/moment */ "./node_modules/react-day-picker/moment.js");
-/* harmony import */ var react_day_picker_moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_day_picker_moment__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var moment_locale_it__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment/locale/it */ "./node_modules/moment/locale/it.js");
-/* harmony import */ var moment_locale_it__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_locale_it__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _app_assets_stylesheets_style_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../app/assets/stylesheets/style.css */ "./app/assets/stylesheets/style.css");
+/* harmony import */ var _app_assets_stylesheets_style_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_app_assets_stylesheets_style_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_day_picker_moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-day-picker/moment */ "./node_modules/react-day-picker/moment.js");
+/* harmony import */ var react_day_picker_moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_day_picker_moment__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var moment_locale_it__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment/locale/it */ "./node_modules/moment/locale/it.js");
+/* harmony import */ var moment_locale_it__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment_locale_it__WEBPACK_IMPORTED_MODULE_6__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -725,7 +729,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 
 
 
@@ -852,8 +855,8 @@ function (_React$Component) {
         onDayChange: function onDayChange(day) {
           return _this2.handleCheckInDayChange(day);
         },
-        formatDate: react_day_picker_moment__WEBPACK_IMPORTED_MODULE_6__["formatDate"],
-        parseDate: react_day_picker_moment__WEBPACK_IMPORTED_MODULE_6__["parseDate"],
+        formatDate: react_day_picker_moment__WEBPACK_IMPORTED_MODULE_5__["formatDate"],
+        parseDate: react_day_picker_moment__WEBPACK_IMPORTED_MODULE_5__["parseDate"],
         dayPickerProps: {
           disabledDays: {
             before: new Date()
@@ -866,8 +869,8 @@ function (_React$Component) {
         onDayChange: function onDayChange(day) {
           return _this2.handleCheckOutDayChange(day);
         },
-        formatDate: react_day_picker_moment__WEBPACK_IMPORTED_MODULE_6__["formatDate"],
-        parseDate: react_day_picker_moment__WEBPACK_IMPORTED_MODULE_6__["parseDate"],
+        formatDate: react_day_picker_moment__WEBPACK_IMPORTED_MODULE_5__["formatDate"],
+        parseDate: react_day_picker_moment__WEBPACK_IMPORTED_MODULE_5__["parseDate"],
         dayPickerProps: {
           disabledDays: {
             before: new Date(this.state.check_in)
@@ -984,18 +987,16 @@ var Greeting = function Greeting(_ref) {
   var userBoard = function userBoard() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "dropdown"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      className: "user-container-logo"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-      src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/camplogo.png",
+      src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/apple-touch-icon.png",
       alt: ""
-    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "dropdown-content"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       href: "#"
-    }, "Host")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    }, "Host")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       to: "/users/".concat(currentUser.id)
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Bookings")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    }, "Bookings")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       onClick: logout
     }, "Log out"))));
   };
@@ -1409,8 +1410,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 /* harmony import */ var react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-day-picker/DayPickerInput */ "./node_modules/react-day-picker/DayPickerInput.js");
 /* harmony import */ var react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var react_day_picker_lib_style_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-day-picker/lib/style.css */ "./node_modules/react-day-picker/lib/style.css");
-/* harmony import */ var react_day_picker_lib_style_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_day_picker_lib_style_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _app_assets_stylesheets_style_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../app/assets/stylesheets/style.css */ "./app/assets/stylesheets/style.css");
+/* harmony import */ var _app_assets_stylesheets_style_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_app_assets_stylesheets_style_css__WEBPACK_IMPORTED_MODULE_5__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1494,11 +1495,11 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "splash-search-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        className: "geo-input",
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "splash-search-container",
         onSubmit: this.handleSubmit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "geo-input"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "search-bar-icon"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
@@ -1509,7 +1510,7 @@ function (_React$Component) {
         type: "search",
         value: this.state.geoLoc,
         onChange: this.handleInput
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "date-input"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "date-search-icon"
@@ -1523,9 +1524,9 @@ function (_React$Component) {
           }
         }
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "spash-search-btn",
+        className: "splash-search-btn",
         id: "search-link"
-      })));
+      }, "Search"));
     }
   }]);
 
@@ -3948,7 +3949,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-name"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/camplogo.png",
+        src: "https://we-camp-seeds.s3.us-east-2.amazonaws.com/apple-touch-icon.png",
         alt: "avatar"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, this.props.user.username)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-time"
@@ -18146,21 +18147,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "\n.DayPicker {\n  display: inline-block;\n  font-size: 15px;\n}\n\n.DayPicker-wrapper {\n  position: relative;\n\n  flex-direction: row;\n  padding-bottom: 1em;\n\n  -webkit-user-select: none;\n\n     -moz-user-select: none;\n\n      -ms-user-select: none;\n\n          user-select: none;\n}\n\n.DayPicker-Months {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n}\n\n.DayPicker-Month {\n  display: table;\n  margin: 0 1em;\n  margin-top: 1em;\n  border-spacing: 0;\n  border-collapse: collapse;\n\n  -webkit-user-select: none;\n\n     -moz-user-select: none;\n\n      -ms-user-select: none;\n\n          user-select: none;\n}\n\n.DayPicker-NavBar {\n}\n\n.DayPicker-NavButton {\n  position: absolute;\n  top: 1em;\n  right: 1.5em;\n  left: auto;\n\n  display: inline-block;\n  margin-top: 2px;\n  width: 1.25em;\n  height: 1.25em;\n  background-position: center;\n  background-size: 50%;\n  background-repeat: no-repeat;\n  color: #8B9898;\n  cursor: pointer;\n}\n\n.DayPicker-NavButton:hover {\n  opacity: 0.8;\n}\n\n.DayPicker-NavButton--prev {\n  margin-right: 1.5em;\n  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAwCAYAAAB5R9gVAAAABGdBTUEAALGPC/xhBQAAAVVJREFUWAnN2G0KgjAYwPHpGfRkaZeqvgQaK+hY3SUHrk1YzNLay/OiEFp92I+/Mp2F2Mh2lLISWnflFjzH263RQjzMZ19wgs73ez0o1WmtW+dgA01VxrE3p6l2GLsnBy1VYQOtVSEH/atCCgqpQgKKqYIOiq2CBkqtggLKqQIKgqgCBjpJ2Y5CdJ+zrT9A7HHSTA1dxUdHgzCqJIEwq0SDsKsEg6iqBIEoq/wEcVRZBXFV+QJxV5mBtlDFB5VjYTaGZ2sf4R9PM7U9ZU+lLuaetPP/5Die3ToO1+u+MKtHs06qODB2zBnI/jBd4MPQm1VkY79Tb18gB+C62FdBFsZR6yeIo1YQiLJWMIiqVjQIu1YSCLNWFgijVjYIuhYYCKoWKAiiFgoopxYaKLUWOii2FgkophYp6F3r42W5A9s9OcgNvva8xQaysKXlFytoqdYmQH6tF3toSUo0INq9AAAAAElFTkSuQmCC');\n}\n\n.DayPicker-NavButton--next {\n  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAwCAYAAAB5R9gVAAAABGdBTUEAALGPC/xhBQAAAXRJREFUWAnN119ugjAcwPHWzJ1gnmxzB/BBE0n24m4xfNkTaOL7wOtsl3AXMMb+Vjaa1BG00N8fSEibPpAP3xAKKs2yjzTPH9RAjhEo9WzPr/Vm8zgE0+gXATAxxuxtqeJ9t5tIwv5AtQAApsfT6TPdbp+kUBcgVwvO51KqVhMkXKsVJFXrOkigVhCIs1Y4iKlWZxB1rX4gwlpRIIpa8SDkWmggrFq4IIRaJKCYWnSgnrXIQV1r8YD+1Vrn+bReagysIFfLABRt31v8oBu1xEBttfRbltmfjgEcWh9snUS2kNdBK6WN1vrOWxObWsz+fjxevsxmB1GQDfINWiev83nhaoiB/CoOU438oPrhXS0WpQ9xc1ZQWxWHqUYe0I0qrKCQKjygDlXIQV2r0IF6ViEBxVTBBSFUQQNhVYkHIVeJAtkNsbQ7c1LtzP6FsObhb2rCKv7NBIGoq4SDmKoEgTirXAcJVGkFSVVpgoSrXICGUMUH/QBZNSUy5XWUhwAAAABJRU5ErkJggg==');\n}\n\n.DayPicker-NavButton--interactionDisabled {\n  display: none;\n}\n\n.DayPicker-Caption {\n  display: table-caption;\n  margin-bottom: 0.5em;\n  padding: 0 0.5em;\n  text-align: left;\n}\n\n.DayPicker-Caption > div {\n  font-weight: 500;\n  font-size: 1.15em;\n}\n\n.DayPicker-Weekdays {\n  display: table-header-group;\n  margin-top: 1em;\n}\n\n.DayPicker-WeekdaysRow {\n  display: table-row;\n}\n\n.DayPicker-Weekday {\n  display: table-cell;\n  padding: 0.5em;\n  color: #8B9898;\n  text-align: center;\n  font-size: 0.875em;\n  font-weight: 700;\n}\n\n.DayPicker-Weekday abbr[title] {\n  border-bottom: none;\n  text-decoration: none;\n}\n\n.DayPicker-Body {\n  display: table-row-group;\n}\n\n.DayPicker-Week {\n  display: table-row;\n}\n\n.DayPicker-Day {\n  display: table-cell;\n  padding: 0.5em;\n  border-radius: 0;\n  vertical-align: middle;\n  text-align: center;\n  cursor: pointer;\n}\n\n.DayPicker-WeekNumber {\n  display: table-cell;\n  padding: 0.5em;\n  min-width: 1em;\n  border-right: 1px solid #EAECEC;\n  color: #8B9898;\n  vertical-align: middle;\n  text-align: right;\n  font-size: 0.75em;\n  cursor: pointer;\n}\n\n.DayPicker--interactionDisabled .DayPicker-Day {\n  cursor: default;\n}\n\n.DayPicker-Footer {\n  padding-top: 0.5em;\n}\n\n.DayPicker-TodayButton {\n  border: none;\n  background-color: transparent;\n  background-image: none;\n  box-shadow: none;\n  color: #40d9ac;\n  font-size: 0.875em;\n  cursor: pointer;\n}\n\n\n\n.DayPicker-Day--today {\n  color: #40d9ac;\n  font-weight: 700;\n}\n\n.DayPicker-Day--outside {\n  color: #8B9898;\n  cursor: default;\n}\n\n.DayPicker-Day--disabled {\n  color: #DCE0E0;\n  cursor: default;\n\n}\n\n\n\n.DayPicker-Day--sunday {\n  background-color: #F7F8F8;\n}\n\n.DayPicker-Day--sunday:not(.DayPicker-Day--today) {\n  color: #DCE0E0;\n}\n\n.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {\n  position: relative;\n\n  background-color: #40d9ac;\n  color: #F0F8FF;\n}\n\n.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside):hover {\n  background-color: #40d9ac;\n}\n\n.DayPicker:not(.DayPicker--interactionDisabled)\n  .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {\n  background-color: #F0F8FF;\n}\n\n\n\n.DayPickerInput {\n  display: inline-block;\n}\n\n.DayPickerInput-OverlayWrapper {\n  position: relative;\n}\n\n.DayPickerInput-Overlay {\n  position: absolute;\n  left: 0;\n  z-index: 1;\n\n  background: white;\n  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);\n}\n", ""]);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/react-day-picker/lib/style.css":
-/*!*******************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/react-day-picker/lib/style.css ***!
-  \*******************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
-// Module
-exports.push([module.i, "/* DayPicker styles */\n\n.DayPicker {\n  display: inline-block;\n  font-size: 1rem;\n}\n\n.DayPicker-wrapper {\n  position: relative;\n\n  flex-direction: row;\n  padding-bottom: 1em;\n\n  -webkit-user-select: none;\n\n     -moz-user-select: none;\n\n      -ms-user-select: none;\n\n          user-select: none;\n}\n\n.DayPicker-Months {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n}\n\n.DayPicker-Month {\n  display: table;\n  margin: 0 1em;\n  margin-top: 1em;\n  border-spacing: 0;\n  border-collapse: collapse;\n\n  -webkit-user-select: none;\n\n     -moz-user-select: none;\n\n      -ms-user-select: none;\n\n          user-select: none;\n}\n\n.DayPicker-NavBar {\n}\n\n.DayPicker-NavButton {\n  position: absolute;\n  top: 1em;\n  right: 1.5em;\n  left: auto;\n\n  display: inline-block;\n  margin-top: 2px;\n  width: 1.25em;\n  height: 1.25em;\n  background-position: center;\n  background-size: 50%;\n  background-repeat: no-repeat;\n  color: #8B9898;\n  cursor: pointer;\n}\n\n.DayPicker-NavButton:hover {\n  opacity: 0.8;\n}\n\n.DayPicker-NavButton--prev {\n  margin-right: 1.5em;\n  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAwCAYAAAB5R9gVAAAABGdBTUEAALGPC/xhBQAAAVVJREFUWAnN2G0KgjAYwPHpGfRkaZeqvgQaK+hY3SUHrk1YzNLay/OiEFp92I+/Mp2F2Mh2lLISWnflFjzH263RQjzMZ19wgs73ez0o1WmtW+dgA01VxrE3p6l2GLsnBy1VYQOtVSEH/atCCgqpQgKKqYIOiq2CBkqtggLKqQIKgqgCBjpJ2Y5CdJ+zrT9A7HHSTA1dxUdHgzCqJIEwq0SDsKsEg6iqBIEoq/wEcVRZBXFV+QJxV5mBtlDFB5VjYTaGZ2sf4R9PM7U9ZU+lLuaetPP/5Die3ToO1+u+MKtHs06qODB2zBnI/jBd4MPQm1VkY79Tb18gB+C62FdBFsZR6yeIo1YQiLJWMIiqVjQIu1YSCLNWFgijVjYIuhYYCKoWKAiiFgoopxYaKLUWOii2FgkophYp6F3r42W5A9s9OcgNvva8xQaysKXlFytoqdYmQH6tF3toSUo0INq9AAAAAElFTkSuQmCC');\n}\n\n.DayPicker-NavButton--next {\n  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAwCAYAAAB5R9gVAAAABGdBTUEAALGPC/xhBQAAAXRJREFUWAnN119ugjAcwPHWzJ1gnmxzB/BBE0n24m4xfNkTaOL7wOtsl3AXMMb+Vjaa1BG00N8fSEibPpAP3xAKKs2yjzTPH9RAjhEo9WzPr/Vm8zgE0+gXATAxxuxtqeJ9t5tIwv5AtQAApsfT6TPdbp+kUBcgVwvO51KqVhMkXKsVJFXrOkigVhCIs1Y4iKlWZxB1rX4gwlpRIIpa8SDkWmggrFq4IIRaJKCYWnSgnrXIQV1r8YD+1Vrn+bReagysIFfLABRt31v8oBu1xEBttfRbltmfjgEcWh9snUS2kNdBK6WN1vrOWxObWsz+fjxevsxmB1GQDfINWiev83nhaoiB/CoOU438oPrhXS0WpQ9xc1ZQWxWHqUYe0I0qrKCQKjygDlXIQV2r0IF6ViEBxVTBBSFUQQNhVYkHIVeJAtkNsbQ7c1LtzP6FsObhb2rCKv7NBIGoq4SDmKoEgTirXAcJVGkFSVVpgoSrXICGUMUH/QBZNSUy5XWUhwAAAABJRU5ErkJggg==');\n}\n\n.DayPicker-NavButton--interactionDisabled {\n  display: none;\n}\n\n.DayPicker-Caption {\n  display: table-caption;\n  margin-bottom: 0.5em;\n  padding: 0 0.5em;\n  text-align: left;\n}\n\n.DayPicker-Caption > div {\n  font-weight: 500;\n  font-size: 1.15em;\n}\n\n.DayPicker-Weekdays {\n  display: table-header-group;\n  margin-top: 1em;\n}\n\n.DayPicker-WeekdaysRow {\n  display: table-row;\n}\n\n.DayPicker-Weekday {\n  display: table-cell;\n  padding: 0.5em;\n  color: #8B9898;\n  text-align: center;\n  font-size: 0.875em;\n}\n\n.DayPicker-Weekday abbr[title] {\n  border-bottom: none;\n  text-decoration: none;\n}\n\n.DayPicker-Body {\n  display: table-row-group;\n}\n\n.DayPicker-Week {\n  display: table-row;\n}\n\n.DayPicker-Day {\n  display: table-cell;\n  padding: 0.5em;\n  border-radius: 50%;\n  vertical-align: middle;\n  text-align: center;\n  cursor: pointer;\n}\n\n.DayPicker-WeekNumber {\n  display: table-cell;\n  padding: 0.5em;\n  min-width: 1em;\n  border-right: 1px solid #EAECEC;\n  color: #8B9898;\n  vertical-align: middle;\n  text-align: right;\n  font-size: 0.75em;\n  cursor: pointer;\n}\n\n.DayPicker--interactionDisabled .DayPicker-Day {\n  cursor: default;\n}\n\n.DayPicker-Footer {\n  padding-top: 0.5em;\n}\n\n.DayPicker-TodayButton {\n  border: none;\n  background-color: transparent;\n  background-image: none;\n  box-shadow: none;\n  color: #4A90E2;\n  font-size: 0.875em;\n  cursor: pointer;\n}\n\n/* Default modifiers */\n\n.DayPicker-Day--today {\n  color: #D0021B;\n  font-weight: 700;\n}\n\n.DayPicker-Day--outside {\n  color: #8B9898;\n  cursor: default;\n}\n\n.DayPicker-Day--disabled {\n  color: #DCE0E0;\n  cursor: default;\n  /* background-color: #eff1f1; */\n}\n\n/* Example modifiers */\n\n.DayPicker-Day--sunday {\n  background-color: #F7F8F8;\n}\n\n.DayPicker-Day--sunday:not(.DayPicker-Day--today) {\n  color: #DCE0E0;\n}\n\n.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {\n  position: relative;\n\n  background-color: #4A90E2;\n  color: #F0F8FF;\n}\n\n.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside):hover {\n  background-color: #51A0FA;\n}\n\n.DayPicker:not(.DayPicker--interactionDisabled)\n  .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {\n  background-color: #F0F8FF;\n}\n\n/* DayPickerInput */\n\n.DayPickerInput {\n  display: inline-block;\n}\n\n.DayPickerInput-OverlayWrapper {\n  position: relative;\n}\n\n.DayPickerInput-Overlay {\n  position: absolute;\n  left: 0;\n  z-index: 1;\n\n  background: white;\n  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);\n}\n", ""]);
+exports.push([module.i, "\n.DayPicker {\n  display: inline-block;\n  font-size: 15px;\n}\n\n.DayPicker-wrapper {\n  position: relative;\n\n  flex-direction: row;\n  padding-bottom: 1em;\n\n  -webkit-user-select: none;\n\n     -moz-user-select: none;\n\n      -ms-user-select: none;\n\n          user-select: none;\n}\n\n.DayPicker-Months {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n}\n\n.DayPicker-Month {\n  display: table;\n  margin: 0 1em;\n  margin-top: 1em;\n  border-spacing: 0;\n  border-collapse: collapse;\n\n  -webkit-user-select: none;\n\n     -moz-user-select: none;\n\n      -ms-user-select: none;\n\n          user-select: none;\n}\n\n.DayPicker-NavBar {\n}\n\n.DayPicker-NavButton {\n  position: absolute;\n  top: 1em;\n  right: 1.5em;\n  left: auto;\n\n  display: inline-block;\n  margin-top: 2px;\n  width: 1.25em;\n  height: 1.25em;\n  background-position: center;\n  background-size: 50%;\n  background-repeat: no-repeat;\n  color: #8B9898;\n  cursor: pointer;\n}\n\n.DayPicker-NavButton:hover {\n  opacity: 0.8;\n}\n\n.DayPicker-NavButton--prev {\n  margin-right: 1.5em;\n  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAwCAYAAAB5R9gVAAAABGdBTUEAALGPC/xhBQAAAVVJREFUWAnN2G0KgjAYwPHpGfRkaZeqvgQaK+hY3SUHrk1YzNLay/OiEFp92I+/Mp2F2Mh2lLISWnflFjzH263RQjzMZ19wgs73ez0o1WmtW+dgA01VxrE3p6l2GLsnBy1VYQOtVSEH/atCCgqpQgKKqYIOiq2CBkqtggLKqQIKgqgCBjpJ2Y5CdJ+zrT9A7HHSTA1dxUdHgzCqJIEwq0SDsKsEg6iqBIEoq/wEcVRZBXFV+QJxV5mBtlDFB5VjYTaGZ2sf4R9PM7U9ZU+lLuaetPP/5Die3ToO1+u+MKtHs06qODB2zBnI/jBd4MPQm1VkY79Tb18gB+C62FdBFsZR6yeIo1YQiLJWMIiqVjQIu1YSCLNWFgijVjYIuhYYCKoWKAiiFgoopxYaKLUWOii2FgkophYp6F3r42W5A9s9OcgNvva8xQaysKXlFytoqdYmQH6tF3toSUo0INq9AAAAAElFTkSuQmCC');\n}\n\n.DayPicker-NavButton--next {\n  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAwCAYAAAB5R9gVAAAABGdBTUEAALGPC/xhBQAAAXRJREFUWAnN119ugjAcwPHWzJ1gnmxzB/BBE0n24m4xfNkTaOL7wOtsl3AXMMb+Vjaa1BG00N8fSEibPpAP3xAKKs2yjzTPH9RAjhEo9WzPr/Vm8zgE0+gXATAxxuxtqeJ9t5tIwv5AtQAApsfT6TPdbp+kUBcgVwvO51KqVhMkXKsVJFXrOkigVhCIs1Y4iKlWZxB1rX4gwlpRIIpa8SDkWmggrFq4IIRaJKCYWnSgnrXIQV1r8YD+1Vrn+bReagysIFfLABRt31v8oBu1xEBttfRbltmfjgEcWh9snUS2kNdBK6WN1vrOWxObWsz+fjxevsxmB1GQDfINWiev83nhaoiB/CoOU438oPrhXS0WpQ9xc1ZQWxWHqUYe0I0qrKCQKjygDlXIQV2r0IF6ViEBxVTBBSFUQQNhVYkHIVeJAtkNsbQ7c1LtzP6FsObhb2rCKv7NBIGoq4SDmKoEgTirXAcJVGkFSVVpgoSrXICGUMUH/QBZNSUy5XWUhwAAAABJRU5ErkJggg==');\n}\n\n.DayPicker-NavButton--interactionDisabled {\n  display: none;\n}\n\n.DayPicker-Caption {\n  display: table-caption;\n  margin-bottom: 0.5em;\n  padding: 0 0.5em;\n  text-align: left;\n}\n\n.DayPicker-Caption > div {\n  font-weight: 500;\n  font-size: 1.15em;\n}\n\n.DayPicker-Weekdays {\n  display: table-header-group;\n  margin-top: 1em;\n}\n\n.DayPicker-WeekdaysRow {\n  display: table-row;\n}\n\n.DayPicker-Weekday {\n  display: table-cell;\n  padding: 0.5em;\n  color: #8B9898;\n  text-align: center;\n  font-size: 0.875em;\n  font-weight: 700;\n}\n\n.DayPicker-Weekday abbr[title] {\n  border-bottom: none;\n  text-decoration: none;\n}\n\n.DayPicker-Body {\n  display: table-row-group;\n}\n\n.DayPicker-Week {\n  display: table-row;\n}\n\n.DayPicker-Day {\n  display: table-cell;\n  padding: 0.5em;\n  border-radius: 50%;\n  vertical-align: middle;\n  text-align: center;\n  cursor: pointer;\n}\n\n.DayPicker-WeekNumber {\n  display: table-cell;\n  padding: 0.5em;\n  min-width: 1em;\n  border-right: 1px solid #EAECEC;\n  color: #8B9898;\n  vertical-align: middle;\n  text-align: right;\n  font-size: 0.75em;\n  cursor: pointer;\n}\n\n.DayPicker--interactionDisabled .DayPicker-Day {\n  cursor: default;\n}\n\n.DayPicker-Footer {\n  padding-top: 0.5em;\n}\n\n.DayPicker-TodayButton {\n  border: none;\n  background-color: transparent;\n  background-image: none;\n  box-shadow: none;\n  color: #40d9ac;\n  font-size: 0.875em;\n  cursor: pointer;\n}\n\n\n\n.DayPicker-Day--today {\n  color: #40d9ac;\n  font-weight: 700;\n}\n\n.DayPicker-Day--outside {\n  color: #8B9898;\n  cursor: default;\n}\n\n.DayPicker-Day--disabled {\n  color: #DCE0E0;\n  cursor: default;\n\n}\n\n\n\n.DayPicker-Day--sunday {\n  background-color: #F7F8F8;\n}\n\n.DayPicker-Day--sunday:not(.DayPicker-Day--today) {\n  color: #DCE0E0;\n}\n\n.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {\n  position: relative;\n\n  background-color: #40d9ac;\n  color: #F0F8FF;\n}\n\n.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside):hover {\n  background-color: #40d9ac;\n}\n\n.DayPicker:not(.DayPicker--interactionDisabled)\n  .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {\n  background-color: #F0F8FF;\n}\n\n\n\n.DayPickerInput {\n  display: inline-block;\n  font-size: 16px;\n}\n\n.DayPickerInput-OverlayWrapper {\n  position: relative;\n}\n\n.DayPickerInput-Overlay {\n  position: absolute;\n  left: 0;\n  z-index: 1;\n\n  background: white;\n  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);\n}\n", ""]);
 
 
 /***/ }),
@@ -42624,33 +42611,6 @@ var SPACE = exports.SPACE = 32;
 var ESC = exports.ESC = 27;
 var TAB = exports.TAB = 9;
 //# sourceMappingURL=keys.js.map
-
-/***/ }),
-
-/***/ "./node_modules/react-day-picker/lib/style.css":
-/*!*****************************************************!*\
-  !*** ./node_modules/react-day-picker/lib/style.css ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var content = __webpack_require__(/*! !../../css-loader/dist/cjs.js!./style.css */ "./node_modules/css-loader/dist/cjs.js!./node_modules/react-day-picker/lib/style.css");
-
-if (typeof content === 'string') {
-  content = [[module.i, content, '']];
-}
-
-var options = {}
-
-options.insert = "head";
-options.singleton = false;
-
-var update = __webpack_require__(/*! ../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js")(content, options);
-
-if (content.locals) {
-  module.exports = content.locals;
-}
-
 
 /***/ }),
 

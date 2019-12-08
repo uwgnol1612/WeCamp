@@ -124,7 +124,7 @@
 .DayPicker-Day {
   display: table-cell;
   padding: 0.5em;
-  border-radius: 0;
+  border-radius: 50%;
   vertical-align: middle;
   text-align: center;
   cursor: pointer;
@@ -208,6 +208,7 @@
 
 .DayPickerInput {
   display: inline-block;
+  font-size: 16px;
 }
 
 .DayPickerInput-OverlayWrapper {

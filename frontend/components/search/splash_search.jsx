@@ -6,7 +6,8 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 
 import DayPickerInput from 'react-day-picker/DayPickerInput';
-import "react-day-picker/lib/style.css"
+import '../../../app/assets/stylesheets/style.css'
+
 
 class SplashSearch extends React.Component {
     constructor(props) {
@@ -57,16 +58,17 @@ class SplashSearch extends React.Component {
 
     render() {
         return (
-            <div className="splash-search-container">
-                <form className='geo-input' onSubmit={this.handleSubmit}>
-                    <span className="search-bar-icon"><FontAwesomeIcon icon={faSearch} /></span>
-                    <input
-                        id='geosearch-input'
-                        placeholder='Find camping near...'
-                        type="search"
-                        value={this.state.geoLoc}
-                        onChange={this.handleInput}
-                    />
+                <form className="splash-search-container" onSubmit={this.handleSubmit}>
+                    <div className='geo-input' >
+                        <span className="search-bar-icon"><FontAwesomeIcon icon={faSearch} /></span>
+                        <input
+                            id='geosearch-input'
+                            placeholder='Find camping near...'
+                            type="search"
+                            value={this.state.geoLoc}
+                            onChange={this.handleInput}
+                        />
+                    </div>
                     <div className='date-input'>
                         <span className="date-search-icon"><FontAwesomeIcon icon={faCalendarAlt} /></span>
                         <DayPickerInput
@@ -76,9 +78,8 @@ class SplashSearch extends React.Component {
                             }}
                         />
                     </div>
-                    <button className='spash-search-btn' id='search-link'></button>
+                    <button className='splash-search-btn' id='search-link'>Search</button>
                 </form>
-            </div>
         )
         
     }

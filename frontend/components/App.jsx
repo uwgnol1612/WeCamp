@@ -12,7 +12,7 @@ import UserShowContainer from './user/user_show_container'
 import MapSearchContainer from '../components/search/google_map_search_container'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedin, faAngellist } from '@fortawesome/free-brands-svg-icons';
 
 
 
@@ -26,10 +26,11 @@ const App = () => (
                 <MapSearchContainer />
             </div>
             <div className="right-nav">
-                <li><a href="#">Camp</a></li>
-                <li><a href="#">Host</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Help</a></li>
+                <ul className="profile-links">
+                    <li><a href="https://github.com/uwgnol1612"><FontAwesomeIcon icon={faGithub} />&nbsp;Github</a></li>
+                    <li><a href="https://www.linkedin.com/in/long-mcfarlin-7bb60994/"><FontAwesomeIcon icon={faLinkedin} />&nbsp;LinkedIn</a></li>
+                    <li><a href="https://angel.co/long-mcfarlin"><FontAwesomeIcon icon={faAngellist} />&nbsp;AngelList</a></li>
+                </ul>
                 <GreetingContainer />
             </div>
         </nav>

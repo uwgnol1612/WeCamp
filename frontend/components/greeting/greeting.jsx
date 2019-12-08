@@ -10,16 +10,12 @@ const Greeting = ({ currentUser, logout, openModal }) => {
     )
     const userBoard = () => (
         <div className="dropdown">
-            <span className= "user-container-logo">
-                <img src="https://we-camp-seeds.s3.us-east-2.amazonaws.com/camplogo.png" alt=""/>
-            </span>
-                <div className="dropdown-content">
-                    <li><a href="#">Host</a></li>
-                    <Link to={`/users/${currentUser.id}`}>
-                        <li>Bookings</li>
-                    </Link>
-                    <li><button onClick={logout}>Log out</button></li>
-                </div>
+            <img src="https://we-camp-seeds.s3.us-east-2.amazonaws.com/apple-touch-icon.png" alt=""/>
+            <div className="dropdown-content">
+                <li><a href="#">Host</a></li>
+                <li><Link to={`/users/${currentUser.id}`}>Bookings</Link></li>
+                <li><button onClick={logout}>Log out</button></li>
+            </div>
         </div>
     )
 

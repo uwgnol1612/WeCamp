@@ -3,8 +3,7 @@ import { withRouter } from 'react-router-dom';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import Counter from '../../util/counter_util'
 
-import "react-day-picker/lib/style.css"
-import styles from '../../../app/assets/stylesheets/style.css';
+import '../../../app/assets/stylesheets/style.css';
 
 
 import { formatDate, parseDate } from 'react-day-picker/moment';
