@@ -150,7 +150,7 @@ class BookingForm extends React.Component {
                             <p id='price'>${totalPrice}</p>
                         </div>
                         <div className="booking-submit">
-                            <button id='booking-submit-btn' onClick={this.handleSubmit}>Book</button>
+                            <button id='booking-submit-btn' onClick={this.handleSubmit}>Request to book</button>
                         </div>
                     </div>
                 </form>

@@ -891,7 +891,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         id: "booking-submit-btn",
         onClick: this.handleSubmit
-      }, "Book")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Request to book")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "booking-errors-messages"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, errors)));
     }

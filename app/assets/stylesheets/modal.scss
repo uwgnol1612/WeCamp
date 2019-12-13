@@ -6,14 +6,22 @@
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 2;
+  z-index: 10;
 }
 
 .modal-child {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  left:40%;
+  animation: drop-down 0.75s ease forwards;
+}
+
+@keyframes drop-down {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(30%);
+  }
 }
 
 .signup-form-container {
