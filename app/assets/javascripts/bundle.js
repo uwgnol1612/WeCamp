@@ -2896,6 +2896,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _spot_slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./spot_slider */ "./frontend/components/spot/spot_slider.jsx");
 /* harmony import */ var _review_list_item_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./review_list_item_container */ "./frontend/components/spot/review_list_item_container.js");
 /* harmony import */ var _booking_booking_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../booking/booking_form_container */ "./frontend/components/booking/booking_form_container.js");
+/* harmony import */ var _spot_weather__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./spot_weather */ "./frontend/components/spot/spot_weather.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2913,6 +2914,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -3076,7 +3078,9 @@ function (_React$Component) {
         className: "spot-activity-header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Activities"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Offered on Host's property or nearby.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-activities"
-      }, activites)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, activites)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spot_weather__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        spot: this.props.spot
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-review-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-review-header"
@@ -3261,6 +3265,136 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (SpotSlider);
+
+/***/ }),
+
+/***/ "./frontend/components/spot/spot_weather.jsx":
+/*!***************************************************!*\
+  !*** ./frontend/components/spot/spot_weather.jsx ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var SpotVibes =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(SpotVibes, _React$Component);
+
+  function SpotVibes(props) {
+    var _this;
+
+    _classCallCheck(this, SpotVibes);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(SpotVibes).call(this, props));
+    _this.state = {
+      elevation: "",
+      temperature: "",
+      weather: "",
+      humidity: "",
+      speed: ""
+    };
+    return _this;
+  }
+
+  _createClass(SpotVibes, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var lat = this.props.spot.lat;
+      var lng = this.props.spot.lng;
+      $.ajax({
+        method: "GET",
+        url: "http://api.openweathermap.org/data/2.5/weather?lat=".concat(lat, "&lon=").concat(lng, "&APPID=dec1eafba244a000ea1ad73938bc1087&units=imperial")
+      }).then(function (res) {
+        return _this2.handleWeatherRes(res);
+      });
+      this.getElevation({
+        lat: lat,
+        lng: lng
+      }).then(function (res) {
+        return _this2.setState({
+          elevation: Math.floor(res * 3.28)
+        });
+      });
+    }
+  }, {
+    key: "getElevation",
+    value: function getElevation(latLng) {
+      return new Promise(function (resolve, rejection) {
+        var elevator = new google.maps.ElevationService();
+        elevator.getElevationForLocations({
+          'locations': [latLng]
+        }, function (results, status) {
+          if (status === 'OK') {
+            if (results[0]) {
+              resolve(results[0].elevation);
+            }
+          }
+        });
+      });
+    }
+  }, {
+    key: "handleWeatherRes",
+    value: function handleWeatherRes(res) {
+      var temperature = Math.floor(res.main.temp);
+      var humidity = res.main.humidity;
+      var weather = res.weather[0].description.split(" ").map(function (word) {
+        return word[0].toUpperCase() + word.slice(1);
+      }).join(" ");
+      var speed = res.wind.speed;
+      this.setState({
+        temperature: temperature,
+        weather: weather,
+        humidity: humidity,
+        speed: speed
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-vibes-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "The vibe at ", this.props.spot.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-vibes-item"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.state.elevation, "ft"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Listing's elevation")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-vibes-item"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.state.temperature), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.state.weather)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-vibes-item"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.state.humidity), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Humidity")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-vibes-item"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.state.speed, "km/hr"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Wind")));
+    }
+  }]);
+
+  return SpotVibes;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (SpotVibes);
 
 /***/ }),
 
@@ -73475,7 +73609,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

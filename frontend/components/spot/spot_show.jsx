@@ -2,6 +2,7 @@ import React from 'react';
 import SpotSlider from './spot_slider';
 import ReviewListItemContainer from './review_list_item_container'
 import BookingFormContainer from '../booking/booking_form_container'
+import SpotVibes from './spot_weather'
 
 class SpotShow extends React.Component {
     constructor(props) {
@@ -150,6 +151,7 @@ class SpotShow extends React.Component {
                                 {activites}
                             </div>
                         </div>
+                        <SpotVibes spot={this.props.spot} />
                         <div className='spot-review-container'>
                             <div className='spot-review-header'>
                                 <h3>{this.props.reviews.length} Written reviews</h3> 
