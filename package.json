@@ -11,7 +11,7 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "react": "^16.9.0",
     "react-day-picker": "^7.3.2",
     "react-dom": "^16.9.0",
